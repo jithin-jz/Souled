@@ -14,7 +14,7 @@ const Home = () => {
     const fetchProducts = async () => {
       try {
         const featuredRes = await api.get('/products?_limit=4');
-        const newArrivalsRes = await api.get('/products?_start=4&_limit=4');
+        const newArrivalsRes = await api.get('/products?_start=16&_limit=4');
         setFeaturedProducts(featuredRes.data);
         setNewArrivals(newArrivalsRes.data);
       } catch (error) {
@@ -68,7 +68,7 @@ const Home = () => {
 
       {/* New Arrivals Section */}
       <section>
-        <h2 className="text-3xl font-bold text-center text-blue-600 mb-8">
+        <h2 className="text-3xl font-bold text-center text-black-600 mb-8">
           NEW ARRIVALS
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
