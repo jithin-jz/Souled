@@ -29,7 +29,7 @@ const SingleProduct = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    if (!product) return;
+    if (!product || product.stock <= 0) return;
     addToCart({ ...product, quantity: 1 });
     toast.success(`${product.name} added to cart`);
   };
@@ -37,17 +37,7 @@ const SingleProduct = () => {
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
-        <div className="animate-pulse space-y-6">
-          <div className="h-8 bg-gray-300 rounded w-1/3 mx-auto"></div>
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="md:w-1/2 h-96 bg-gray-300 rounded"></div>
-            <div className="md:w-1/2 space-y-4">
-              <div className="h-6 bg-gray-300 rounded w-3/4"></div>
-              <div className="h-6 bg-gray-300 rounded w-1/2"></div>
-              <div className="h-12 bg-gray-300 rounded w-1/3 mt-6"></div>
-            </div>
-          </div>
-        </div>
+        <p className="text-xl font-semibold text-gray-600 animate-pulse">Loading product...</p>
       </div>
     );
   }
@@ -68,6 +58,8 @@ const SingleProduct = () => {
     );
   }
 
+  const outOfStock = product.stock === 0;
+
   return (
     <div className="container mx-auto px-4 py-10">
       {/* Breadcrumb */}
@@ -82,25 +74,28 @@ const SingleProduct = () => {
       </nav>
 
       {/* Product Info */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Image */}
-        <div className="bg-white rounded-xl shadow p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white rounded-xl shadow-lg p-6">
+        {/* Product Image */}
+        <div className="bg-gray-100 rounded-xl overflow-hidden">
           <img
             src={product.image}
             alt={product.name}
-            className="rounded-xl object-cover w-full h-[450px]"
+            className="object-cover w-full h-[450px] rounded-xl"
           />
         </div>
 
-        {/* Details */}
+        {/* Product Details */}
         <div className="space-y-6">
-          <h1 className="text-4xl font-bold text-gray-800">{product.name}</h1>
+          <h1 className="text-4xl font-extrabold text-gray-900">{product.name}</h1>
+
           <p className="text-2xl text-green-600 font-semibold">₹{product.price.toFixed(2)}</p>
 
-          <p className="text-gray-600">{product.description || 'No description available.'}</p>
+          <p className="text-gray-700 leading-relaxed">
+            {product.description || 'No description available.'}
+          </p>
 
           <div>
-            <span className="font-medium text-gray-700">Category:</span>{' '}
+            <span className="font-medium text-gray-800">Category:</span>{' '}
             <Link
               to={`/products?category=${product.category}`}
               className="text-green-500 hover:underline"
@@ -109,19 +104,48 @@ const SingleProduct = () => {
             </Link>
           </div>
 
+          {/* Stock Info */}
+          <div className="flex items-center gap-3">
+            <span
+              className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${
+                outOfStock
+                  ? 'bg-red-100 text-red-700'
+                  : product.stock < 10
+                  ? 'bg-yellow-100 text-yellow-800'
+                  : 'bg-green-100 text-green-700'
+              }`}
+            >
+              {outOfStock ? 'Out of Stock' : `${product.stock} in stock`}
+            </span>
+          </div>
+
+          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <button
               onClick={handleAddToCart}
-              className="bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow"
+              disabled={outOfStock}
+              className={`${
+                outOfStock
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-green-500 hover:bg-green-600'
+              } text-white font-semibold px-6 py-3 rounded-lg shadow`}
             >
               Add to Cart
             </button>
+
             <button
               onClick={() => {
-                handleAddToCart();
-                navigate('/cart');
+                if (!outOfStock) {
+                  handleAddToCart();
+                  navigate('/cart');
+                }
               }}
-              className="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg shadow"
+              disabled={outOfStock}
+              className={`${
+                outOfStock
+                  ? 'bg-gray-500 cursor-not-allowed'
+                  : 'bg-gray-800 hover:bg-gray-900'
+              } text-white font-semibold px-6 py-3 rounded-lg shadow`}
             >
               Buy Now
             </button>

@@ -15,6 +15,7 @@ const Products = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedPrices, setSelectedPrices] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
 
@@ -36,6 +37,7 @@ const Products = () => {
   useEffect(() => {
     let result = [...allProducts];
 
+    // Filter by price
     if (selectedPrices.length > 0) {
       result = result.filter(product =>
         selectedPrices.some(range =>
@@ -44,8 +46,15 @@ const Products = () => {
       );
     }
 
+    // Filter by search
+    if (searchTerm.trim()) {
+      result = result.filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
     setFilteredProducts(result);
-  }, [allProducts, selectedPrices]);
+  }, [allProducts, selectedPrices, searchTerm]);
 
   const handlePriceToggle = (range) => {
     const exists = selectedPrices.find(r => r.label === range.label);
@@ -58,49 +67,61 @@ const Products = () => {
 
   const handleAddToCart = (product, e) => {
     e.stopPropagation();
-    e.preventDefault(); // so Link doesn't trigger
+    e.preventDefault();
     addToCart(product);
+    toast.success(`${product.name} added to cart`);
   };
-
-  if (loading) {
-    return <div className="text-center py-10 text-lg font-semibold text-gray-700">Loading...</div>;
-  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
 
-      {/* Filter Bar */}
-      <div className="w-full bg-white px-4 py-3 rounded-lg shadow flex flex-wrap justify-between items-center gap-4 mb-6 border border-gray-200">
-        <div className="text-base font-medium text-gray-800">
-          Filter by Price:
+      {/* Filter Section */}
+      <div className="bg-white p-4 rounded-lg shadow border border-gray-200 mb-6 space-y-4">
+
+        {/* Search Bar */}
+        <div className="w-full">
+          <input
+            type="text"
+            placeholder="Search products..."
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
-        <div className="flex flex-wrap gap-3">
-          {priceRanges.map(range => (
-            <label
-              key={range.label}
-              className={`flex items-center gap-2 px-3 py-1.5 border border-gray-300 rounded-full cursor-pointer transition 
-                ${selectedPrices.some(r => r.label === range.label)
-                  ? 'bg-red-100 border-red-400'
-                  : 'hover:bg-gray-100'
-                }`}
-            >
-              <input
-                type="checkbox"
-                checked={selectedPrices.some(r => r.label === range.label)}
-                onChange={() => handlePriceToggle(range)}
-                className="accent-red-600"
-              />
-              <span className="text-sm text-gray-700">{range.label}</span>
-            </label>
-          ))}
+
+        {/* Price Filter */}
+        <div>
+          <h2 className="text-base font-medium text-gray-800 mb-2">Filter by Price:</h2>
+          <div className="flex flex-wrap gap-3">
+            {priceRanges.map(range => (
+              <label
+                key={range.label}
+                className={`flex items-center gap-2 px-3 py-1.5 border border-gray-300 rounded-full cursor-pointer transition 
+                  ${selectedPrices.some(r => r.label === range.label)
+                    ? 'bg-red-100 border-red-400'
+                    : 'hover:bg-gray-100'
+                  }`}
+              >
+                <input
+                  type="checkbox"
+                  checked={selectedPrices.some(r => r.label === range.label)}
+                  onChange={() => handlePriceToggle(range)}
+                  className="accent-red-600"
+                />
+                <span className="text-sm text-gray-700">{range.label}</span>
+              </label>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Product Grid */}
-      {filteredProducts.length === 0 ? (
-        <p className="text-gray-500">No products found in selected price range.</p>
+      {loading ? (
+        <div className="text-center py-10 text-lg font-semibold text-gray-700">Loading...</div>
+      ) : filteredProducts.length === 0 ? (
+        <p className="text-center text-gray-500">No products found.</p>
       ) : (
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.map(product => (
             <div
               key={product.id}

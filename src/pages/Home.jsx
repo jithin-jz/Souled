@@ -5,15 +5,18 @@ import ProductCard from '../components/ProductCard';
 import { toast } from 'react-toastify';
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [newArrivals, setNewArrivals] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await api.get('/products?_limit=4');
-        setProducts(response.data);
+        const featuredRes = await api.get('/products?_limit=4');
+        const newArrivalsRes = await api.get('/products?_start=4&_limit=4');
+        setFeaturedProducts(featuredRes.data);
+        setNewArrivals(newArrivalsRes.data);
       } catch (error) {
         toast.error('Failed to fetch products');
       } finally {
@@ -38,7 +41,6 @@ const Home = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 space-y-16">
-
       {/* Hero Banner */}
       <section>
         <img
@@ -54,7 +56,7 @@ const Home = () => {
           FEATURED SPIDER STYLES
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
+          {featuredProducts.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
@@ -64,6 +66,21 @@ const Home = () => {
         </div>
       </section>
 
+      {/* New Arrivals Section */}
+      <section>
+        <h2 className="text-3xl font-bold text-center text-blue-600 mb-8">
+          NEW ARRIVALS
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {newArrivals.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onAddToCart={handleAddToCart}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

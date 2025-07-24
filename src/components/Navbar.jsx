@@ -25,10 +25,17 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16 relative">
 
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center text-white text-2xl font-bold z-10">
-            <Link to="/" onClick={closeMenu}>🕸️</Link>
-          </div>
+        {/* Logo */}
+<div className="flex-shrink-0 flex items-center z-10">
+  <Link to="/" onClick={closeMenu}>
+    <img
+      src="https://www.thesouledstore.com/static/img/non-member-logo2.4f4c390.gif" // path to your logo file
+      alt="Logo"
+      className="h-10 w-auto" // adjust height as needed
+    />
+  </Link>
+</div>
+
 
           {/* Center Menu */}
           <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-6 z-0">

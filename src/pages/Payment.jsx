@@ -69,10 +69,10 @@ const Payment = () => {
         status: 'Processing',
       };
 
-      const userRes = await api.get(`/users/${user.id}`);
+      const res = await api.get(`/users/${user.id}`);
       const updatedUser = {
-        ...userRes.data,
-        orders: [...(userRes.data.orders || []), order],
+        ...res.data,
+        orders: [...(res.data.orders || []), order],
         address,
         cart: [],
       };
@@ -81,9 +81,9 @@ const Payment = () => {
 
       clearCart();
       toast.success('Order placed successfully!');
-      navigate('/orders');
-    } catch (error) {
-      toast.error(error.message || 'Something went wrong');
+      navigate('/payment-success');
+    } catch (err) {
+      toast.error(err.message || 'Something went wrong');
     } finally {
       setLoading(false);
     }
@@ -97,69 +97,22 @@ const Payment = () => {
           <h3 className="text-xl font-semibold text-gray-700">Shipping Address</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              name="name"
-              placeholder="Full Name"
-              value={form.name}
-              onChange={handleChange}
-              className="input"
-              required
-            />
-            <input
-              name="phone"
-              placeholder="Phone Number"
-              value={form.phone}
-              onChange={handleChange}
-              className="input"
-              required
-            />
-            <input
-              name="street"
-              placeholder="Street Address"
-              value={form.street}
-              onChange={handleChange}
-              className="input"
-              required
-            />
-            <input
-              name="city"
-              placeholder="City"
-              value={form.city}
-              onChange={handleChange}
-              className="input"
-              required
-            />
-            <input
-              name="pincode"
-              placeholder="Pincode"
-              value={form.pincode}
-              onChange={handleChange}
-              className="input"
-              required
-            />
+            <input name="name" placeholder="Full Name" value={form.name} onChange={handleChange} className="input" required />
+            <input name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} className="input" required />
+            <input name="street" placeholder="Street Address" value={form.street} onChange={handleChange} className="input" required />
+            <input name="city" placeholder="City" value={form.city} onChange={handleChange} className="input" required />
+            <input name="pincode" placeholder="Pincode" value={form.pincode} onChange={handleChange} className="input" required />
           </div>
 
           <div>
             <label className="block text-gray-700 font-medium mb-2">Payment Method</label>
             <div className="flex flex-col gap-2">
               <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value="COD"
-                  checked={form.paymentMethod === 'COD'}
-                  onChange={handleChange}
-                />
+                <input type="radio" name="paymentMethod" value="COD" checked={form.paymentMethod === 'COD'} onChange={handleChange} />
                 Cash on Delivery (COD)
               </label>
               <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="paymentMethod"
-                  value="UPI"
-                  checked={form.paymentMethod === 'UPI'}
-                  onChange={handleChange}
-                />
+                <input type="radio" name="paymentMethod" value="UPI" checked={form.paymentMethod === 'UPI'} onChange={handleChange} />
                 UPI Payment
               </label>
             </div>
