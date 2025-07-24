@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import { toast } from 'react-toastify';
 
@@ -17,7 +18,9 @@ const Products = () => {
   const [selectedPrices, setSelectedPrices] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
+
   const { addToCart } = useCart();
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -68,6 +71,12 @@ const Products = () => {
   const handleAddToCart = (product, e) => {
     e.stopPropagation();
     e.preventDefault();
+
+    if (!user) {
+      toast.error('Please login to add items to cart');
+      return;
+    }
+
     addToCart(product);
     toast.success(`${product.name} added to cart`);
   };
@@ -77,9 +86,8 @@ const Products = () => {
 
       {/* Filter Section */}
       <div className="bg-white p-4 rounded-lg shadow border border-gray-200 mb-6 space-y-4">
-
         {/* Search Bar */}
-        <div className="w-full">
+        <div>
           <input
             type="text"
             placeholder="Search products..."
@@ -96,10 +104,10 @@ const Products = () => {
             {priceRanges.map(range => (
               <label
                 key={range.label}
-                className={`flex items-center gap-2 px-3 py-1.5 border border-gray-300 rounded-full cursor-pointer transition 
+                className={`flex items-center gap-2 px-3 py-1.5 border rounded-full cursor-pointer transition 
                   ${selectedPrices.some(r => r.label === range.label)
                     ? 'bg-red-100 border-red-400'
-                    : 'hover:bg-gray-100'
+                    : 'hover:bg-gray-100 border-gray-300'
                   }`}
               >
                 <input

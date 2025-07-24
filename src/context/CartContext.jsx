@@ -22,7 +22,6 @@ export const CartProvider = ({ children }) => {
   const fetchUserCart = async () => {
     try {
       if (!user) return;
-      
       const response = await api.get(`/users/${user.id}`);
       setCart(response.data.cart || []);
     } catch (error) {
@@ -33,28 +32,25 @@ export const CartProvider = ({ children }) => {
   };
 
   const addToCart = async (product) => {
-    if (!user) {
-      toast.error('Please login to add items to cart');
-      return;
-    }
-    
+    if (!user) return;
+
     try {
       const existingItem = cart.find(item => item.id === product.id);
-      
       let updatedCart;
+
       if (existingItem) {
-        updatedCart = cart.map(item => 
-          item.id === product.id 
-            ? { ...item, quantity: (item.quantity || 1) + 1 } 
+        updatedCart = cart.map(item =>
+          item.id === product.id
+            ? { ...item, quantity: (item.quantity || 1) + 1 }
             : item
         );
       } else {
         updatedCart = [...cart, { ...product, quantity: 1 }];
       }
-      
+
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
       setCart(updatedCart);
-      toast.success('Added to cart!');
+      // ✅ Toast removed from here
     } catch (error) {
       toast.error('Failed to add to cart');
     }
@@ -65,7 +61,7 @@ export const CartProvider = ({ children }) => {
       const updatedCart = cart.filter(item => item.id !== productId);
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
       setCart(updatedCart);
-      toast.success('Removed from cart');
+      // Optional: toast.success('Removed from cart');
     } catch (error) {
       toast.error('Failed to remove from cart');
     }
@@ -76,9 +72,9 @@ export const CartProvider = ({ children }) => {
       removeFromCart(productId);
       return;
     }
-    
+
     try {
-      const updatedCart = cart.map(item => 
+      const updatedCart = cart.map(item =>
         item.id === productId ? { ...item, quantity: newQuantity } : item
       );
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
@@ -101,15 +97,15 @@ export const CartProvider = ({ children }) => {
   const cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
 
   return (
-    <CartContext.Provider value={{ 
-      cart, 
-      loading, 
-      cartCount, 
+    <CartContext.Provider value={{
+      cart,
+      loading,
+      cartCount,
       cartTotal,
-      addToCart, 
-      removeFromCart, 
-      updateQuantity, 
-      clearCart 
+      addToCart,
+      removeFromCart,
+      updateQuantity,
+      clearCart
     }}>
       {children}
     </CartContext.Provider>

@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product, onAddToCart }) => {
+  const handleAdd = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onAddToCart(product, e);
+  };
+
   return (
     <div className="w-full bg-white border rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
       <Link to={`/products/${product.id}`}>
@@ -22,7 +28,7 @@ const ProductCard = ({ product, onAddToCart }) => {
         <p className="text-sm text-gray-600 mt-1">₹{product.price}</p>
 
         <button
-          onClick={() => onAddToCart(product)}
+          onClick={handleAdd}
           className="mt-3 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-sm font-medium"
         >
           Add to Cart

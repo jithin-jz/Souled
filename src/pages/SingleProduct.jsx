@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext'; // ✅ Import Auth context
 import { toast } from 'react-toastify';
 import api from '../utils/api';
 
@@ -10,6 +11,7 @@ const SingleProduct = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { addToCart } = useCart();
+  const { user } = useAuth(); // ✅ Get current user
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,9 +31,27 @@ const SingleProduct = () => {
   }, [id]);
 
   const handleAddToCart = () => {
+    if (!user) {
+      toast.warning('Please login to add products to your cart');
+      return;
+    }
+
     if (!product || product.stock <= 0) return;
+
     addToCart({ ...product, quantity: 1 });
     toast.success(`${product.name} added to cart`);
+  };
+
+  const handleBuyNow = () => {
+    if (!user) {
+      toast.warning('Please login to continue with purchase');
+      return;
+    }
+
+    if (!product || product.stock <= 0) return;
+
+    addToCart({ ...product, quantity: 1 });
+    navigate('/cart');
   };
 
   if (loading) {
@@ -134,12 +154,7 @@ const SingleProduct = () => {
             </button>
 
             <button
-              onClick={() => {
-                if (!outOfStock) {
-                  handleAddToCart();
-                  navigate('/cart');
-                }
-              }}
+              onClick={handleBuyNow}
               disabled={outOfStock}
               className={`${
                 outOfStock

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import ProductCard from '../components/ProductCard';
 import { toast } from 'react-toastify';
@@ -9,6 +10,7 @@ const Home = () => {
   const [newArrivals, setNewArrivals] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
+  const { user } = useAuth(); // ✅ Get logged-in user
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -27,8 +29,17 @@ const Home = () => {
     fetchProducts();
   }, []);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!user) {
+      toast.warn('Please login to add items to cart');
+      return;
+    }
+
     addToCart(product);
+    toast.success(`${product.name} added to cart`);
   };
 
   if (loading) {

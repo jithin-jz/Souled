@@ -7,7 +7,18 @@
       "password": "1234",
       "role": "User",
       "isBlock": false,
-      "cart": [],
+      "cart": [
+        {
+          "id": "p11",
+          "name": "Street Hoodie",
+          "price": 1599,
+          "category": "Clothing",
+          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1743260804_9050140.jpg?format=webp&w=300&dpr=1.5",
+          "description": "Urban-style hoodie with Spider-Verse graphics. Perfect blend of fashion and fandom.",
+          "stock": 8,
+          "quantity": 1
+        }
+      ],
       "orders": [
         {
           "id": "1753334665751",
@@ -139,17 +150,56 @@
           "paymentMethod": "COD",
           "upiId": "",
           "status": "Processing"
+        },
+        {
+          "id": "1753346968285",
+          "date": "2025-07-24T08:49:28.285Z",
+          "items": [
+            {
+              "id": "p02",
+              "name": "Miles Hoodie",
+              "price": 1499,
+              "category": "Clothing",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Stay warm and stylish in this black hoodie inspired by Miles Morales, with ultra-soft lining and urban flair.",
+              "stock": 12,
+              "quantity": 1
+            }
+          ],
+          "total": 1499,
+          "address": {
+            "name": "Jithin",
+            "phone": "9562449137",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "UPI",
+          "upiId": "jithin@fbl",
+          "status": "Processing"
         }
       ],
       "wishlist": [],
       "created_at": "2025-07-24T04:53:25.017Z",
       "address": {
         "name": "Jithin",
-        "phone": "1234567890",
+        "phone": "9562449137",
         "street": "Kozhikode",
         "city": "Kozhikode",
         "pincode": "673525"
       }
+    },
+    {
+      "id": "1753347281293",
+      "name": "anand",
+      "email": "anand@gmail.com",
+      "password": "1234",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-24T08:54:41.293Z"
     }
   ],
   "products": [
@@ -183,7 +233,7 @@
     {
       "id": "p04",
       "name": "Suit Tee",
-      "price": 699,
+      "price": 3499,
       "category": "Clothing",
       "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711453721_5775484.jpg?format=webp&w=300&dpr=1.5",
       "description": "Compression-style tee modeled after Spidey's suit. Perfect for gym sessions or cosplay-ready streetwear.",
