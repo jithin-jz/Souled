@@ -1,0 +1,272 @@
+{
+  "users": [
+    {
+      "id": "1753332805017",
+      "name": "jithin",
+      "email": "jithin@gmail.com",
+      "password": "1234",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": "1753334665751",
+          "date": "2025-07-24T05:24:25.751Z",
+          "items": [
+            {
+              "id": "p02",
+              "name": "Miles Hoodie",
+              "price": 1499,
+              "category": "Clothing",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Black hoodie inspired by Miles Morales",
+              "quantity": 1
+            }
+          ],
+          "total": 1499,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        },
+        {
+          "id": "1753335205181",
+          "date": "2025-07-24T05:33:25.181Z",
+          "items": [
+            {
+              "id": "p06",
+              "name": "Mask Tee",
+              "price": 599,
+              "category": "Clothing",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1735371943_3078364.jpg?format=webp&w=300&dpr=1.5",
+              "description": "T-shirt with Spidey’s iconic mask",
+              "quantity": 2
+            }
+          ],
+          "total": 1198,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        },
+        {
+          "id": "1753335250544",
+          "date": "2025-07-24T05:34:10.545Z",
+          "items": [
+            {
+              "id": "p02",
+              "name": "Miles Hoodie",
+              "price": 1499,
+              "category": "Clothing",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Black hoodie inspired by Miles Morales",
+              "quantity": 1
+            }
+          ],
+          "total": 1499,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        }
+      ],
+      "wishlist": [],
+      "created_at": "2025-07-24T04:53:25.017Z",
+      "address": {
+        "name": "Jithin",
+        "phone": "1234567890",
+        "street": "Kozhikode",
+        "city": "Kozhikode",
+        "pincode": "673525"
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": "p01",
+      "name": "Red Tee",
+      "price": 799,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1730095105_6039197.jpg?format=webp&w=480&dpr=1.5",
+      "description": "Classic red Spider-Man cotton tee"
+    },
+    {
+      "id": "p02",
+      "name": "Miles Hoodie",
+      "price": 1499,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Black hoodie inspired by Miles Morales"
+    },
+    {
+      "id": "p03",
+      "name": "Web Pants",
+      "price": 999,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751116998_8805341.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Jogger pants with spider-web patterns"
+    },
+    {
+      "id": "p04",
+      "name": "Suit Tee",
+      "price": 699,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711453721_5775484.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Compression tee mimicking Spidey suit"
+    },
+    {
+      "id": "p05",
+      "name": "Logo Hoodie",
+      "price": 1399,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739863088_7416153.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Minimal hoodie with Spider-Man logo"
+    },
+    {
+      "id": "p06",
+      "name": "Mask Tee",
+      "price": 599,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1735371943_3078364.jpg?format=webp&w=300&dpr=1.5",
+      "description": "T-shirt with Spidey’s iconic mask"
+    },
+    {
+      "id": "p07",
+      "name": "Hero Shorts",
+      "price": 499,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1724217971_8522039.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Breathable shorts with hero print"
+    },
+    {
+      "id": "p08",
+      "name": "Spidey PJ",
+      "price": 999,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751883314_7684349.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Comfortable Spider-Man pajama set"
+    },
+    {
+      "id": "p09",
+      "name": "Venom Tee",
+      "price": 849,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1729684930_2467535.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Spidey vs Venom printed T-shirt"
+    },
+    {
+      "id": "p10",
+      "name": "Swing Tank",
+      "price": 499,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1729948105_9043587.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Sleeveless tee with swinging pose"
+    },
+    {
+      "id": "p11",
+      "name": "Street Hoodie",
+      "price": 1599,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1743260804_9050140.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Urban Spider-Verse themed hoodie"
+    },
+    {
+      "id": "p12",
+      "name": "Stealth Tee",
+      "price": 749,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711017213_5034414.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Inspired by the stealth Spidey suit"
+    },
+    {
+      "id": "p13",
+      "name": "Kids Set",
+      "price": 899,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1746683461_1616727.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Spidey top and bottom for kids"
+    },
+    {
+      "id": "p14",
+      "name": "Black Tee",
+      "price": 699,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1748062349_7469632.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Dark Spider-Man logo printed tee"
+    },
+    {
+      "id": "p15",
+      "name": "Crop Top",
+      "price": 649,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1727417450_8016460.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Ladies’ crop top with spider patch"
+    },
+    {
+      "id": "p16",
+      "name": "Zip Hoodie",
+      "price": 1499,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1742019681_7337959.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Zip-up hoodie with mask design"
+    },
+    {
+      "id": "p17",
+      "name": "Web Set",
+      "price": 1099,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1734954285_4294840.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Matching tee and pants combo set"
+    },
+    {
+      "id": "p18",
+      "name": "Logo Tee",
+      "price": 599,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1710916023_7674988.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Tee with large front Spidey logo"
+    },
+    {
+      "id": "p19",
+      "name": "Hero Jacket",
+      "price": 1799,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711704269_9553145.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Windbreaker for superhero fans"
+    },
+    {
+      "id": "p20",
+      "name": "Web Cap",
+      "price": 299,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1743056017_6987070.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Cotton cap with spider-web print"
+    },
+    {
+      "id": "p21",
+      "name": "Web Scrap",
+      "price": 2999,
+      "category": "Clothing",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1744389555_5675870.jpg?format=webp&w=480&dpr=1.5",
+      "description": "Cotton cap with spider-web print"
+    }
+  ]
+}
