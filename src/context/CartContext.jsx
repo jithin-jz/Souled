@@ -1,44 +1,47 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
 import api from '../utils/api';
 import { useAuth } from './AuthContext';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const { user } = useAuth();
+  const { user, updateUserData } = useAuth();
+
   const [cart, setCart] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user) {
-      fetchUserCart();
+      fetchUserData();
     } else {
       setCart([]);
+      setWishlist([]);
       setLoading(false);
     }
   }, [user]);
 
-  const fetchUserCart = async () => {
+  const fetchUserData = async () => {
     try {
-      if (!user) return;
-      const response = await api.get(`/users/${user.id}`);
-      setCart(response.data.cart || []);
-    } catch (error) {
-      toast.error('Failed to fetch cart');
+      const res = await api.get(`/users/${user.id}`);
+      setCart(res.data.cart || []);
+      setWishlist(res.data.wishlist || []);
+    } catch {
+      // Handle silently
     } finally {
       setLoading(false);
     }
   };
 
+  // ========== CART ==========
   const addToCart = async (product) => {
     if (!user) return;
 
     try {
-      const existingItem = cart.find(item => item.id === product.id);
+      const existing = cart.find(item => item.id === product.id);
       let updatedCart;
 
-      if (existingItem) {
+      if (existing) {
         updatedCart = cart.map(item =>
           item.id === product.id
             ? { ...item, quantity: (item.quantity || 1) + 1 }
@@ -50,9 +53,8 @@ export const CartProvider = ({ children }) => {
 
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
       setCart(updatedCart);
-      // ✅ Toast removed from here
-    } catch (error) {
-      toast.error('Failed to add to cart');
+    } catch {
+      // Handle silently
     }
   };
 
@@ -61,26 +63,22 @@ export const CartProvider = ({ children }) => {
       const updatedCart = cart.filter(item => item.id !== productId);
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
       setCart(updatedCart);
-      // Optional: toast.success('Removed from cart');
-    } catch (error) {
-      toast.error('Failed to remove from cart');
+    } catch {
+      // Handle silently
     }
   };
 
-  const updateQuantity = async (productId, newQuantity) => {
-    if (newQuantity < 1) {
-      removeFromCart(productId);
-      return;
-    }
+  const updateQuantity = async (productId, newQty) => {
+    if (newQty < 1) return removeFromCart(productId);
 
     try {
       const updatedCart = cart.map(item =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item
+        item.id === productId ? { ...item, quantity: newQty } : item
       );
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
       setCart(updatedCart);
-    } catch (error) {
-      toast.error('Failed to update quantity');
+    } catch {
+      // Handle silently
     }
   };
 
@@ -88,25 +86,68 @@ export const CartProvider = ({ children }) => {
     try {
       await api.patch(`/users/${user.id}`, { cart: [] });
       setCart([]);
-    } catch (error) {
-      toast.error('Failed to clear cart');
+    } catch {
+      // Handle silently
     }
   };
 
   const cartCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-  const cartTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+  const cartTotal = cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+
+  // ========== WISHLIST ==========
+  const addToWishlist = async (product) => {
+    if (!user) return;
+
+    const exists = wishlist.some(item => item.id === product.id);
+    if (exists) return;
+
+    const updatedWishlist = [...wishlist, product];
+
+    try {
+      const res = await api.patch(`/users/${user.id}`, { wishlist: updatedWishlist });
+      setWishlist(updatedWishlist);
+      updateUserData && updateUserData(res.data);
+    } catch {
+      // Handle silently
+    }
+  };
+
+  const removeFromWishlist = async (productId) => {
+    const updatedWishlist = wishlist.filter(item => item.id !== productId);
+
+    try {
+      const res = await api.patch(`/users/${user.id}`, { wishlist: updatedWishlist });
+      setWishlist(updatedWishlist);
+      updateUserData && updateUserData(res.data);
+    } catch {
+      // Handle silently
+    }
+  };
+
+  const wishlistCount = wishlist.length;
 
   return (
-    <CartContext.Provider value={{
-      cart,
-      loading,
-      cartCount,
-      cartTotal,
-      addToCart,
-      removeFromCart,
-      updateQuantity,
-      clearCart
-    }}>
+    <CartContext.Provider
+      value={{
+        // Cart
+        cart,
+        cartCount,
+        cartTotal,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        clearCart,
+
+        // Wishlist
+        wishlist,
+        wishlistCount,
+        addToWishlist,
+        removeFromWishlist,
+
+        // Loading
+        loading,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

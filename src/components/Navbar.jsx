@@ -10,117 +10,214 @@ import {
   FiMenu,
   FiX,
   FiUser,
+  FiPackage,
+  FiHome,
+  FiGrid,
+  FiHeart,
 } from 'react-icons/fi';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const { cartCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+  const closeAllMenus = () => {
+    setMenuOpen(false);
+    setDropdownOpen(false);
+  };
 
   return (
-    <nav className="bg-red-600 shadow-lg relative z-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16 relative">
+    <nav className="bg-red-600 shadow-md sticky top-0 z-50 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2" onClick={closeAllMenus}>
+            <img
+              src="https://www.thesouledstore.com/static/img/non-member-logo2.4f4c390.gif"
+              alt="Logo"
+              className="h-10"
+            />
+          </Link>
 
-        {/* Logo */}
-<div className="flex-shrink-0 flex items-center z-10">
-  <Link to="/" onClick={closeMenu}>
-    <img
-      src="https://www.thesouledstore.com/static/img/non-member-logo2.4f4c390.gif" // path to your logo file
-      alt="Logo"
-      className="h-10 w-auto" // adjust height as needed
-    />
-  </Link>
-</div>
-
-
-          {/* Center Menu */}
-          <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-6 z-0">
-            <Link to="/" className="text-white font-medium hover:text-yellow-300 transition">Home</Link>
-            <Link to="/products" className="text-white font-medium hover:text-yellow-300 transition">Products</Link>
+          {/* Desktop Icon-Only Menu */}
+          <div className="hidden md:flex items-center space-x-6 text-xl">
+            <Link to="/" title="Home" className="hover:text-red-200" onClick={closeAllMenus}>
+              <div className="flex flex-col items-center text-xs">
+                <FiHome />
+                <span className="capitalize">Home</span>
+              </div>
+            </Link>
+            <Link to="/products" title="Products" className="hover:text-red-200" onClick={closeAllMenus}>
+              <div className="flex flex-col items-center text-xs">
+                <FiGrid />
+                <span className="capitalize">Products</span>
+              </div>
+            </Link>
             {user && (
               <>
-                <Link to="/cart" className="text-white font-medium hover:text-yellow-300 transition relative flex items-center">
-                  Cart
+                <Link to="/cart" title="Cart" className="relative hover:text-red-200" onClick={closeAllMenus}>
+                  <div className="flex flex-col items-center text-xs">
+                    <FiShoppingCart />
+                    <span className="capitalize">Cart</span>
+                  </div>
                   {cartCount > 0 && (
-                    <span className="absolute -top-2 -right-3 px-2 py-0.5 text-xs font-bold bg-blue-600 text-white rounded-full">
+                    <span className="absolute -top-2 -right-3 bg-white text-red-600 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                       {cartCount}
                     </span>
                   )}
                 </Link>
-                <Link to="/orders" className="text-white font-medium hover:text-yellow-300 transition">Orders</Link>
+                <Link to="/wishlist" title="Wishlist" className="hover:text-red-200" onClick={closeAllMenus}>
+                  <div className="flex flex-col items-center text-xs">
+                    <FiHeart />
+                    <span className="capitalize">Wishlist</span>
+                  </div>
+                </Link>
+                <Link to="/orders" title="Orders" className="hover:text-red-200" onClick={closeAllMenus}>
+                  <div className="flex flex-col items-center text-xs">
+                    <FiPackage />
+                    <span className="capitalize">Orders</span>
+                  </div>
+                </Link>
               </>
             )}
           </div>
 
-          {/* Right Actions */}
-          <div className="flex items-center space-x-4 z-10">
+          {/* User Dropdown */}
+          <div className="flex items-center space-x-3 relative">
             {user ? (
-              <>
-                {/* Username vertically stacked */}
-                <div className="text-white hidden md:flex flex-col items-end leading-tight">
-                  <span className="text-sm">👋🏻</span>
-                  <span className="text-xs text-gray-200">{user.name.toUpperCase()}</span>
-                </div>
+              <div className="relative">
                 <button
-                  onClick={() => {
-                    logout();
-                    closeMenu();
-                  }}
-                  title="Logout"
-                  className="text-white hover:text-yellow-300 transition"
+                  onClick={toggleDropdown}
+                  className="p-2 bg-red-700 rounded-full hover:bg-red-800"
+                  title="Account"
                 >
-                  <FiLogOut size={22} />
+                  <FiUser />
                 </button>
-              </>
+                {dropdownOpen && (
+                  <div className="absolute right-0 mt-2 bg-white text-red-600 w-40 rounded-xl shadow-lg py-2 z-50">
+                    <div className="px-4 py-2 font-semibold border-b border-red-200">
+                      👋 {user.name || 'Profile'}
+                    </div>
+                    <Link
+                      to="/profile"
+                      className="block px-4 py-2 hover:bg-red-100"
+                      onClick={closeAllMenus}
+                    >
+                      <FiUser className="inline mr-2" /> Profile
+                    </Link>
+                    <button
+                      onClick={() => {
+                        logout();
+                        closeAllMenus();
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-red-100"
+                    >
+                      <FiLogOut className="inline mr-2" /> Logout
+                    </button>
+                  </div>
+                )}
+              </div>
             ) : (
-              <>
-                <Link to="/login" className="text-white hover:text-yellow-300 transition">
-                  <FiUser size={22} />
+              <div className="hidden md:flex space-x-4 text-xl">
+                <Link to="/login" title="Login" className="hover:text-red-200" onClick={closeAllMenus}>
+                  <div className="flex flex-col items-center text-xs">
+                    <FiLogIn />
+                    <span className="capitalize">Login</span>
+                  </div>
                 </Link>
-                <Link to="/register" className="text-white bg-blue-700 px-3 py-1 rounded hover:bg-blue-500 transition flex items-center">
-                  <FiUserPlus className="mr-1" size={18} />
-                  <span className="hidden md:inline">register</span>
+                <Link to="/register" title="Register" className="hover:text-red-200" onClick={closeAllMenus}>
+                  <div className="flex flex-col items-center text-xs">
+                    <FiUserPlus />
+                    <span className="capitalize">Register</span>
+                  </div>
                 </Link>
-              </>
+              </div>
             )}
 
             {/* Mobile Menu Toggle */}
-            <button onClick={toggleMenu} className="text-white md:hidden">
-              {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            <button onClick={toggleMenu} className="md:hidden p-2">
+              {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden flex flex-col space-y-3 py-4">
-            <Link to="/" onClick={closeMenu} className="text-white font-medium hover:text-yellow-300 transition">home</Link>
-            <Link to="/products" onClick={closeMenu} className="text-white font-medium hover:text-yellow-300 transition">products</Link>
+          <div className="md:hidden mt-2 space-y-4 pb-4 border-t border-red-500 flex flex-col items-center text-xl">
+            <Link to="/" title="Home" onClick={closeAllMenus} className="hover:text-red-200">
+              <div className="flex flex-col items-center text-xs">
+                <FiHome />
+                <span className="capitalize">Home</span>
+              </div>
+            </Link>
+            <Link to="/products" title="Products" onClick={closeAllMenus} className="hover:text-red-200">
+              <div className="flex flex-col items-center text-xs">
+                <FiGrid />
+                <span className="capitalize">Products</span>
+              </div>
+            </Link>
             {user && (
               <>
-                <Link to="/cart" onClick={closeMenu} className="text-white font-medium hover:text-yellow-300 transition relative flex items-center">
-                  <FiShoppingCart className="mr-1" />
-                  cart
+                <Link to="/cart" title="Cart" onClick={closeAllMenus} className="relative hover:text-red-200">
+                  <div className="flex flex-col items-center text-xs">
+                    <FiShoppingCart />
+                    <span className="capitalize">Cart</span>
+                  </div>
                   {cartCount > 0 && (
-                    <span className="ml-2 px-2 py-0.5 text-xs font-bold bg-blue-600 text-white rounded-full">
+                    <span className="absolute -top-2 -right-3 bg-white text-red-600 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                       {cartCount}
                     </span>
                   )}
                 </Link>
-                <Link to="/orders" onClick={closeMenu} className="text-white font-medium hover:text-yellow-300 transition">orders</Link>
+                <Link to="/wishlist" title="Wishlist" onClick={closeAllMenus} className="hover:text-red-200">
+                  <div className="flex flex-col items-center text-xs">
+                    <FiHeart />
+                    <span className="capitalize">Wishlist</span>
+                  </div>
+                </Link>
+                <Link to="/orders" title="Orders" onClick={closeAllMenus} className="hover:text-red-200">
+                  <div className="flex flex-col items-center text-xs">
+                    <FiPackage />
+                    <span className="capitalize">Orders</span>
+                  </div>
+                </Link>
+                <Link to="/profile" title="Profile" onClick={closeAllMenus} className="hover:text-red-200">
+                  <div className="flex flex-col items-center text-xs">
+                    <FiUser />
+                    <span className="capitalize">Profile</span>
+                  </div>
+                </Link>
+                <button
+                  onClick={() => {
+                    logout();
+                    closeAllMenus();
+                  }}
+                  title="Logout"
+                  className="hover:text-red-200"
+                >
+                  <div className="flex flex-col items-center text-xs">
+                    <FiLogOut />
+                    <span className="capitalize">Logout</span>
+                  </div>
+                </button>
               </>
             )}
             {!user && (
               <>
-                <Link to="/login" onClick={closeMenu} className="text-white hover:text-yellow-300 transition flex items-center">
-                  <FiLogIn className="mr-1" size={18} /> login
+                <Link to="/login" title="Login" onClick={closeAllMenus} className="hover:text-red-200">
+                  <div className="flex flex-col items-center text-xs">
+                    <FiLogIn />
+                    <span className="capitalize">Login</span>
+                  </div>
                 </Link>
-                <Link to="/register" onClick={closeMenu} className="text-white bg-blue-700 px-3 py-1 rounded hover:bg-blue-500 transition flex items-center">
-                  <FiUserPlus className="mr-1" size={18} /> register
+                <Link to="/register" title="Register" onClick={closeAllMenus} className="hover:text-red-200">
+                  <div className="flex flex-col items-center text-xs">
+                    <FiUserPlus />
+                    <span className="capitalize">Register</span>
+                  </div>
                 </Link>
               </>
             )}

@@ -1,39 +1,46 @@
 import { Link } from 'react-router-dom';
+import { FiHeart } from 'react-icons/fi';
+import { FaHeart } from 'react-icons/fa';
 
-const ProductCard = ({ product, onAddToCart }) => {
-  const handleAdd = (e) => {
+const ProductCard = ({ product, onToggleWishlist, isWishlisted }) => {
+  const handleToggleWishlist = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    onAddToCart(product, e);
+    onToggleWishlist(product);
   };
 
   return (
-    <div className="w-full bg-white border rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+    <div className="relative w-full bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      {/* Wishlist Heart */}
+      <button
+        onClick={handleToggleWishlist}
+        className="absolute top-3 right-3 z-10 bg-white p-2 rounded-full shadow-md hover:bg-red-100 transition"
+      >
+        {isWishlisted ? (
+          <FaHeart className="text-red-500 text-xl" />
+        ) : (
+          <FiHeart className="text-gray-600 text-xl" />
+        )}
+      </button>
+
+      {/* Product Image */}
       <Link to={`/products/${product.id}`}>
-        <div className="w-full h-56 md:h-64 lg:h-72 overflow-hidden">
+        <div className="w-full h-56 sm:h-64 md:h-72 overflow-hidden">
           <img
             src={product.image || 'https://via.placeholder.com/300x300?text=No+Image'}
-            alt={product.name || 'Product Image'}
-            className="w-full h-full object-cover"
+            alt={product.name || 'Product'}
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           />
         </div>
-      </Link>
 
-      <div className="p-4">
-        <Link to={`/products/${product.id}`}>
-          <h3 className="text-lg font-semibold text-gray-800 hover:text-green-600 line-clamp-1">
+        {/* Product Info */}
+        <div className="p-4">
+          <h3 className="text-lg font-semibold text-gray-900 truncate hover:text-red-600 transition">
             {product.name}
           </h3>
-        </Link>
-        <p className="text-sm text-gray-600 mt-1">₹{product.price}</p>
-
-        <button
-          onClick={handleAdd}
-          className="mt-3 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg text-sm font-medium"
-        >
-          Add to Cart
-        </button>
-      </div>
+          <p className="text-xl font-bold text-red-600 mt-1">₹{product.price}</p>
+        </div>
+      </Link>
     </div>
   );
 };

@@ -1,14 +1,23 @@
-
 @import "tailwindcss";
-/* index.css */
 html {
   scroll-behavior: smooth;
 }
-
 /* Prevent layout shifts */
 body {
   overflow-y: scroll;
 }
 .input {
-  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500;
+@apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-offer-scroll {
+  animation: scroll-left 25s linear infinite;
 }

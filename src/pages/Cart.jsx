@@ -27,7 +27,6 @@ const Cart = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Your Shopping Cart</h2>
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-2/3">
           <div className="bg-white rounded-lg shadow overflow-hidden">

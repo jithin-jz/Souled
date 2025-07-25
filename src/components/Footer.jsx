@@ -5,7 +5,8 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-6 mt-10">
       <div className="max-w-4xl mx-auto px-4 text-center">
         {/* Logo */}
-        <h2 className="text-xl font-bold mb-2">MARVEL STORE</h2>
+        <h2 className="text-xl font-bold mb-2">THE SOULED STORE
+        </h2>
 
         {/* Links */}
         <div className="flex justify-center gap-6 text-sm mb-4">
