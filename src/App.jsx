@@ -16,7 +16,8 @@ import Register from './components/auth/Register';
 import ProtectedRoute from './components/ProtectedRoute';
 import SingleProduct from './pages/SingleProduct';
 import PaymentSuccess from './pages/PaymentSuccess';
-import Wishlist from './pages/Wishlist'; // ✅ Added
+import Wishlist from './pages/Wishlist';
+import PublicRoute from './Routes/PublicRoute';
 
 const App = () => {
   return (
@@ -35,8 +36,10 @@ const App = () => {
                 <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
                 <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
                 <Route path="/payment-success" element={<PaymentSuccess />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
+              
+                <Route path="/login" element={   <PublicRoute><Login /></PublicRoute>} />
+                <Route path="/register" element={ <PublicRoute><Register /></PublicRoute>} />
+              
               </Routes>
             </main>
             <Footer />

@@ -266,7 +266,28 @@
       "password": "1234",
       "role": "User",
       "isBlock": false,
-      "cart": [],
+      "cart": [
+        {
+          "id": "p02",
+          "name": "Miles Hoodie",
+          "price": 1499,
+          "category": "Clothing",
+          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
+          "description": "Stay warm and stylish in this black hoodie inspired by Miles Morales, with ultra-soft lining and urban flair.",
+          "stock": 12,
+          "quantity": 2
+        },
+        {
+          "id": "p04",
+          "name": "Suit Tee",
+          "price": 3499,
+          "category": "Clothing",
+          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711453721_5775484.jpg?format=webp&w=300&dpr=1.5",
+          "description": "Compression-style tee modeled after Spidey's suit. Perfect for gym sessions or cosplay-ready streetwear.",
+          "stock": 18,
+          "quantity": 1
+        }
+      ],
       "orders": [],
       "wishlist": [],
       "created_at": "2025-07-24T08:54:41.293Z"
