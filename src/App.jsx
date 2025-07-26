@@ -6,10 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './Routes/ProtectedRoute';
 import PublicRoute from './Routes/PublicRoute';
 
-// ✅ Direct imports (no lazy)
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Cart from './pages/Cart';
