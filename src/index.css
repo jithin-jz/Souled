@@ -1,23 +1,37 @@
 @import "tailwindcss";
+
 html {
   scroll-behavior: smooth;
 }
+
 /* Prevent layout shifts */
 body {
   overflow-y: scroll;
 }
+
+/* Input field styling */
 .input {
-@apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500;
-}
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md 
+         focus:outline-none focus:ring-2 focus:ring-green-500;
 }
 
-.animate-offer-scroll {
-  animation: scroll-left 25s linear infinite;
+/* Marquee animation for sliders or banners */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Optional: Add utility for smooth card hover scale */
+.card-hover {
+  @apply transition-transform duration-300 transform hover:scale-105;
+}
+
+/* Optional: Button style for reuse */
+.btn-black-rounded {
+  @apply px-4 py-2 rounded-full bg-black text-white text-sm font-semibold 
+         hover:bg-gray-900 transition-all;
 }

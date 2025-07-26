@@ -1,478 +1,409 @@
 {
   "users": [
     {
-      "id": "1753332805017",
+      "id": "1753502947122",
       "name": "jithin",
-      "email": "jithin@gmail.com",
-      "password": "1234",
-      "role": "User",
-      "isBlock": false,
-      "cart": [],
-      "orders": [
-        {
-          "id": "1753334665751",
-          "date": "2025-07-24T05:24:25.751Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Miles Hoodie",
-              "price": 1499,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Black hoodie inspired by Miles Morales",
-              "quantity": 1
-            }
-          ],
-          "total": 1499,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753335205181",
-          "date": "2025-07-24T05:33:25.181Z",
-          "items": [
-            {
-              "id": "p06",
-              "name": "Mask Tee",
-              "price": 599,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1735371943_3078364.jpg?format=webp&w=300&dpr=1.5",
-              "description": "T-shirt with Spidey’s iconic mask",
-              "quantity": 2
-            }
-          ],
-          "total": 1198,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753335250544",
-          "date": "2025-07-24T05:34:10.545Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Miles Hoodie",
-              "price": 1499,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Black hoodie inspired by Miles Morales",
-              "quantity": 1
-            }
-          ],
-          "total": 1499,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753335709919",
-          "date": "2025-07-24T05:41:49.919Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Miles Hoodie",
-              "price": 1499,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Black hoodie inspired by Miles Morales",
-              "quantity": 1
-            }
-          ],
-          "total": 1499,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753338119862",
-          "date": "2025-07-24T06:21:59.862Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Miles Hoodie",
-              "price": 1499,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Stay warm and stylish in this black hoodie inspired by Miles Morales, with ultra-soft lining and urban flair.",
-              "stock": 12,
-              "quantity": 3
-            }
-          ],
-          "total": 4497,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753346968285",
-          "date": "2025-07-24T08:49:28.285Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Miles Hoodie",
-              "price": 1499,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Stay warm and stylish in this black hoodie inspired by Miles Morales, with ultra-soft lining and urban flair.",
-              "stock": 12,
-              "quantity": 1
-            }
-          ],
-          "total": 1499,
-          "address": {
-            "name": "Jithin",
-            "phone": "9562449137",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "UPI",
-          "upiId": "jithin@fbl",
-          "status": "Processing"
-        },
-        {
-          "id": "1753419114993",
-          "date": "2025-07-25T04:51:54.993Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Miles Hoodie",
-              "price": 1499,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Stay warm and stylish in this black hoodie inspired by Miles Morales, with ultra-soft lining and urban flair.",
-              "stock": 12,
-              "quantity": 1
-            }
-          ],
-          "total": 1499,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753419137998",
-          "date": "2025-07-25T04:52:17.998Z",
-          "items": [
-            {
-              "id": "p18",
-              "name": "Logo Tee",
-              "price": 599,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1710916023_7674988.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Front-and-center Spidey logo on a classic tee. A must-have staple in any Marvel fan’s wardrobe.",
-              "stock": 26,
-              "quantity": 1
-            }
-          ],
-          "total": 599,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753419214390",
-          "date": "2025-07-25T04:53:34.390Z",
-          "items": [
-            {
-              "id": "p03",
-              "name": "Web Pants",
-              "price": 999,
-              "category": "Clothing",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751116998_8805341.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Comfort-fit jogger pants with dynamic spider-web prints. Built for agility, action, or just chilling at home.",
-              "stock": 30,
-              "quantity": 1
-            }
-          ],
-          "total": 999,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        }
-      ],
-      "wishlist": [],
-      "created_at": "2025-07-24T04:53:25.017Z",
-      "address": {
-        "name": "Jithin",
-        "phone": "1234567890",
-        "street": "Kozhikode",
-        "city": "Kozhikode",
-        "pincode": "673525"
-      }
-    },
-    {
-      "id": "1753347281293",
-      "name": "anand",
-      "email": "anand@gmail.com",
+      "email": "jz@gmail.com",
       "password": "1234",
       "role": "User",
       "isBlock": false,
       "cart": [
         {
           "id": "p02",
-          "name": "Miles Hoodie",
-          "price": 1499,
-          "category": "Clothing",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Stay warm and stylish in this black hoodie inspired by Miles Morales, with ultra-soft lining and urban flair.",
-          "stock": 12,
-          "quantity": 2
+          "name": "Naruto Hoodie",
+          "price": 2999,
+          "category": "Men",
+          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
+          "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
+          "stock": 40,
+          "quantity": 1
+        },
+        {
+          "id": "p03",
+          "name": "Luffy Shorts",
+          "price": 649,
+          "category": "Men",
+          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
+          "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
+          "stock": 10,
+          "quantity": 1
         },
         {
           "id": "p04",
-          "name": "Suit Tee",
-          "price": 3499,
-          "category": "Clothing",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711453721_5775484.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Compression-style tee modeled after Spidey's suit. Perfect for gym sessions or cosplay-ready streetwear.",
-          "stock": 18,
+          "name": "Zoro Tank",
+          "price": 749,
+          "category": "Men",
+          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1712574659_2554929.jpg?format=webp&w=300&dpr=1.5",
+          "description": "Green tank with swordsman flair, Zoro-themed for warriors.",
+          "stock": 45,
           "quantity": 1
         }
       ],
       "orders": [],
       "wishlist": [],
-      "created_at": "2025-07-24T08:54:41.293Z"
+      "created_at": "2025-07-26T04:09:07.122Z"
     }
   ],
   "products": [
     {
       "id": "p01",
-      "name": "Red Tee",
-      "price": 799,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1730095105_6039197.jpg?format=webp&w=480&dpr=1.5",
-      "description": "Classic red Spider-Man cotton tee with breathable fabric and heroic style. Ideal for casual days and fan events.",
-      "stock": 25
+      "name": "Goku Tee",
+      "price": 1499,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181056_7349348.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Power up in this Goku-themed tee with bold print and soft fabric.",
+      "stock": 48
     },
     {
       "id": "p02",
-      "name": "Miles Hoodie",
-      "price": 1499,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751113901_9621425.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Stay warm and stylish in this black hoodie inspired by Miles Morales, with ultra-soft lining and urban flair.",
-      "stock": 12
-    },
-    {
-      "id": "p03",
-      "name": "Web Pants",
-      "price": 999,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751116998_8805341.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Comfort-fit jogger pants with dynamic spider-web prints. Built for agility, action, or just chilling at home.",
-      "stock": 30
-    },
-    {
-      "id": "p04",
-      "name": "Suit Tee",
-      "price": 3499,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711453721_5775484.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Compression-style tee modeled after Spidey's suit. Perfect for gym sessions or cosplay-ready streetwear.",
-      "stock": 18
-    },
-    {
-      "id": "p05",
-      "name": "Logo Hoodie",
-      "price": 1399,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739863088_7416153.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Minimalist hoodie with a bold Spider-Man logo. Cozy, warm, and perfect for subtle superhero vibes.",
-      "stock": 10
-    },
-    {
-      "id": "p06",
-      "name": "Mask Tee",
-      "price": 599,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1735371943_3078364.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Stylish t-shirt printed with the classic Spidey mask. A fan-favorite for casual daily wear.",
+      "name": "Naruto Hoodie",
+      "price": 2999,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
       "stock": 40
     },
     {
+      "id": "p03",
+      "name": "Luffy Shorts",
+      "price": 649,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
+      "stock": 10
+    },
+    {
+      "id": "p04",
+      "name": "Zoro Tank",
+      "price": 749,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1712574659_2554929.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Green tank with swordsman flair, Zoro-themed for warriors.",
+      "stock": 45
+    },
+    {
+      "id": "p05",
+      "name": "Itachi Tee",
+      "price": 849,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181303_6297525.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Subtle Uchiha clan logo tee for dark, stylish fans.",
+      "stock": 30
+    },
+    {
+      "id": "p06",
+      "name": "Spidey Hoodie",
+      "price": 2599,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1734954285_4294840.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Swing into action with this Spider-Man inspired hoodie.",
+      "stock": 32
+    },
+    {
       "id": "p07",
-      "name": "Hero Shorts",
-      "price": 499,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1724217971_8522039.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Lightweight shorts with hero-themed prints. Breathable design ideal for summer days or workouts.",
-      "stock": 35
+      "name": "Iron Man Tee",
+      "price": 1299,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1744389529_7123437.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Bold red tee featuring Iron Man’s arc reactor design.",
+      "stock": 16
     },
     {
       "id": "p08",
-      "name": "Spidey PJ",
-      "price": 999,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751883314_7684349.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Comfy pajama set with Spider-Man patterns. Soft material ensures cozy nights and hero dreams.",
-      "stock": 15
-    },
-    {
-      "id": "p09",
-      "name": "Venom Tee",
-      "price": 849,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1729684930_2467535.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Edgy tee featuring Spider-Man vs Venom battle art. High-impact design for bold fans.",
-      "stock": 22
-    },
-    {
-      "id": "p10",
-      "name": "Swing Tank",
-      "price": 499,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1729948105_9043587.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Sleeveless tank with Spider-Man’s swing pose. Great for summer or gym wear with a superhero punch.",
-      "stock": 17
-    },
-    {
-      "id": "p11",
-      "name": "Street Hoodie",
-      "price": 1599,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1743260804_9050140.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Urban-style hoodie with Spider-Verse graphics. Perfect blend of fashion and fandom.",
-      "stock": 8
-    },
-    {
-      "id": "p12",
-      "name": "Stealth Tee",
-      "price": 749,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711017213_5034414.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Inspired by the stealth Spidey suit, this tee features tactical design with a minimalist vibe.",
+      "name": "Captain America Shorts",
+      "price": 799,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1671170231_9352585.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Star-spangled comfort with Cap's shield details.",
       "stock": 20
     },
     {
-      "id": "p13",
-      "name": "Kids Set",
-      "price": 899,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1746683461_1616727.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Playful 2-piece outfit for kids with a bright Spidey theme. Soft, stretchable fabric for all-day comfort.",
-      "stock": 28
+      "id": "p09",
+      "name": "Thor Tank",
+      "price": 949,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1747820899_6568419.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Unleash thunder with this Mjölnir-themed tank top.",
+      "stock": 24
     },
     {
-      "id": "p14",
-      "name": "Web Scrap",
-      "price": 2999,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1744389555_5675870.jpg?format=webp&w=480&dpr=1.5",
-      "description": "Premium limited-edition Spider-Man apparel with custom stitching and embroidered art. Collector’s item.",
-      "stock": 5
+      "id": "p10",
+      "name": "Hulk Smash Tee",
+      "price": 1399,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1717862754_1122602.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Raw green style with ‘Smash’ print and wide fit.",
+      "stock": 50
     },
     {
-      "id": "p15",
-      "name": "Crop Top",
-      "price": 649,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1727417450_8016460.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Trendy crop top with a cute spider patch. Flattering fit and breathable fabric for girls who love Spidey.",
-      "stock": 14
-    },
-    {
-      "id": "p16",
-      "name": "Zip Hoodie",
-      "price": 1499,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1742019681_7337959.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Full-zip hoodie with Spidey mask design. Durable and soft – made for everyday crime-fighting comfort.",
-      "stock": 11
-    },
-    {
-      "id": "p17",
-      "name": "Web Set",
-      "price": 1099,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1734954285_4294840.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Matching top and bottom with spider-web graphics. Great combo for lounging or casual hangouts.",
+      "id": "p11",
+      "name": "AOT Survey Jacket",
+      "price": 3499,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739865570_3082596.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Join the Scouts with this Attack on Titan iconic jacket.",
       "stock": 19
     },
     {
+      "id": "p12",
+      "name": "Sasuke Zip-Up",
+      "price": 2799,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753182025_2563804.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Dark style zip-up with Uchiha clan crest.",
+      "stock": 27
+    },
+    {
+      "id": "p13",
+      "name": "Zenitsu Tee",
+      "price": 999,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751969357_5733517.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Striking yellow bolt pattern like the Thunder Breathing hero.",
+      "stock": 12
+    },
+    {
+      "id": "p14",
+      "name": "Gojo Oversized Tee",
+      "price": 1599,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753100802_5773776.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Unlimited style in this Jujutsu Sorcerer-inspired oversized fit.",
+      "stock": 18
+    },
+    {
+      "id": "p15",
+      "name": "Black Panther Hoodie",
+      "price": 2699,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1746300875_2958037.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Wakanda forever with this royal hoodie.",
+      "stock": 21
+    },
+    {
+      "id": "p16",
+      "name": "Deadpool Joggers",
+      "price": 1299,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1750229820_9736780.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Comfort and chaos in red-black Deadpool joggers.",
+      "stock": 34
+    },
+    {
+      "id": "p17",
+      "name": "Dr. Strange Tee",
+      "price": 999,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1743056017_6987070.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Mystical design with Eye of Agamotto print.",
+      "stock": 28
+    },
+    {
       "id": "p18",
-      "name": "Logo Tee",
-      "price": 599,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1710916023_7674988.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Front-and-center Spidey logo on a classic tee. A must-have staple in any Marvel fan’s wardrobe.",
-      "stock": 26
+      "name": "Tanjiro Joggers",
+      "price": 1099,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1735371943_3078364.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Checkered green and black inspired by Demon Slayer.",
+      "stock": 38
     },
     {
       "id": "p19",
-      "name": "Hero Jacket",
-      "price": 1799,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711704269_9553145.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Windbreaker jacket for superhero fans. Weather-ready and designed with stylish Spider-Man detailing.",
-      "stock": 7
+      "name": "Levi Denim Jacket",
+      "price": 3999,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1738054050_3155098.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Battle-hardened streetwear with Levi's elite edge.",
+      "stock": 22
     },
     {
       "id": "p20",
-      "name": "Web Cap",
-      "price": 299,
-      "category": "Clothing",
-      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1743056017_6987070.jpg?format=webp&w=300&dpr=1.5",
-      "description": "Classic cotton cap with embroidered spider-web print. Adjustable fit for all-day wear.",
+      "name": "Spider-Verse Tee",
+      "price": 1099,
+      "category": "Men",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739863088_7416153.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Multiverse collide tee with Miles Morales energy.",
+      "stock": 15
+    },
+    {
+      "id": "p21",
+      "name": "Nezuko Crop Top",
+      "price": 749,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739446317_7011342.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Sweet yet fierce — Nezuko crop with floral tones.",
+      "stock": 40
+    },
+    {
+      "id": "p22",
+      "name": "Hinata Hoodie Dress",
+      "price": 1999,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/Nomad-Women-Pullover-Hoodie-12025_02_21-16-00-04.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Soft lavender hoodie-dress with Byakugan logo.",
+      "stock": 25
+    },
+    {
+      "id": "p23",
+      "name": "Sakura Zip Tee",
+      "price": 899,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/NOMAD-Womens-jacket2025_02_20-23-34-57.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Battle-ready pink zip-up tee with Sakura print.",
+      "stock": 18
+    },
+    {
+      "id": "p24",
+      "name": "Spider-Gwen Tee",
+      "price": 1199,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1732024948_1551681.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Graceful power meets modern print in this Spider-Gwen tee.",
       "stock": 50
+    },
+    {
+      "id": "p25",
+      "name": "Wanda Vision Hoodie",
+      "price": 2499,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1732007854_1408853.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Scarlet Witch vibes with mystical detail and comfort.",
+      "stock": 32
+    },
+    {
+      "id": "p26",
+      "name": "Mikasa Jacket",
+      "price": 2899,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1735375247_8570589.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Mikasa’s strength captured in a sleek cropped jacket.",
+      "stock": 20
+    },
+    {
+      "id": "p27",
+      "name": "Gamora Tank",
+      "price": 849,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1742985449_3394925.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Galactic guardian glam in a sleek green tank.",
+      "stock": 12
+    },
+    {
+      "id": "p28",
+      "name": "Scarlet Leggings",
+      "price": 1099,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1751542984_7807591.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Witchy-red leggings for stylish sorcery.",
+      "stock": 24
+    },
+    {
+      "id": "p29",
+      "name": "Bunny Senpai Tee",
+      "price": 899,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1750844743_7846171.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Subtle and cute — inspired by anime slice-of-life queen.",
+      "stock": 16
+    },
+    {
+      "id": "p30",
+      "name": "Black Widow Hoodie",
+      "price": 2599,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1737637602_1599999.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Espionage-ready and cozy with red detailing.",
+      "stock": 39
+    },
+    {
+      "id": "p31",
+      "name": "Zero Two Tee",
+      "price": 999,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1729148130_9040227.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Darling-themed aesthetic print for bold looks.",
+      "stock": 28
+    },
+    {
+      "id": "p32",
+      "name": "Captain Marvel Tee",
+      "price": 1199,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1740402666_2275880.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Feminine power and style with cosmic vibes.",
+      "stock": 41
+    },
+    {
+      "id": "p33",
+      "name": "Ochaco Crop",
+      "price": 799,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1733915952_4172305.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Gravity-defying pink crop top from MHA universe.",
+      "stock": 30
+    },
+    {
+      "id": "p34",
+      "name": "Raven Zip Hoodie",
+      "price": 2099,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1735824399_4187888.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Mysterious purple hoodie with subtle Raven symbols.",
+      "stock": 15
+    },
+    {
+      "id": "p35",
+      "name": "Himiko Skirt Set",
+      "price": 1399,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1733826590_4924206.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Villainous cute — playful set inspired by Himiko.",
+      "stock": 18
+    },
+    {
+      "id": "p36",
+      "name": "Lady Loki Tee",
+      "price": 899,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1732859529_8496041.jpg?format=webp&w=300&dpr=1.5",
+      "description": "God of Mischief reborn — Loki's chaos in chic.",
+      "stock": 35
+    },
+    {
+      "id": "p37",
+      "name": "Yor Forger Dress",
+      "price": 2499,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1731581078_8962090.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Spy x elegance — sleek black assassin look.",
+      "stock": 22
+    },
+    {
+      "id": "p38",
+      "name": "Jean Grey Crop",
+      "price": 899,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1735108017_8406418.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Phoenix force flaming red crop top.",
+      "stock": 29
+    },
+    {
+      "id": "p39",
+      "name": "Momo Training Set",
+      "price": 1599,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1736257728_6221315.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Battle fit based on Momo’s tactical outfit.",
+      "stock": 33
+    },
+    {
+      "id": "p40",
+      "name": "Ina Crop",
+      "price": 649,
+      "category": "Women",
+      "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1712042654_5303319.jpg?format=webp&w=300&dpr=1.5",
+      "description": "Leaf village meets glam in this confident crop.",
+      "stock": 21
     }
   ]
 }

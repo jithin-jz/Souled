@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import { toast } from 'react-toastify';
-import { Heart, Heart as HeartOutline, Search, Filter, X } from 'lucide-react';
+import { FiHeart } from 'react-icons/fi';
+import { FaHeart } from 'react-icons/fa';
+import Loader from '../components/Loader';
+import { Search, Filter, X } from 'lucide-react';
 
 const priceRanges = [
   { label: '₹0 - ₹999', min: 0, max: 999 },
@@ -13,29 +16,88 @@ const priceRanges = [
   { label: '₹3000+', min: 3000, max: Infinity },
 ];
 
+const categories = ['Men', 'Women'];
+
+const sectionBanners = {
+  Men: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/users/artists/20250507115108-cp-1.jpg?format=webp&w=1500&dpr=1.5',
+  Women: 'https://prod-img.thesouledstore.com/public/theSoul/uploads/users/artists/20241202232928-cp-1.jpg?format=webp&w=1500&dpr=1.5',
+};
+
+const ProductCard = ({ product, onToggleWishlist, isWishlisted, onAddToCart }) => {
+  const handleToggleWishlist = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onToggleWishlist(product);
+  };
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onAddToCart(product);
+  };
+
+  return (
+    <div className="group relative">
+      <button
+        onClick={handleToggleWishlist}
+        className="absolute top-2 right-2 z-10 p-2 rounded-full bg-white/80 backdrop-blur-sm"
+      >
+        {isWishlisted ? (
+          <FaHeart className="text-red-500" />
+        ) : (
+          <FiHeart className="text-gray-500 group-hover:text-red-500" />
+        )}
+      </button>
+
+      <Link to={`/products/${product.id}`} className="block">
+        <div className="overflow-hidden rounded-lg bg-gray-100">
+          <img
+            src={product.image || 'https://via.placeholder.com/300x300?text=No+Image'}
+            alt={product.name || 'Product'}
+            className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <div className="mt-3 flex justify-between items-center gap-2">
+          <div>
+            <h3 className="text-gray-900 font-medium">{product.name}</h3>
+            <p className="text-gray-900 font-bold">₹{product.price}</p>
+          </div>
+          <button
+            onClick={handleAddToCart}
+            className="px-4 py-2 rounded-full bg-black text-white text-xs sm:text-sm font-semibold hover:bg-gray-900 transition-all"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
 const Products = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedPrices, setSelectedPrices] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
 
-  const { addToCart, wishlist, addToWishlist, removeFromWishlist } = useCart();
+  const { wishlist, addToWishlist, removeFromWishlist, addToCart, cart } = useCart();
   const { user } = useAuth();
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetch = async () => {
       try {
         const res = await api.get('/products');
         setAllProducts(res.data);
-      } catch (err) {
+      } catch {
         toast.error('Failed to load products');
       } finally {
         setLoading(false);
       }
     };
-    fetchProducts();
+    fetch();
   }, []);
 
   useEffect(() => {
@@ -47,6 +109,10 @@ const Products = () => {
       );
     }
 
+    if (selectedCategories.length) {
+      result = result.filter(product => selectedCategories.includes(product.category));
+    }
+
     if (searchTerm.trim()) {
       result = result.filter(product =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -54,121 +120,122 @@ const Products = () => {
     }
 
     setFilteredProducts(result);
-  }, [allProducts, selectedPrices, searchTerm]);
+  }, [allProducts, selectedPrices, selectedCategories, searchTerm]);
 
   const togglePriceFilter = (range) => {
-    setSelectedPrices(prev =>
+    setSelectedPrices((prev) =>
       prev.some(r => r.label === range.label)
         ? prev.filter(r => r.label !== range.label)
         : [...prev, range]
     );
   };
 
-  const handleAddToCart = (product, e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (!user) {
-      toast.error('Please log in to add items to cart');
-      return;
-    }
-
-    addToCart(product);
-    removeFromWishlist(product.id);
-    toast.success(`${product.name} added to cart`);
+  const toggleCategoryFilter = (category) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter(c => c !== category)
+        : [...prev, category]
+    );
   };
 
-  const handleWishlistToggle = (product, e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleToggleWishlist = (product) => {
+    if (!user) return toast.warn('Please login to manage wishlist');
+    const isInWishlist = wishlist.some((item) => item.id === product.id);
+    isInWishlist ? removeFromWishlist(product.id) : addToWishlist(product);
+    toast[isInWishlist ? 'info' : 'success'](
+      `${product.name} ${isInWishlist ? 'removed from' : 'added to'} wishlist`
+    );
+  };
 
-    if (!user) {
-      toast.error('Please log in to manage wishlist');
-      return;
-    }
-
-    const exists = wishlist.some(item => item.id === product.id);
-    if (exists) {
-      removeFromWishlist(product.id);
-      toast.info(`${product.name} removed from wishlist`);
+  const handleAddToCart = (product) => {
+    if (!user) return toast.warn('Please login to add items to cart');
+    const isInCart = cart.some(item => item.id === product.id);
+    if (isInCart) {
+      toast.info(`${product.name} is already in the cart`);
     } else {
-      addToWishlist(product);
-      toast.success(`${product.name} added to wishlist`);
+      addToCart(product);
+      toast.success(`${product.name} added to cart`);
     }
   };
 
-  const isInWishlist = (id) => wishlist.some(item => item.id === id);
+  const groupedByCategory = categories.map((cat) => ({
+    category: cat,
+    banner: sectionBanners[cat],
+    products: filteredProducts.filter((p) => p.category === cat),
+  }));
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Search and Filter Bar */}
+      {/* Search and Filters */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
-        {/* Search Input */}
         <div className="relative flex-1">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search className="h-5 w-5 text-gray-400" />
-          </div>
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
           <input
             type="text"
             placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-red-500 focus:border-red-500"
+            className="w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg shadow-sm bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500"
           />
         </div>
 
-        {/* Filter Button (Mobile) */}
         <button
           onClick={() => setShowFilters(!showFilters)}
           className="md:hidden flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg bg-white shadow-sm hover:bg-gray-50"
         >
-          <Filter className="h-5 w-5 text-gray-600" />
+          <Filter className="w-5 h-5 text-gray-600" />
           <span>Filters</span>
-          {selectedPrices.length > 0 && (
-            <span className="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-              {selectedPrices.length}
-            </span>
-          )}
         </button>
 
-        {/* Price Filters (Desktop) */}
-        <div className="hidden md:flex items-center gap-2 bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
-          <span className="text-sm font-medium text-gray-600 whitespace-nowrap">Price:</span>
-          <div className="flex flex-wrap gap-2">
-            {priceRanges.map(range => (
-              <button
-                key={range.label}
-                onClick={() => togglePriceFilter(range)}
-                className={`px-3 py-1 text-sm rounded-full transition ${
-                  selectedPrices.some(r => r.label === range.label)
-                    ? 'bg-red-100 text-red-700 border border-red-200'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
-                }`}
-              >
-                {range.label}
-              </button>
-            ))}
-          </div>
+        {/* Desktop Filters */}
+        <div className="hidden md:flex flex-wrap items-center gap-2 bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
+          <span className="text-sm font-medium text-gray-600">Price:</span>
+          {priceRanges.map(range => (
+            <button
+              key={range.label}
+              onClick={() => togglePriceFilter(range)}
+              className={`px-3 py-1 text-sm rounded-full transition ${
+                selectedPrices.some(r => r.label === range.label)
+                  ? 'bg-red-100 text-red-700 border border-red-200'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
+              }`}
+            >
+              {range.label}
+            </button>
+          ))}
+
+          <span className="text-sm font-medium text-gray-600 ml-4">Category:</span>
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => toggleCategoryFilter(category)}
+              className={`px-3 py-1 text-sm rounded-full transition ${
+                selectedCategories.includes(category)
+                  ? 'bg-red-100 text-red-700 border border-red-200'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Mobile Filter Panel */}
+      {/* Mobile Filters */}
       {showFilters && (
-        <div className="md:hidden bg-white p-4 rounded-lg shadow border border-gray-200 mb-6">
-          <div className="flex justify-between items-center mb-3">
+        <div className="md:hidden bg-white p-4 rounded-lg shadow border border-gray-200 mb-6 space-y-4">
+          <div className="flex justify-between items-center">
             <h3 className="font-medium text-gray-800">Filters</h3>
             <button onClick={() => setShowFilters(false)}>
               <X className="h-5 w-5 text-gray-500" />
             </button>
           </div>
-          <div className="space-y-3">
+
+          <div>
             <h4 className="text-sm font-medium text-gray-700">Price Range</h4>
-            <div className="space-y-2">
+            <div className="space-y-2 mt-2">
               {priceRanges.map(range => (
-                <label
-                  key={range.label}
-                  className="flex items-center space-x-2"
-                >
+                <label key={range.label} className="flex items-center space-x-2">
                   <input
                     type="checkbox"
                     checked={selectedPrices.some(r => r.label === range.label)}
@@ -180,90 +247,57 @@ const Products = () => {
               ))}
             </div>
           </div>
-        </div>
-      )}
 
-      {/* Active Filters */}
-      {selectedPrices.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-6">
-          {selectedPrices.map(range => (
-            <div
-              key={range.label}
-              className="flex items-center bg-red-50 text-red-700 px-3 py-1 rounded-full text-sm"
-            >
-              {range.label}
-              <button
-                onClick={() => togglePriceFilter(range)}
-                className="ml-2 text-red-500 hover:text-red-700"
-              >
-                <X className="h-4 w-4" />
-              </button>
+          <div>
+            <h4 className="text-sm font-medium text-gray-700">Category</h4>
+            <div className="space-y-2 mt-2">
+              {categories.map(category => (
+                <label key={category} className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    checked={selectedCategories.includes(category)}
+                    onChange={() => toggleCategoryFilter(category)}
+                    className="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
+                  />
+                  <span className="text-sm text-gray-700">{category}</span>
+                </label>
+              ))}
             </div>
-          ))}
-          {selectedPrices.length > 0 && (
-            <button
-              onClick={() => setSelectedPrices([])}
-              className="text-sm text-red-600 hover:text-red-800"
-            >
-              Clear all
-            </button>
-          )}
+          </div>
         </div>
       )}
 
-      {/* Products Grid */}
+      {/* Product Sections */}
       {loading ? (
-        <p className="text-center py-10 text-gray-500">Loading products...</p>
+        <Loader />
       ) : filteredProducts.length === 0 ? (
         <p className="text-center text-gray-500">No products found.</p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.map(product => (
-            <div
-              key={product.id}
-              className="bg-white rounded-xl shadow hover:shadow-xl transition overflow-hidden relative group"
-            >
-              <Link to={`/products/${product.id}`} className="block">
-                {/* Product Image */}
-                <div className="aspect-square relative overflow-hidden">
-                  <img
-                    src={product.image || 'https://via.placeholder.com/300?text=No+Image'}
-                    alt={product.name}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition duration-300"
+        groupedByCategory.map(({ category, products, banner }) =>
+          products.length > 0 ? (
+            <div key={category} className="mb-12">
+              <div className="mb-4">
+                <img
+                  src={banner}
+                  alt={`${category} Banner`}
+                  className="w-full h-52 object-cover rounded-xl shadow-sm"
+                />
+                <h2 className="text-2xl font-semibold mt-3 text-gray-800">{category} Collection</h2>
+              </div>
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                {products.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    onToggleWishlist={handleToggleWishlist}
+                    onAddToCart={handleAddToCart}
+                    isWishlisted={wishlist.some((item) => item.id === product.id)}
                   />
-
-                  {/* Wishlist Button */}
-                  <button
-                    onClick={(e) => handleWishlistToggle(product, e)}
-                    className="absolute top-2 right-2 bg-white p-1.5 rounded-full shadow hover:bg-red-50 transition"
-                  >
-                    {isInWishlist(product.id) ? (
-                      <Heart className="text-red-600 fill-red-600" size={20} />
-                    ) : (
-                      <HeartOutline className="text-gray-500 group-hover:text-red-500" size={20} />
-                    )}
-                  </button>
-                </div>
-
-                {/* Product Info */}
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-800 truncate">{product.name}</h3>
-                  <p className="text-red-600 font-bold text-xl">₹{product.price}</p>
-                </div>
-              </Link>
-
-              {/* Add to Cart Button */}
-              <div className="px-4 pb-4">
-                <button
-                  onClick={(e) => handleAddToCart(product, e)}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white text-sm py-2 rounded-lg transition"
-                >
-                  Add to Cart
-                </button>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
+          ) : null
+        )
       )}
     </div>
   );

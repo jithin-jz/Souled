@@ -1,4 +1,3 @@
-// src/pages/ProfileDetails.jsx
 import { useAuth } from '../context/AuthContext';
 
 const ProfileDetails = () => {
