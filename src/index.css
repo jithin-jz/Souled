@@ -4,33 +4,37 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Prevent layout shifts */
 body {
+  /* Prevent layout shifts due to scrollbar visibility */
   overflow-y: scroll;
 }
 
-/* Input field styling */
+/* ---------- Form Input Styling ---------- */
 .input {
   @apply w-full px-3 py-2 border border-gray-300 rounded-md 
          focus:outline-none focus:ring-2 focus:ring-green-500;
 }
 
-/* Marquee animation for sliders or banners */
+/* ---------- Marquee Animation ---------- */
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
 
-/* Optional: Add utility for smooth card hover scale */
+/* ---------- Reusable Hover Card Effect ---------- */
 .card-hover {
   @apply transition-transform duration-300 transform hover:scale-105;
 }
 
-/* Optional: Button style for reuse */
+/* ---------- Reusable Button Style ---------- */
 .btn-black-rounded {
   @apply px-4 py-2 rounded-full bg-black text-white text-sm font-semibold 
          hover:bg-gray-900 transition-all;

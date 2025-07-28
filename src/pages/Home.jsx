@@ -14,6 +14,7 @@ const bannerImages = [
   'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/homepage_copy_xb3zHae.jpg?format=webp&w=1500&dpr=1.5',
 ];
 
+// ✅ Optimized ProductCard
 const ProductCard = ({ product, onToggleWishlist, isWishlisted }) => {
   const handleToggleWishlist = (e) => {
     e.preventDefault();
@@ -37,9 +38,11 @@ const ProductCard = ({ product, onToggleWishlist, isWishlisted }) => {
       <Link to={`/products/${product.id}`} className="block">
         <div className="overflow-hidden rounded-lg bg-gray-100">
           <img
+            loading="lazy"
             src={product.image || 'https://via.placeholder.com/300x300?text=No+Image'}
             alt={product.name || 'Product'}
-            className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            onLoad={(e) => e.currentTarget.classList.add('opacity-100')}
+            className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105 opacity-0 transition-opacity"
           />
         </div>
         <div className="mt-3">
@@ -60,6 +63,15 @@ const Home = () => {
   const { wishlist, addToWishlist, removeFromWishlist } = useCart();
   const { user } = useAuth();
 
+  // ✅ Preload banner images
+  useEffect(() => {
+    bannerImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  // ✅ Fetch product data
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -78,6 +90,7 @@ const Home = () => {
     fetchProducts();
   }, []);
 
+  // ✅ Auto-rotate banner
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
@@ -107,9 +120,11 @@ const Home = () => {
       {/* ✅ Fixed Banner */}
       <div className="w-full overflow-hidden relative">
         <img
+          loading="eager"
           src={bannerImages[currentBanner]}
           alt={`Banner ${currentBanner + 1}`}
-          className="w-full h-auto object-cover transition-all duration-700"
+          className="w-full h-auto object-cover transition-all duration-700 opacity-0"
+          onLoad={(e) => e.currentTarget.classList.add('opacity-100')}
         />
         <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
           {bannerImages.map((_, index) => (

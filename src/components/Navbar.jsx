@@ -3,18 +3,39 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import {
-  FiLogOut,
-  FiLogIn,
-  FiUserPlus,
-  FiShoppingCart,
-  FiMenu,
-  FiX,
-  FiUser,
-  FiPackage,
-  FiHome,
-  FiGrid,
-  FiHeart,
+  FiLogOut, FiLogIn, FiUserPlus, FiShoppingCart, FiMenu, FiX,
+  FiUser, FiPackage, FiHome, FiGrid, FiHeart,
 } from 'react-icons/fi';
+
+const navLinks = [
+  { to: '/', label: 'Home', icon: <FiHome /> },
+  { to: '/products', label: 'Products', icon: <FiGrid /> },
+];
+
+const userLinks = [
+  { to: '/cart', label: 'Cart', icon: <FiShoppingCart /> },
+  { to: '/wishlist', label: 'Wishlist', icon: <FiHeart /> },
+  { to: '/orders', label: 'Orders', icon: <FiPackage /> },
+];
+
+const authLinks = [
+  { to: '/login', label: 'Login', icon: <FiLogIn /> },
+  { to: '/register', label: 'Register', icon: <FiUserPlus /> },
+];
+
+const NavItem = ({ to, label, icon, onClick, badge }) => (
+  <Link to={to} onClick={onClick} title={label} className="relative hover:text-red-200">
+    <div className="flex flex-col items-center text-xs">
+      {icon}
+      <span className="capitalize">{label}</span>
+    </div>
+    {badge && (
+      <span className="absolute -top-2 -right-3 bg-white text-red-600 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+        {badge}
+      </span>
+    )}
+  </Link>
+);
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -22,8 +43,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const toggleDropdown = () => setDropdownOpen(prev => !prev);
   const closeAllMenus = () => {
     setMenuOpen(false);
     setDropdownOpen(false);
@@ -34,7 +55,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2" onClick={closeAllMenus}>
+          <Link to="/" className="flex items-center" onClick={closeAllMenus}>
             <img
               src="https://www.thesouledstore.com/static/img/non-member-logo2.4f4c390.gif"
               alt="Logo"
@@ -42,51 +63,25 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Icon-Only Menu */}
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-6 text-xl">
-            <Link to="/" title="Home" className="hover:text-red-200" onClick={closeAllMenus}>
-              <div className="flex flex-col items-center text-xs">
-                <FiHome />
-                <span className="capitalize">Home</span>
-              </div>
-            </Link>
-            <Link to="/products" title="Products" className="hover:text-red-200" onClick={closeAllMenus}>
-              <div className="flex flex-col items-center text-xs">
-                <FiGrid />
-                <span className="capitalize">Products</span>
-              </div>
-            </Link>
-            {user && (
-              <>
-                <Link to="/cart" title="Cart" className="relative hover:text-red-200" onClick={closeAllMenus}>
-                  <div className="flex flex-col items-center text-xs">
-                    <FiShoppingCart />
-                    <span className="capitalize">Cart</span>
-                  </div>
-                  {cartCount > 0 && (
-                    <span className="absolute -top-2 -right-3 bg-white text-red-600 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                      {cartCount}
-                    </span>
-                  )}
-                </Link>
-                <Link to="/wishlist" title="Wishlist" className="hover:text-red-200" onClick={closeAllMenus}>
-                  <div className="flex flex-col items-center text-xs">
-                    <FiHeart />
-                    <span className="capitalize">Wishlist</span>
-                  </div>
-                </Link>
-                <Link to="/orders" title="Orders" className="hover:text-red-200" onClick={closeAllMenus}>
-                  <div className="flex flex-col items-center text-xs">
-                    <FiPackage />
-                    <span className="capitalize">Orders</span>
-                  </div>
-                </Link>
-              </>
-            )}
+            {navLinks.map(link => (
+              <NavItem key={link.to} {...link} onClick={closeAllMenus} />
+            ))}
+
+            {user && userLinks.map(link => (
+              <NavItem
+                key={link.to}
+                {...link}
+                onClick={closeAllMenus}
+                badge={link.to === '/cart' && cartCount > 0 ? cartCount : null}
+              />
+            ))}
           </div>
 
-          {/* User Dropdown */}
+          {/* Right Controls */}
           <div className="flex items-center space-x-3 relative">
+            {/* User Dropdown */}
             {user ? (
               <div className="relative">
                 <button
@@ -101,11 +96,7 @@ const Navbar = () => {
                     <div className="px-4 py-2 font-semibold border-b border-red-200">
                       👋 {user.name || 'Profile'}
                     </div>
-                    <Link
-                      to="/profile"
-                      className="block px-4 py-2 hover:bg-red-100"
-                      onClick={closeAllMenus}
-                    >
+                    <Link to="/profile" className="block px-4 py-2 hover:bg-red-100" onClick={closeAllMenus}>
                       <FiUser className="inline mr-2" /> Profile
                     </Link>
                     <button
@@ -122,22 +113,13 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="hidden md:flex space-x-4 text-xl">
-                <Link to="/login" title="Login" className="hover:text-red-200" onClick={closeAllMenus}>
-                  <div className="flex flex-col items-center text-xs">
-                    <FiLogIn />
-                    <span className="capitalize">Login</span>
-                  </div>
-                </Link>
-                <Link to="/register" title="Register" className="hover:text-red-200" onClick={closeAllMenus}>
-                  <div className="flex flex-col items-center text-xs">
-                    <FiUserPlus />
-                    <span className="capitalize">Register</span>
-                  </div>
-                </Link>
+                {authLinks.map(link => (
+                  <NavItem key={link.to} {...link} onClick={closeAllMenus} />
+                ))}
               </div>
             )}
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Toggle */}
             <button onClick={toggleMenu} className="md:hidden p-2">
               {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
             </button>
@@ -147,55 +129,25 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden mt-2 space-y-4 pb-4 border-t border-red-500 flex flex-col items-center text-xl">
-            <Link to="/" title="Home" onClick={closeAllMenus} className="hover:text-red-200">
-              <div className="flex flex-col items-center text-xs">
-                <FiHome />
-                <span className="capitalize">Home</span>
-              </div>
-            </Link>
-            <Link to="/products" title="Products" onClick={closeAllMenus} className="hover:text-red-200">
-              <div className="flex flex-col items-center text-xs">
-                <FiGrid />
-                <span className="capitalize">Products</span>
-              </div>
-            </Link>
-            {user && (
+            {navLinks.map(link => (
+              <NavItem key={link.to} {...link} onClick={closeAllMenus} />
+            ))}
+            {user ? (
               <>
-                <Link to="/cart" title="Cart" onClick={closeAllMenus} className="relative hover:text-red-200">
-                  <div className="flex flex-col items-center text-xs">
-                    <FiShoppingCart />
-                    <span className="capitalize">Cart</span>
-                  </div>
-                  {cartCount > 0 && (
-                    <span className="absolute -top-2 -right-3 bg-white text-red-600 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                      {cartCount}
-                    </span>
-                  )}
-                </Link>
-                <Link to="/wishlist" title="Wishlist" onClick={closeAllMenus} className="hover:text-red-200">
-                  <div className="flex flex-col items-center text-xs">
-                    <FiHeart />
-                    <span className="capitalize">Wishlist</span>
-                  </div>
-                </Link>
-                <Link to="/orders" title="Orders" onClick={closeAllMenus} className="hover:text-red-200">
-                  <div className="flex flex-col items-center text-xs">
-                    <FiPackage />
-                    <span className="capitalize">Orders</span>
-                  </div>
-                </Link>
-                <Link to="/profile" title="Profile" onClick={closeAllMenus} className="hover:text-red-200">
-                  <div className="flex flex-col items-center text-xs">
-                    <FiUser />
-                    <span className="capitalize">Profile</span>
-                  </div>
-                </Link>
+                {userLinks.map(link => (
+                  <NavItem
+                    key={link.to}
+                    {...link}
+                    onClick={closeAllMenus}
+                    badge={link.to === '/cart' && cartCount > 0 ? cartCount : null}
+                  />
+                ))}
+                <NavItem to="/profile" label="Profile" icon={<FiUser />} onClick={closeAllMenus} />
                 <button
                   onClick={() => {
                     logout();
                     closeAllMenus();
                   }}
-                  title="Logout"
                   className="hover:text-red-200"
                 >
                   <div className="flex flex-col items-center text-xs">
@@ -204,22 +156,10 @@ const Navbar = () => {
                   </div>
                 </button>
               </>
-            )}
-            {!user && (
-              <>
-                <Link to="/login" title="Login" onClick={closeAllMenus} className="hover:text-red-200">
-                  <div className="flex flex-col items-center text-xs">
-                    <FiLogIn />
-                    <span className="capitalize">Login</span>
-                  </div>
-                </Link>
-                <Link to="/register" title="Register" onClick={closeAllMenus} className="hover:text-red-200">
-                  <div className="flex flex-col items-center text-xs">
-                    <FiUserPlus />
-                    <span className="capitalize">Register</span>
-                  </div>
-                </Link>
-              </>
+            ) : (
+              authLinks.map(link => (
+                <NavItem key={link.to} {...link} onClick={closeAllMenus} />
+              ))
             )}
           </div>
         )}

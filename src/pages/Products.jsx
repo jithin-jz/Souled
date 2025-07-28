@@ -37,10 +37,10 @@ const ProductCard = ({ product, onToggleWishlist, isWishlisted, onAddToCart }) =
   };
 
   return (
-    <div className="group relative">
+    <div className="group relative bg-white p-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition">
       <button
         onClick={handleToggleWishlist}
-        className="absolute top-2 right-2 z-10 p-2 rounded-full bg-white/80 backdrop-blur-sm"
+        className="absolute top-2 right-2 z-10 p-2 rounded-full bg-white/90 backdrop-blur"
       >
         {isWishlisted ? (
           <FaHeart className="text-red-500" />
@@ -50,21 +50,22 @@ const ProductCard = ({ product, onToggleWishlist, isWishlisted, onAddToCart }) =
       </button>
 
       <Link to={`/products/${product.id}`} className="block">
-        <div className="overflow-hidden rounded-lg bg-gray-100">
+        <div className="overflow-hidden rounded-md bg-gray-100">
           <img
             src={product.image || 'https://via.placeholder.com/300x300?text=No+Image'}
             alt={product.name || 'Product'}
-            className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
           />
         </div>
         <div className="mt-3 flex justify-between items-center gap-2">
           <div>
-            <h3 className="text-gray-900 font-medium">{product.name}</h3>
+            <h3 className="text-gray-900 font-medium line-clamp-1">{product.name}</h3>
             <p className="text-gray-900 font-bold">₹{product.price}</p>
           </div>
           <button
             onClick={handleAddToCart}
-            className="px-4 py-2 rounded-full bg-black text-white text-xs sm:text-sm font-semibold hover:bg-gray-900 transition-all"
+            className="px-4 py-1.5 rounded-full bg-black text-white text-xs sm:text-sm font-semibold hover:bg-gray-900 transition"
           >
             Add to Cart
           </button>
@@ -281,6 +282,7 @@ const Products = () => {
                   src={banner}
                   alt={`${category} Banner`}
                   className="w-full h-52 object-cover rounded-xl shadow-sm"
+                  loading="lazy"
                 />
                 <h2 className="text-2xl font-semibold mt-3 text-gray-800">{category} Collection</h2>
               </div>

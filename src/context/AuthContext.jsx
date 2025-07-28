@@ -1,3 +1,4 @@
+// context/AuthContext.js
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -10,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // ✅ Load user from localStorage on initial mount
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -18,6 +20,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
+  // ✅ Login function
   const login = async (email, password) => {
     try {
       const response = await api.get(`/users?email=${email}`);
@@ -25,28 +28,30 @@ export const AuthProvider = ({ children }) => {
         throw new Error('User not found');
       }
 
-      const user = response.data[0];
-      if (user.password !== password) {
+      const foundUser = response.data[0];
+
+      if (foundUser.password !== password) {
         throw new Error('Invalid credentials');
       }
 
-      if (user.isBlock) {
+      if (foundUser.isBlock) {
         throw new Error('User is blocked');
       }
 
-      localStorage.setItem('user', JSON.stringify(user));
-      setUser(user);
+      localStorage.setItem('user', JSON.stringify(foundUser));
+      setUser(foundUser);
       toast.success('Login successful!');
       navigate('/');
-    } catch (error) {
-      toast.error(error.message);
+    } catch (err) {
+      toast.error(err.message);
     }
   };
 
+  // ✅ Register function
   const register = async (name, email, password) => {
     try {
-      const checkUser = await api.get(`/users?email=${email}`);
-      if (checkUser.data.length > 0) {
+      const existing = await api.get(`/users?email=${email}`);
+      if (existing.data.length > 0) {
         throw new Error('User already exists');
       }
 
@@ -55,22 +60,23 @@ export const AuthProvider = ({ children }) => {
         name,
         email,
         password,
-        role: "User",
+        role: 'User',
         isBlock: false,
         cart: [],
-        orders: [],
         wishlist: [],
+        orders: [],
         created_at: new Date().toISOString()
       };
 
       await api.post('/users', newUser);
       toast.success('Registration successful!');
-      navigate('/login'); // 🔄 Redirect to login instead of auto-login
-    } catch (error) {
-      toast.error(error.message);
+      navigate('/login');
+    } catch (err) {
+      toast.error(err.message);
     }
   };
 
+  // ✅ Logout function
   const logout = () => {
     localStorage.removeItem('user');
     setUser(null);
