@@ -1,4 +1,4 @@
-# 🛒 Souled Store – Marvel & Anime eCommerce
+# 🛒 Souled Store
 
 **Souled Store** is a modern eCommerce web application built with **React**, **Tailwind CSS**, and **JSON Server**, featuring Marvel and Anime-themed products. It offers all essential features like cart, wishlist, user login, and order history – wrapped in a fast, mobile-friendly UI.
 
