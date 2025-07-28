@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
       setCart(res.data.cart || []);
       setWishlist(res.data.wishlist || []);
     } catch {
-      // Handle silently
+      // Silently fail
     } finally {
       setLoading(false);
     }
@@ -37,48 +37,46 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (product) => {
     if (!user) return;
 
-    try {
-      const existing = cart.find(item => item.id === product.id);
-      let updatedCart;
-
-      if (existing) {
-        updatedCart = cart.map(item =>
+    const existing = cart.find(item => item.id === product.id);
+    const updatedCart = existing
+      ? cart.map(item =>
           item.id === product.id
             ? { ...item, quantity: (item.quantity || 1) + 1 }
             : item
-        );
-      } else {
-        updatedCart = [...cart, { ...product, quantity: 1 }];
-      }
+        )
+      : [...cart, { ...product, quantity: 1 }];
 
+    try {
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
       setCart(updatedCart);
     } catch {
-      // Handle silently
+      // Silently fail
     }
   };
 
   const removeFromCart = async (productId) => {
+    const updatedCart = cart.filter(item => item.id !== productId);
+
     try {
-      const updatedCart = cart.filter(item => item.id !== productId);
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
       setCart(updatedCart);
     } catch {
-      // Handle silently
+      // Silently fail
     }
   };
 
   const updateQuantity = async (productId, newQty) => {
     if (newQty < 1) return removeFromCart(productId);
 
+    const updatedCart = cart.map(item =>
+      item.id === productId ? { ...item, quantity: newQty } : item
+    );
+
     try {
-      const updatedCart = cart.map(item =>
-        item.id === productId ? { ...item, quantity: newQty } : item
-      );
       await api.patch(`/users/${user.id}`, { cart: updatedCart });
       setCart(updatedCart);
     } catch {
-      // Handle silently
+      // Silently fail
     }
   };
 
@@ -87,7 +85,7 @@ export const CartProvider = ({ children }) => {
       await api.patch(`/users/${user.id}`, { cart: [] });
       setCart([]);
     } catch {
-      // Handle silently
+      // Silently fail
     }
   };
 
@@ -108,7 +106,7 @@ export const CartProvider = ({ children }) => {
       setWishlist(updatedWishlist);
       updateUserData && updateUserData(res.data);
     } catch {
-      // Handle silently
+      // Silently fail
     }
   };
 
@@ -120,7 +118,7 @@ export const CartProvider = ({ children }) => {
       setWishlist(updatedWishlist);
       updateUserData && updateUserData(res.data);
     } catch {
-      // Handle silently
+      // Silently fail
     }
   };
 
@@ -144,7 +142,7 @@ export const CartProvider = ({ children }) => {
         addToWishlist,
         removeFromWishlist,
 
-        // Loading
+        // Other
         loading,
       }}
     >
