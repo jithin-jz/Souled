@@ -10,7 +10,7 @@ import {
 
 const Navbar = () => {
   const { user, logout } = useAuth();
-  const { cartCount, wishlistCount } = useCart();
+  const { cartCount = 0, wishlistCount = 0 } = useCart();
   const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,12 +21,27 @@ const Navbar = () => {
     setDropdownOpen(false);
   }, [location.pathname]);
 
-  const toggleMenu = () => setMenuOpen(prev => !prev);
-  const toggleDropdown = () => setDropdownOpen(prev => !prev);
-
   const navLinks = [
-    { to: '/', label: 'Home', icon: <FiHome /> },
-    { to: '/products', label: 'Products', icon: <FiGrid /> },
+    {
+      to: '/',
+      label: (
+        <>
+          <span className="block sm:hidden lowercase">home</span>
+          <span className="hidden sm:block uppercase">HOME</span>
+        </>
+      ),
+      icon: <FiHome />,
+    },
+    {
+      to: '/products',
+      label: (
+        <>
+          <span className="block sm:hidden lowercase">products</span>
+          <span className="hidden sm:block uppercase">PRODUCTS</span>
+        </>
+      ),
+      icon: <FiGrid />,
+    },
   ];
 
   const userLinks = [
@@ -53,9 +68,9 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Menu */}
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            {/* Left Nav */}
+            {/* Left nav */}
             <div className="flex space-x-6">
               {navLinks.map(link => (
                 <Link
@@ -71,7 +86,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Right User Nav */}
+            {/* Right nav */}
             <div className="flex items-center space-x-4 border-l border-red-400 pl-6">
               {user ? (
                 <>
@@ -79,8 +94,8 @@ const Navbar = () => {
                     <Link
                       key={link.to}
                       to={link.to}
-                      title={link.label}
                       className="relative p-2 text-white hover:bg-red-500 rounded-full transition"
+                      title={link.label}
                     >
                       {link.icon}
                       {link.badge > 0 && (
@@ -93,7 +108,7 @@ const Navbar = () => {
                   {/* User Dropdown */}
                   <div className="relative">
                     <button
-                      onClick={toggleDropdown}
+                      onClick={() => setDropdownOpen(prev => !prev)}
                       className="p-2 text-white hover:bg-red-500 rounded-full transition"
                       title="Account"
                     >
@@ -137,7 +152,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Icon */}
+          {/* Mobile Icons */}
           <div className="md:hidden flex items-center">
             {user && (
               <Link to="/cart" className="relative p-2 mr-2 text-white">
@@ -150,7 +165,7 @@ const Navbar = () => {
               </Link>
             )}
             <button
-              onClick={toggleMenu}
+              onClick={() => setMenuOpen(prev => !prev)}
               className="p-2 rounded-md text-white hover:bg-red-500"
               aria-label="Toggle menu"
             >
@@ -160,7 +175,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-[#e62429] pb-4 px-4">
           <div className="pt-2 pb-3 space-y-1">
@@ -173,7 +188,7 @@ const Navbar = () => {
                 }`}
               >
                 {link.icon}
-                {link.label}
+                <span>{typeof link.label === 'string' ? link.label.toLowerCase() : link.label}</span>
                 {link.badge > 0 && (
                   <span className="ml-auto bg-white text-red-600 text-xs font-bold rounded-full px-2 py-0.5">
                     {link.badge}
