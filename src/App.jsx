@@ -25,7 +25,6 @@ import ProfileDetails from './pages/ProfileDetails';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
-// ⏳ Optional wrapper to handle top-level loading
 const AppContent = () => {
   const { loading } = useAuth();
 
@@ -48,6 +47,7 @@ const AppContent = () => {
           <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
           <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
           <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
+          <Route path="/payment-success" element={<ProtectedRoute><PaymentSuccess /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ProfileDetails /></ProtectedRoute>} />
         </Routes>
       </main>
@@ -62,7 +62,7 @@ const App = () => {
       <AuthProvider>
         <CartProvider>
           <AppContent />
-          <ToastContainer position="bottom-right" />
+          <ToastContainer position="bottom-right" autoClose={3000} />
         </CartProvider>
       </AuthProvider>
     </Router>

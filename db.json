@@ -8,9 +8,141 @@
       "role": "User",
       "isBlock": false,
       "cart": [],
-      "orders": [],
+      "orders": [
+        {
+          "id": "1753851469485",
+          "date": "2025-07-30T04:57:49.485Z",
+          "items": [
+            {
+              "id": "p03",
+              "name": "Luffy Shorts",
+              "price": 1649,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 1649,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        },
+        {
+          "id": "1753851480631",
+          "date": "2025-07-30T04:58:00.631Z",
+          "items": [],
+          "total": 0,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        },
+        {
+          "id": "1753851763512",
+          "date": "2025-07-30T05:02:43.512Z",
+          "items": [
+            {
+              "id": "p03",
+              "name": "Luffy Shorts",
+              "price": 1649,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 1649,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        },
+        {
+          "id": "1753851943213",
+          "date": "2025-07-30T05:05:43.213Z",
+          "items": [
+            {
+              "id": "p02",
+              "name": "Naruto Hoodie",
+              "price": 2999,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
+              "stock": 40,
+              "quantity": 1
+            }
+          ],
+          "total": 2999,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        },
+        {
+          "id": "1753851962219",
+          "date": "2025-07-30T05:06:02.219Z",
+          "items": [
+            {
+              "id": "p21",
+              "name": "Nezuko Crop Top",
+              "price": 749,
+              "category": "Women",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739446317_7011342.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Sweet yet fierce — Nezuko crop with floral tones.",
+              "stock": 40,
+              "quantity": 1
+            }
+          ],
+          "total": 749,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        }
+      ],
       "wishlist": [],
-      "created_at": "2025-07-26T04:09:07.122Z"
+      "created_at": "2025-07-26T04:09:07.122Z",
+      "address": {
+        "name": "Jithin",
+        "phone": "1234567890",
+        "street": "Kozhikode",
+        "city": "Kozhikode",
+        "pincode": "673525"
+      }
     },
     {
       "id": "1753679581730",
