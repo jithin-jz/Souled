@@ -7,7 +7,18 @@
       "password": "1234",
       "role": "User",
       "isBlock": false,
-      "cart": [],
+      "cart": [
+        {
+          "id": "p02",
+          "name": "Naruto Hoodie",
+          "price": 2999,
+          "category": "Men",
+          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
+          "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
+          "stock": 40,
+          "quantity": 1
+        }
+      ],
       "orders": [
         {
           "id": "1753851469485",

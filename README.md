@@ -32,30 +32,24 @@
 ## 📁 Folder Structure
 
 STORE/
-├── public/                            # Static files like index.html, icons
-│
-├── src/                               # Source code
-│
-│   ├── assets/                        # Images, logos, fonts, etc.
-│
-│   ├── components/                    # Reusable UI components
-│   │   ├── layout/                    # Layout and general UI
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── layout/
 │   │   │   ├── Navbar.jsx
 │   │   │   ├── Footer.jsx
 │   │   │   └── Loader.jsx
-│   │   └── auth/                      # Login/Register forms
+│   │   └── auth/
 │   │       ├── Login.jsx
 │   │       └── Register.jsx
-│
-│   ├── context/                       # React context providers
+│   ├── context/
 │   │   ├── AuthContext.jsx
 │   │   └── CartContext.jsx
-│
-│   ├── hooks/                         # Custom React hooks (optional)
+│   ├── hooks/
 │   │   ├── useAuth.js
 │   │   └── useCart.js
-│
-│   ├── pages/                         # Pages mapped to routes
+│   ├── pages/
 │   │   ├── Home.jsx
 │   │   ├── Cart.jsx
 │   │   ├── Products.jsx
@@ -65,25 +59,20 @@ STORE/
 │   │   ├── Payment.jsx
 │   │   ├── PaymentSuccess.jsx
 │   │   └── ProfileDetails.jsx
-│
-│   ├── Routes/                        # Public & protected route components
+│   ├── Routes/
 │   │   ├── ProtectedRoute.jsx
 │   │   └── PublicRoute.jsx
-│
-│   ├── constants/                     # Route paths, enums, roles, etc. (optional)
+│   ├── constants/
 │   │   └── routes.js
-│
-│   ├── utils/                         # Utility and helper functions
-│   │   └── api.jsx                    # Axios instance or fetch API wrapper
-│
-│   ├── App.jsx                        # Root component with routes and layout
-│   └── main.jsx                       # App entry point (if using Vite)
-│
-├── db.json                            # JSON Server database (mock backend)
+│   ├── utils/
+│   │   └── api.jsx
+│   ├── App.jsx
+│   └── main.jsx
+├── db.json
 ├── package.json
 ├── tailwind.config.js
 ├── postcss.config.js
-├── vite.config.js                     # Vite config (if using Vite)
+├── vite.config.js
 └── README.md
 
 🤝 Contributing
