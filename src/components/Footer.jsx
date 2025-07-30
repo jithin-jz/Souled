@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-6 mt-10">
+    <footer style={{ backgroundColor: '#ED1D24' }} className="text-white py-6 mt-10">
       <div className="max-w-4xl mx-auto px-4 text-center">
         {/* Logo */}
-        <h2 className="text-xl font-bold mb-2">THE SOULED STORE
-        </h2>
+        <h2 className="text-xl font-bold mb-2">THE SOULED STORE</h2>
 
         {/* Links */}
         <div className="flex justify-center gap-6 text-sm mb-4">
@@ -17,7 +16,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <p className="text-xs text-gray-400">&copy; {new Date().getFullYear()} Marvel Store. All rights reserved.</p>
+        <p className="text-xs text-gray-200">&copy; {new Date().getFullYear()} Marvel Store. All rights reserved.</p>
       </div>
     </footer>
   );
