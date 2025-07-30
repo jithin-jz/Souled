@@ -26,7 +26,7 @@ const Navbar = () => {
       to: '/',
       label: (
         <>
-          <span className="block sm:hidden lowercase">home</span>
+          <span className="block sm:hidden lowercase">Home</span>
           <span className="hidden sm:block uppercase">HOME</span>
         </>
       ),
@@ -36,7 +36,7 @@ const Navbar = () => {
       to: '/products',
       label: (
         <>
-          <span className="block sm:hidden lowercase">products</span>
+          <span className="block sm:hidden lowercase">Products</span>
           <span className="hidden sm:block uppercase">PRODUCTS</span>
         </>
       ),
