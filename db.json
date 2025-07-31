@@ -7,18 +7,7 @@
       "password": "1234",
       "role": "User",
       "isBlock": false,
-      "cart": [
-        {
-          "id": "p02",
-          "name": "Naruto Hoodie",
-          "price": 2999,
-          "category": "Men",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
-          "stock": 40,
-          "quantity": 1
-        }
-      ],
+      "cart": [],
       "orders": [
         {
           "id": "1753851469485",
@@ -133,6 +122,60 @@
             }
           ],
           "total": 749,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        },
+        {
+          "id": "1753933877772",
+          "date": "2025-07-31T03:51:17.772Z",
+          "items": [
+            {
+              "id": "p02",
+              "name": "Naruto Hoodie",
+              "price": 2999,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
+              "stock": 40,
+              "quantity": 1
+            }
+          ],
+          "total": 2999,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "UPI",
+          "upiId": "jithin@fbl",
+          "status": "Processing"
+        },
+        {
+          "id": "1753943074342",
+          "date": "2025-07-31T06:24:34.342Z",
+          "items": [
+            {
+              "id": "p03",
+              "name": "Luffy Shorts",
+              "price": 1649,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 1649,
           "address": {
             "name": "Jithin",
             "phone": "1234567890",

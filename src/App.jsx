@@ -62,7 +62,7 @@ const App = () => {
       <AuthProvider>
         <CartProvider>
           <AppContent />
-          <ToastContainer position="bottom-right" autoClose={3000} />
+          <ToastContainer position="bottom-right" autoClose={1000} hideProgressBar toastClassName={() => "backdrop-blur-md bg-white/10 text-white text-sm rounded-xl shadow-lg w-72 h-16 flex items-center"} bodyClassName={() => "text-sm"} />
         </CartProvider>
       </AuthProvider>
     </Router>
