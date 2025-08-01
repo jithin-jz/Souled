@@ -2,20 +2,21 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Context Providers
+// Contexts
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 
-// Core Components
+// Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
 
-// Routes
+// Route Guards
 import ProtectedRoute from './Routes/ProtectedRoute';
 import PublicRoute from './Routes/PublicRoute';
+import AdminRoute from './Routes/AdminRoute';
 
-// Pages
+// User Pages
 import Home from './pages/Home';
 import Products from './pages/Products/Products';
 import SingleProduct from './pages/SingleProduct';
@@ -30,14 +31,22 @@ import ProfileDetails from './pages/ProfileDetails';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
+// Admin Pages
+import Dashboard from './admin/Dashboard';
+import Users from './admin/Users';
+import AdminProducts from './admin/Products';
+import Reports from './admin/Reports';
+
 const AppContent = () => {
-  const { loading } = useAuth();
+  const { loading, user } = useAuth();
 
   if (loading) return <Loader />;
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      {/* Only show Navbar/Footer if not Admin */}
+      {user?.role !== 'Admin' && <Navbar />}
+
       <main className="flex-grow">
         <Routes>
           {/* Public Routes */}
@@ -47,16 +56,23 @@ const AppContent = () => {
           <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
 
-          {/* Protected Routes */}
+          {/* Protected User Routes */}
           <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
           <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
           <Route path="/orders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
           <Route path="/payment" element={<ProtectedRoute><Payment /></ProtectedRoute>} />
           <Route path="/payment-success" element={<ProtectedRoute><PaymentSuccess /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ProfileDetails /></ProtectedRoute>} />
+
+          {/* Admin Routes */}
+          <Route path="/admin/dashboard" element={<AdminRoute><Dashboard /></AdminRoute>} />
+          <Route path="/admin/users" element={<AdminRoute><Users /></AdminRoute>} />
+          <Route path="/admin/products" element={<AdminRoute><AdminProducts /></AdminRoute>} />
+          <Route path="/admin/reports" element={<AdminRoute><Reports /></AdminRoute>} />
         </Routes>
       </main>
-      <Footer />
+
+      {user?.role !== 'Admin' && <Footer />}
     </div>
   );
 };
@@ -66,15 +82,7 @@ const App = () => (
     <AuthProvider>
       <CartProvider>
         <AppContent />
-        <ToastContainer
-          position="bottom-right"
-          autoClose={1000}
-          hideProgressBar
-          toastClassName={() =>
-            "backdrop-blur-md bg-white/10 text-white text-sm rounded-xl shadow-lg w-72 h-16 flex items-center"
-          }
-          bodyClassName={() => "text-sm"}
-        />
+        <ToastContainer position="bottom-right" autoClose={1000} hideProgressBar />
       </CartProvider>
     </AuthProvider>
   </Router>

@@ -14,7 +14,14 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await login(email, password);
+      const user = await login(email, password);
+      if (user) {
+        if (user.role === 'Admin') {
+          navigate('/admin/dashboard');
+        } else {
+          navigate('/');
+        }
+      }
     } finally {
       setLoading(false);
     }
@@ -24,11 +31,11 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-white px-4 py-12">
       <div className="max-w-md w-full space-y-8 border border-red-200 rounded-xl shadow-md p-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-red-600">Sign In</h2>
+          <h2 className="text-3xl font-bold text-red-600">Login</h2>
           <p className="mt-2 text-sm text-gray-500">
-            New here?{' '}
+            Don't have an account?{' '}
             <Link to="/register" className="text-red-500 hover:underline font-medium">
-              Create an account
+              Register here
             </Link>
           </p>
         </div>
@@ -50,13 +57,12 @@ const Login = () => {
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
           />
-
           <button
             type="submit"
             disabled={loading}
             className="w-full py-2 px-4 bg-red-600 text-white rounded-md font-semibold hover:bg-red-700 transition disabled:opacity-50"
           >
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? 'Signing in...' : 'Login'}
           </button>
         </form>
       </div>

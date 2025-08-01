@@ -21,27 +21,12 @@ const Navbar = () => {
     setDropdownOpen(false);
   }, [location.pathname]);
 
+  // ✅ Hide Navbar for Admins only
+  if (user?.role === 'Admin') return null;
+
   const navLinks = [
-    {
-      to: '/',
-      label: (
-        <>
-          <span className="block sm:hidden lowercase">Home</span>
-          <span className="hidden sm:block uppercase">HOME</span>
-        </>
-      ),
-      icon: <FiHome />,
-    },
-    {
-      to: '/products',
-      label: (
-        <>
-          <span className="block sm:hidden lowercase">Products</span>
-          <span className="hidden sm:block uppercase">PRODUCTS</span>
-        </>
-      ),
-      icon: <FiGrid />,
-    },
+    { to: '/', label: 'HOME', icon: <FiHome /> },
+    { to: '/products', label: 'PRODUCTS', icon: <FiGrid /> }
   ];
 
   const userLinks = [
@@ -68,9 +53,8 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {/* Left nav */}
             <div className="flex space-x-6">
               {navLinks.map(link => (
                 <Link
@@ -86,7 +70,6 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Right nav */}
             <div className="flex items-center space-x-4 border-l border-red-400 pl-6">
               {user ? (
                 <>
@@ -105,7 +88,6 @@ const Navbar = () => {
                       )}
                     </Link>
                   ))}
-                  {/* User Dropdown */}
                   <div className="relative">
                     <button
                       onClick={() => setDropdownOpen(prev => !prev)}
@@ -152,7 +134,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Icons */}
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center">
             {user && (
               <Link to="/cart" className="relative p-2 mr-2 text-white">
@@ -188,7 +170,7 @@ const Navbar = () => {
                 }`}
               >
                 {link.icon}
-                <span>{typeof link.label === 'string' ? link.label.toLowerCase() : link.label}</span>
+                <span>{link.label}</span>
                 {link.badge > 0 && (
                   <span className="ml-auto bg-white text-red-600 text-xs font-bold rounded-full px-2 py-0.5">
                     {link.badge}

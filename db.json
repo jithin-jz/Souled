@@ -8,276 +8,9 @@
       "role": "User",
       "isBlock": false,
       "cart": [],
-      "orders": [
-        {
-          "id": "1753851469485",
-          "date": "2025-07-30T04:57:49.485Z",
-          "items": [
-            {
-              "id": "p03",
-              "name": "Luffy Shorts",
-              "price": 1649,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
-              "stock": 10,
-              "quantity": 1
-            }
-          ],
-          "total": 1649,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753851480631",
-          "date": "2025-07-30T04:58:00.631Z",
-          "items": [],
-          "total": 0,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753851763512",
-          "date": "2025-07-30T05:02:43.512Z",
-          "items": [
-            {
-              "id": "p03",
-              "name": "Luffy Shorts",
-              "price": 1649,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
-              "stock": 10,
-              "quantity": 1
-            }
-          ],
-          "total": 1649,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753851943213",
-          "date": "2025-07-30T05:05:43.213Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Naruto Hoodie",
-              "price": 2999,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
-              "stock": 40,
-              "quantity": 1
-            }
-          ],
-          "total": 2999,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753851962219",
-          "date": "2025-07-30T05:06:02.219Z",
-          "items": [
-            {
-              "id": "p21",
-              "name": "Nezuko Crop Top",
-              "price": 749,
-              "category": "Women",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739446317_7011342.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Sweet yet fierce — Nezuko crop with floral tones.",
-              "stock": 40,
-              "quantity": 1
-            }
-          ],
-          "total": 749,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753933877772",
-          "date": "2025-07-31T03:51:17.772Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Naruto Hoodie",
-              "price": 2999,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
-              "stock": 40,
-              "quantity": 1
-            }
-          ],
-          "total": 2999,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "UPI",
-          "upiId": "jithin@fbl",
-          "status": "Processing"
-        },
-        {
-          "id": "1753943074342",
-          "date": "2025-07-31T06:24:34.342Z",
-          "items": [
-            {
-              "id": "p03",
-              "name": "Luffy Shorts",
-              "price": 1649,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
-              "stock": 10,
-              "quantity": 1
-            }
-          ],
-          "total": 1649,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        },
-        {
-          "id": "1753969616006",
-          "date": "2025-07-31T13:46:56.006Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Naruto Hoodie",
-              "price": 2999,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
-              "stock": 40,
-              "quantity": 1
-            }
-          ],
-          "total": 2999,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "UPI",
-          "upiId": "jithin@fbl",
-          "status": "Processing"
-        },
-        {
-          "id": "1754021643744",
-          "date": "2025-08-01T04:14:03.744Z",
-          "items": [
-            {
-              "id": "p20",
-              "name": "Spider-Verse Tee",
-              "price": 1099,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739863088_7416153.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Multiverse collide tee with Miles Morales energy.",
-              "stock": 15,
-              "quantity": 1
-            }
-          ],
-          "total": 1099,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "UPI",
-          "upiId": "jithin@fbl",
-          "status": "Processing"
-        },
-        {
-          "id": "1754026650647",
-          "date": "2025-08-01T05:37:30.647Z",
-          "items": [
-            {
-              "id": "p21",
-              "name": "Nezuko Crop Top",
-              "price": 749,
-              "category": "Women",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739446317_7011342.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Sweet yet fierce — Nezuko crop with floral tones.",
-              "stock": 40,
-              "quantity": 2
-            }
-          ],
-          "total": 1498,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        }
-      ],
+      "orders": [],
       "wishlist": [],
-      "created_at": "2025-07-26T04:09:07.122Z",
-      "address": {
-        "name": "Jithin",
-        "phone": "1234567890",
-        "street": "Kozhikode",
-        "city": "Kozhikode",
-        "pincode": "673525"
-      }
+      "created_at": "2025-07-26T04:09:07.122Z"
     },
     {
       "id": "1753679581730",
@@ -300,43 +33,8 @@
       "isBlock": false,
       "cart": [],
       "wishlist": [],
-      "orders": [
-        {
-          "id": "1753852241328",
-          "date": "2025-07-30T05:10:41.328Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Naruto Hoodie",
-              "price": 2999,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
-              "stock": 40,
-              "quantity": 1
-            }
-          ],
-          "total": 2999,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "COD",
-          "upiId": "",
-          "status": "Processing"
-        }
-      ],
-      "created_at": "2025-07-30T05:10:01.866Z",
-      "address": {
-        "name": "Jithin",
-        "phone": "1234567890",
-        "street": "Kozhikode",
-        "city": "Kozhikode",
-        "pincode": "673525"
-      }
+      "orders": [],
+      "created_at": "2025-07-30T05:10:01.866Z"
     },
     {
       "id": "1753943163311",
@@ -347,8 +45,43 @@
       "isBlock": false,
       "cart": [],
       "wishlist": [],
-      "orders": [],
-      "created_at": "2025-07-31T06:26:03.311Z"
+      "orders": [
+        {
+          "id": "1754044332717",
+          "date": "2025-08-01T10:32:12.717Z",
+          "items": [
+            {
+              "id": "p03",
+              "name": "Luffy Shorts",
+              "price": 1649,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 1649,
+          "address": {
+            "name": "jithin jz",
+            "phone": "9562449137",
+            "street": "Kochi, India",
+            "city": "kochi",
+            "pincode": "600001"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        }
+      ],
+      "created_at": "2025-07-31T06:26:03.311Z",
+      "address": {
+        "name": "jithin jz",
+        "phone": "9562449137",
+        "street": "Kochi, India",
+        "city": "kochi",
+        "pincode": "600001"
+      }
     },
     {
       "id": "1754026711965",
@@ -359,43 +92,20 @@
       "isBlock": false,
       "cart": [],
       "wishlist": [],
-      "orders": [
-        {
-          "id": "1754029114377",
-          "date": "2025-08-01T06:18:34.377Z",
-          "items": [
-            {
-              "id": "p02",
-              "name": "Naruto Hoodie",
-              "price": 2999,
-              "category": "Men",
-              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
-              "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
-              "stock": 40,
-              "quantity": 1
-            }
-          ],
-          "total": 2999,
-          "address": {
-            "name": "Jithin",
-            "phone": "1234567890",
-            "street": "Kozhikode",
-            "city": "Kozhikode",
-            "pincode": "673525"
-          },
-          "paymentMethod": "UPI",
-          "upiId": "jithin@fbl",
-          "status": "Processing"
-        }
-      ],
-      "created_at": "2025-08-01T05:38:31.965Z",
-      "address": {
-        "name": "Jithin",
-        "phone": "1234567890",
-        "street": "Kozhikode",
-        "city": "Kozhikode",
-        "pincode": "673525"
-      }
+      "orders": [],
+      "created_at": "2025-08-01T05:38:31.965Z"
+    },
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "role": "Admin",
+      "isBlock": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "created_at": "2025-08-01T12:00:00Z"
     }
   ],
   "products": [

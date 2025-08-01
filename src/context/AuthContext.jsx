@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // ✅ Load user from localStorage on initial mount
+  // Load user from localStorage on app load
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -19,40 +19,32 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  // ✅ Login function
+  // Login Function (corrected)
   const login = async (email, password) => {
     try {
-      const response = await api.get(`/users?email=${email}`);
-      if (response.data.length === 0) {
-        throw new Error('User not found');
-      }
+      const res = await api.get(`/users?email=${email}&password=${password}`);
+      const foundUser = res.data[0];
 
-      const foundUser = response.data[0];
-
-      if (foundUser.password !== password) {
-        throw new Error('Invalid credentials');
-      }
-
-      if (foundUser.isBlock) {
-        throw new Error('User is blocked');
-      }
+      if (!foundUser) throw new Error('Invalid email or password');
+      if (foundUser.isBlock) throw new Error('Your account is blocked');
 
       localStorage.setItem('user', JSON.stringify(foundUser));
       setUser(foundUser);
-      toast.success('Login successful!');
-      navigate('/');
+      toast.success(`Welcome back, ${foundUser.name}`);
+
+      // Route redirection will be handled in Login.jsx
+      return foundUser;
     } catch (err) {
       toast.error(err.message);
+      return null;
     }
   };
 
-  // ✅ Register function
+  // Register Function
   const register = async (name, email, password) => {
     try {
-      const existing = await api.get(`/users?email=${email}`);
-      if (existing.data.length > 0) {
-        throw new Error('User already exists');
-      }
+      const res = await api.get(`/users?email=${email}`);
+      if (res.data.length > 0) throw new Error('Email already exists');
 
       const newUser = {
         id: Date.now().toString(),
@@ -64,7 +56,7 @@ export const AuthProvider = ({ children }) => {
         cart: [],
         wishlist: [],
         orders: [],
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
       };
 
       await api.post('/users', newUser);
@@ -75,7 +67,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // ✅ Logout function
+  // Logout
   const logout = () => {
     localStorage.removeItem('user');
     setUser(null);

@@ -4,11 +4,16 @@ import { useAuth } from '../context/AuthContext';
 const PublicRoute = ({ children }) => {
   const { user } = useAuth();
 
-  // If logged in, redirect to home
-  if (user) {
-    return <Navigate to="/" />;
+  // If user is logged in and not blocked
+  if (user && !user.isBlock) {
+    if (user.role === 'Admin') {
+      return <Navigate to="/admin/dashboard" />;
+    } else {
+      return <Navigate to="/" />;
+    }
   }
 
+  // If blocked or not logged in, allow access
   return children;
 };
 
