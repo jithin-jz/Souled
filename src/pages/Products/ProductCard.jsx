@@ -1,4 +1,3 @@
-// pages/Products/ProductCard.jsx
 import { Link } from 'react-router-dom';
 import { FiHeart } from 'react-icons/fi';
 import { FaHeart } from 'react-icons/fa';

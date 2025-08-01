@@ -1,4 +1,3 @@
-// pages/Products/Section.jsx
 import ProductCard from './ProductCard';
 
 const Section = ({ category, banner, products, onAddToCart, onToggleWishlist, wishlist }) => {

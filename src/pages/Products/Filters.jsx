@@ -1,4 +1,3 @@
-// pages/Products/Filters.jsx
 import { Search, Filter, X } from 'lucide-react';
 
 const Filters = ({
