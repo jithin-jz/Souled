@@ -240,6 +240,33 @@
           "paymentMethod": "UPI",
           "upiId": "jithin@fbl",
           "status": "Processing"
+        },
+        {
+          "id": "1754026650647",
+          "date": "2025-08-01T05:37:30.647Z",
+          "items": [
+            {
+              "id": "p21",
+              "name": "Nezuko Crop Top",
+              "price": 749,
+              "category": "Women",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1739446317_7011342.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Sweet yet fierce — Nezuko crop with floral tones.",
+              "stock": 40,
+              "quantity": 2
+            }
+          ],
+          "total": 1498,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
         }
       ],
       "wishlist": [],
@@ -322,6 +349,53 @@
       "wishlist": [],
       "orders": [],
       "created_at": "2025-07-31T06:26:03.311Z"
+    },
+    {
+      "id": "1754026711965",
+      "name": "amal",
+      "email": "amal@gmail.com",
+      "password": "1234",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [
+        {
+          "id": "1754029114377",
+          "date": "2025-08-01T06:18:34.377Z",
+          "items": [
+            {
+              "id": "p02",
+              "name": "Naruto Hoodie",
+              "price": 2999,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
+              "stock": 40,
+              "quantity": 1
+            }
+          ],
+          "total": 2999,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "UPI",
+          "upiId": "jithin@fbl",
+          "status": "Processing"
+        }
+      ],
+      "created_at": "2025-08-01T05:38:31.965Z",
+      "address": {
+        "name": "Jithin",
+        "phone": "1234567890",
+        "street": "Kozhikode",
+        "city": "Kozhikode",
+        "pincode": "673525"
+      }
     }
   ],
   "products": [
