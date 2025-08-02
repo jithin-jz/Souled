@@ -71,6 +71,33 @@
           },
           "paymentMethod": "COD",
           "upiId": "",
+          "status": "Delivered"
+        },
+        {
+          "id": "1754143948778",
+          "date": "2025-08-02T14:12:28.778Z",
+          "items": [
+            {
+              "id": "p40",
+              "name": "Ina Crop",
+              "price": 3999,
+              "category": "Women",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1712042654_5303319.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Leaf village meets glam in this confident crop.",
+              "stock": 21,
+              "quantity": 1
+            }
+          ],
+          "total": 3999,
+          "address": {
+            "name": "jithin jz",
+            "phone": "9562449137",
+            "street": "Kochi, India",
+            "city": "kochi",
+            "pincode": "600001"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
           "status": "Processing"
         }
       ],
@@ -92,8 +119,70 @@
       "isBlock": false,
       "cart": [],
       "wishlist": [],
-      "orders": [],
-      "created_at": "2025-08-01T05:38:31.965Z"
+      "orders": [
+        {
+          "id": "1754147370371",
+          "date": "2025-08-02T15:09:30.371Z",
+          "items": [
+            {
+              "id": "p03",
+              "name": "Luffy Shorts",
+              "price": 1649,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 1649,
+          "address": {
+            "name": "jithin jz",
+            "phone": "9562449137",
+            "street": "Kochi, India",
+            "city": "kochi",
+            "pincode": "600001"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Delivered"
+        },
+        {
+          "id": "1754147610521",
+          "date": "2025-08-02T15:13:30.521Z",
+          "items": [
+            {
+              "id": "p06",
+              "name": "Spidey Hoodie",
+              "price": 2599,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1734954285_4294840.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Swing into action with this Spider-Man inspired hoodie.",
+              "stock": 32,
+              "quantity": 1
+            }
+          ],
+          "total": 2599,
+          "address": {
+            "name": "jithin jz",
+            "phone": "9562449137",
+            "street": "Kochi, India",
+            "city": "kochi",
+            "pincode": "600001"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        }
+      ],
+      "created_at": "2025-08-01T05:38:31.965Z",
+      "address": {
+        "name": "jithin jz",
+        "phone": "9562449137",
+        "street": "Kochi, India",
+        "city": "kochi",
+        "pincode": "600001"
+      }
     },
     {
       "id": "1",
@@ -112,7 +201,7 @@
     {
       "id": "p01",
       "name": "Goku Tee",
-      "price": 1499,
+      "price": 1490,
       "category": "Men",
       "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181056_7349348.jpg?format=webp&w=300&dpr=1.5",
       "description": "Power up in this Goku-themed tee with bold print and soft fabric.",

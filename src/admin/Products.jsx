@@ -36,46 +36,46 @@ const AdminProducts = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <AdminNavbar /> {/* ✅ Navbar added */}
+    <div className="min-h-screen flex flex-col bg-gray-900 text-white">
+      <AdminNavbar />
 
-      <main className="flex-grow p-6 bg-white">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-red-600">Manage Products</h2>
+      <main className="flex-grow p-6">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-white tracking-wide">Manage Products</h2>
           <Link
             to="/admin/products/add"
-            className="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-4 py-2 rounded transition"
+            className="bg-red-600 hover:bg-red-500 text-white text-sm font-semibold px-4 py-2 rounded-xl transition"
           >
             + Add Product
           </Link>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full bg-white shadow-md rounded">
+        <div className="overflow-x-auto rounded-xl bg-gray-800 shadow-inner">
+          <table className="w-full text-left">
             <thead>
-              <tr className="bg-gray-100 text-left">
-                <th className="p-3">Name</th>
-                <th className="p-3">Price</th>
-                <th className="p-3">Category</th>
-                <th className="p-3">Actions</th>
+              <tr className="bg-gray-700 text-sm text-gray-300">
+                <th className="p-4">Name</th>
+                <th className="p-4">Price</th>
+                <th className="p-4">Category</th>
+                <th className="p-4">Actions</th>
               </tr>
             </thead>
             <tbody>
               {products.map((product) => (
-                <tr key={product.id} className="border-t hover:bg-gray-50">
-                  <td className="p-3">{product.name}</td>
-                  <td className="p-3">₹{product.price}</td>
-                  <td className="p-3">{product.category}</td>
-                  <td className="p-3 flex gap-4">
+                <tr key={product.id} className="border-t border-gray-700 hover:bg-gray-700/30">
+                  <td className="p-4">{product.name}</td>
+                  <td className="p-4">₹{product.price}</td>
+                  <td className="p-4">{product.category}</td>
+                  <td className="p-4 flex gap-4">
                     <Link
                       to={`/admin/products/edit/${product.id}`}
-                      className="text-blue-600 hover:underline text-sm"
+                      className="text-blue-400 hover:underline text-sm font-medium"
                     >
                       Edit
                     </Link>
                     <button
                       onClick={() => handleDelete(product.id)}
-                      className="text-red-600 hover:underline text-sm"
+                      className="text-red-400 hover:underline text-sm font-medium"
                     >
                       Delete
                     </button>
@@ -84,7 +84,7 @@ const AdminProducts = () => {
               ))}
               {products.length === 0 && (
                 <tr>
-                  <td colSpan="4" className="text-center p-4 text-gray-500">
+                  <td colSpan="4" className="text-center p-6 text-gray-400">
                     No products found.
                   </td>
                 </tr>
@@ -93,6 +93,10 @@ const AdminProducts = () => {
           </table>
         </div>
       </main>
+
+      <footer className="text-center text-sm p-4 bg-gray-900 text-gray-400 border-t border-gray-700">
+        &copy; {new Date().getFullYear()} SOULED Admin. All rights reserved.
+      </footer>
     </div>
   );
 };

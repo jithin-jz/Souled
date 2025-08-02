@@ -21,25 +21,30 @@ const Reports = () => {
   const totalRevenue = orders.reduce((sum, order) => sum + (order.total || 0), 0);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <AdminNavbar /> {/* ✅ Navbar added */}
+    <div className="min-h-screen flex flex-col bg-gray-900 text-white">
+      <AdminNavbar />
 
-      <main className="flex-grow p-6 bg-white">
-        <h2 className="text-2xl font-bold text-red-600 mb-4">Order Reports</h2>
+      <main className="flex-grow p-6">
+        <h2 className="text-2xl font-bold text-white tracking-wide mb-6">Order Reports</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div className="bg-white p-4 shadow-md rounded">
-            <h3 className="text-lg font-semibold">Total Orders</h3>
-            <p className="text-2xl font-bold">{totalOrders}</p>
-          </div>
-          <div className="bg-white p-4 shadow-md rounded">
-            <h3 className="text-lg font-semibold">Total Revenue</h3>
-            <p className="text-2xl font-bold">₹{totalRevenue.toFixed(2)}</p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <ReportCard title="Total Orders" value={totalOrders} color="bg-blue-600" />
+          <ReportCard title="Total Revenue" value={`₹${totalRevenue.toFixed(2)}`} color="bg-green-600" />
         </div>
       </main>
+
+      <footer className="text-center text-sm p-4 bg-gray-900 text-gray-400 border-t border-gray-700">
+        &copy; {new Date().getFullYear()} SOULED Admin. All rights reserved.
+      </footer>
     </div>
   );
 };
+
+const ReportCard = ({ title, value, color }) => (
+  <div className={`rounded-xl text-white p-6 ${color} shadow-inner transition-transform hover:scale-105`}>
+    <h3 className="text-sm uppercase font-semibold opacity-90 mb-1">{title}</h3>
+    <p className="text-3xl font-bold">{value}</p>
+  </div>
+);
 
 export default Reports;

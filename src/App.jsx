@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 
-// Components
+// Shared Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
@@ -36,6 +36,10 @@ import Dashboard from './admin/Dashboard';
 import Users from './admin/Users';
 import AdminProducts from './admin/Products';
 import Reports from './admin/Reports';
+import AddProduct from './admin/AddProduct';
+import EditProduct from './admin/EditProduct';
+import AdminUserDetails from './admin/AdminUserDetails';
+import AdminOrderManagement from './admin/AdminOrderManagement';
 
 const AppContent = () => {
   const { loading, user } = useAuth();
@@ -44,7 +48,7 @@ const AppContent = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Only show Navbar/Footer if not Admin */}
+      {/* Show Navbar and Footer only for non-admins */}
       {user?.role !== 'Admin' && <Navbar />}
 
       <main className="flex-grow">
@@ -67,7 +71,11 @@ const AppContent = () => {
           {/* Admin Routes */}
           <Route path="/admin/dashboard" element={<AdminRoute><Dashboard /></AdminRoute>} />
           <Route path="/admin/users" element={<AdminRoute><Users /></AdminRoute>} />
+          <Route path="/admin/users/:id" element={<AdminRoute><AdminUserDetails /></AdminRoute>} />
           <Route path="/admin/products" element={<AdminRoute><AdminProducts /></AdminRoute>} />
+          <Route path="/admin/products/add" element={<AdminRoute><AddProduct /></AdminRoute>} />
+          <Route path="/admin/products/edit/:id" element={<AdminRoute><EditProduct /></AdminRoute>} />
+          <Route path="/admin/orders" element={<AdminRoute><AdminOrderManagement /></AdminRoute>} />
           <Route path="/admin/reports" element={<AdminRoute><Reports /></AdminRoute>} />
         </Routes>
       </main>
@@ -82,7 +90,7 @@ const App = () => (
     <AuthProvider>
       <CartProvider>
         <AppContent />
-        <ToastContainer position="bottom-right" autoClose={1000} hideProgressBar />
+        <ToastContainer position="bottom-right" autoClose={1500} hideProgressBar />
       </CartProvider>
     </AuthProvider>
   </Router>
