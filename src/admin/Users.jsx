@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import { toast } from 'react-toastify';
 import AdminNavbar from './AdminNavbar';
+import { Eye, Ban, CheckCircle, Trash2 } from 'lucide-react';
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -71,26 +72,31 @@ const AdminUsers = () => {
                       {user.isBlock ? 'Blocked' : 'Active'}
                     </span>
                   </td>
-                  <td className="p-4 flex gap-2 justify-center flex-wrap">
+                  <td className="p-4 flex gap-4 justify-center flex-wrap">
                     <button
                       onClick={() => navigate(`/admin/users/${user.id}`)}
-                      className="bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded-lg text-sm font-medium"
+                      className="hover:scale-110 transition-transform"
+                      title="View"
                     >
-                      View
+                      <Eye className="w-5 h-5 text-blue-400 hover:text-blue-300" />
                     </button>
                     <button
                       onClick={() => toggleBlock(user.id, user.isBlock)}
-                      className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                        user.isBlock ? 'bg-green-600 hover:bg-green-500' : 'bg-yellow-600 hover:bg-yellow-500'
-                      }`}
+                      className="hover:scale-110 transition-transform"
+                      title={user.isBlock ? 'Unblock' : 'Block'}
                     >
-                      {user.isBlock ? 'Unblock' : 'Block'}
+                      {user.isBlock ? (
+                        <CheckCircle className="w-5 h-5 text-green-400 hover:text-green-300" />
+                      ) : (
+                        <Ban className="w-5 h-5 text-yellow-400 hover:text-yellow-300" />
+                      )}
                     </button>
                     <button
                       onClick={() => deleteUser(user.id)}
-                      className="bg-red-600 hover:bg-red-500 px-3 py-1.5 rounded-lg text-sm font-medium"
+                      className="hover:scale-110 transition-transform"
+                      title="Delete"
                     >
-                      Delete
+                      <Trash2 className="w-5 h-5 text-red-400 hover:text-red-300" />
                     </button>
                   </td>
                 </tr>
@@ -108,7 +114,8 @@ const AdminUsers = () => {
       </main>
 
       <footer className="text-center text-sm p-4 bg-gray-950 text-gray-400 border-t border-gray-800">
-        &copy; {new Date().getFullYear()} <span className="text-white font-semibold">Souled Admin</span>. All rights reserved.
+        &copy; {new Date().getFullYear()}{' '}
+        <span className="text-white font-semibold">Souled Admin</span>. All rights reserved.
       </footer>
     </div>
   );

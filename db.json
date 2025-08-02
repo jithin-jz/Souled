@@ -173,6 +173,33 @@
           "paymentMethod": "COD",
           "upiId": "",
           "status": "Processing"
+        },
+        {
+          "id": "1754148923348",
+          "date": "2025-08-02T15:35:23.348Z",
+          "items": [
+            {
+              "id": "p15",
+              "name": "Black Panther Hoodie",
+              "price": 2699,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1746300875_2958037.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Wakanda forever with this royal hoodie.",
+              "stock": 21,
+              "quantity": 1
+            }
+          ],
+          "total": 2699,
+          "address": {
+            "name": "jithin jz",
+            "phone": "9562449137",
+            "street": "Kochi, India",
+            "city": "kochi",
+            "pincode": "600001"
+          },
+          "paymentMethod": "UPI",
+          "upiId": "jz@fbl",
+          "status": "Shipped"
         }
       ],
       "created_at": "2025-08-01T05:38:31.965Z",
