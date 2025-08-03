@@ -6,6 +6,28 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
+const COLORS = ['#34d399', '#f87171', '#facc15'];
+
+const chartTheme = {
+  backgroundColor: 'transparent',
+  textColor: '#e2e8f0',
+  gridColor: '#4a5568',
+  tooltip: {
+    contentStyle: {
+      backgroundColor: '#1f2937',
+      borderColor: '#4a5568',
+      borderRadius: 8,
+      color: '#e2e8f0',
+    },
+    itemStyle: { color: '#e2e8f0' },
+    labelStyle: { color: '#f1f5f9' },
+    cursor: { fill: 'transparent' },
+  },
+  legendStyle: {
+    color: '#cbd5e1',
+  },
+};
+
 const Reports = () => {
   const [users, setUsers] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -14,15 +36,12 @@ const Reports = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const usersRes = await api.get('/users');
-        const usersData = usersRes.data || [];
+        const res = await api.get('/users');
+        const usersData = res.data || [];
         setUsers(usersData);
-
-        // Extract all nested orders from users
-        const allOrders = usersData.flatMap(user => user.orders || []);
-        setOrders(allOrders);
+        setOrders(usersData.flatMap(user => user.orders || []));
       } catch (error) {
-        console.error('Failed to fetch data:', error);
+        console.error('Failed to fetch:', error);
         setUsers([]);
         setOrders([]);
       } finally {
@@ -35,59 +54,28 @@ const Reports = () => {
   const totalOrders = orders.length;
   const totalRevenue = orders.reduce((sum, order) => sum + Number(order.total || 0), 0);
 
-  const revenueTimeline = orders.map((o, i) => ({
+  const revenueTimeline = orders.map((order, i) => ({
     name: `Order ${i + 1}`,
-    total: Number(o.total) || 0,
+    total: Number(order.total || 0),
   }));
 
-  const paymentMethods = ['UPI', 'COD'];
-  const paymentDistribution = paymentMethods.map(method => ({
+  const paymentDistribution = ['UPI', 'COD'].map(method => ({
     name: method,
-    count: orders.filter(o => o.paymentMethod === method).length
+    count: orders.filter(order => order.paymentMethod === method).length,
   }));
 
-  const statusOptions = ['Processing', 'Shipped', 'Delivered'];
-  const statusCounts = statusOptions.map(status => ({
+  const statusDistribution = ['Processing', 'Shipped', 'Delivered'].map(status => ({
     name: status,
-    count: orders.filter(o => o.status === status).length
+    count: orders.filter(order => order.status === status).length,
   }));
-
-  const COLORS = ['#34d399', '#f87171', '#facc15'];
-
-  const chartTheme = {
-    backgroundColor: 'transparent',
-    textColor: '#e2e8f0',
-    gridColor: '#4a5568',
-    tooltip: {
-      contentStyle: {
-        backgroundColor: '#1f2937',
-        borderColor: '#4a5568',
-        borderRadius: 8,
-        color: '#e2e8f0',
-      },
-      itemStyle: {
-        color: '#e2e8f0',
-      },
-      labelStyle: {
-        color: '#f1f5f9',
-      },
-      cursor: { fill: 'transparent' },
-    },
-    legendStyle: {
-      color: '#cbd5e1',
-    },
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
       <AdminNavbar />
-      <main className="flex-grow p-6">
-        <h2 className="text-2xl font-bold tracking-wide mb-6 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500">
-          Admin Reports Overview
-        </h2>
 
+      <main className="flex-grow p-6 max-w-7xl mx-auto w-full">
         {loading ? (
-          <div className="text-center text-gray-400">Loading reports...</div>
+          <div className="text-center text-gray-400 mt-20">Loading reports...</div>
         ) : (
           <>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -96,7 +84,6 @@ const Reports = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Line Chart: Revenue Over Orders */}
               <div className="h-[300px]">
                 <h2 className="text-lg font-semibold mb-2">Revenue Timeline</h2>
                 <ResponsiveContainer width="100%" height="100%">
@@ -116,7 +103,6 @@ const Reports = () => {
                 </ResponsiveContainer>
               </div>
 
-              {/* Pie Chart: Payment Method Distribution */}
               <div className="h-[300px]">
                 <h2 className="text-lg font-semibold mb-2">Payment Methods</h2>
                 <ResponsiveContainer width="100%" height="100%">
@@ -140,18 +126,17 @@ const Reports = () => {
                 </ResponsiveContainer>
               </div>
 
-              {/* Bar Chart: Order Status Distribution */}
               <div className="h-[300px] lg:col-span-2">
                 <h2 className="text-lg font-semibold mb-2">Order Status Distribution</h2>
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={statusCounts}>
+                  <BarChart data={statusDistribution}>
                     <CartesianGrid strokeDasharray="3 3" stroke={chartTheme.gridColor} />
                     <XAxis dataKey="name" stroke={chartTheme.textColor} />
                     <YAxis stroke={chartTheme.textColor} />
                     <Tooltip {...chartTheme.tooltip} />
                     <Bar dataKey="count">
-                      {statusCounts.map((entry, index) => (
-                        <Cell key={`bar-${index}`} fill={COLORS[index % COLORS.length]} />
+                      {statusDistribution.map((_, i) => (
+                        <Cell key={i} fill={COLORS[i % COLORS.length]} />
                       ))}
                     </Bar>
                   </BarChart>
@@ -162,8 +147,8 @@ const Reports = () => {
         )}
       </main>
 
-      <footer className="text-center text-sm p-4 bg-gray-900 text-gray-400 border-t border-gray-700">
-        &copy; {new Date().getFullYear()} SOULED Admin. All rights reserved.
+      <footer className="text-center text-sm p-4 bg-gray-950 text-gray-400 border-t border-gray-800">
+        &copy; {new Date().getFullYear()} <span className="text-white font-semibold">SOULED Admin</span>. All rights reserved.
       </footer>
     </div>
   );
@@ -171,7 +156,7 @@ const Reports = () => {
 
 const StatCard = ({ title, value, color }) => (
   <div className={`rounded-xl text-white p-5 ${color} transition-transform hover:scale-105`}>
-    <p className="text-sm uppercase font-semibold opacity-90">{title}</p>
+    <p className="text-sm uppercase font-semibold opacity-80">{title}</p>
     <h2 className="text-2xl font-bold">{value}</h2>
   </div>
 );

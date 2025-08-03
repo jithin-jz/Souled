@@ -14,14 +14,18 @@ const EditProduct = () => {
     stock: '',
     image: ''
   });
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const res = await api.get(`/products/${id}`);
         setFormData(res.data);
-      } catch (error) {
+      } catch {
         toast.error('Failed to load product');
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -37,104 +41,114 @@ const EditProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const { name, price, category, stock, image } = formData;
+    if (!name || !price || !category || !stock || !image) {
+      toast.error('Please fill out all fields');
+      return;
+    }
 
+    setSubmitting(true);
     try {
       await api.patch(`/products/${id}`, {
         ...formData,
-        price: parseFloat(formData.price),
-        stock: parseInt(formData.stock),
+        price: parseFloat(price),
+        stock: parseInt(stock)
       });
-      toast.success('Product updated successfully');
+      toast.success('Product updated');
       navigate('/admin/products');
-    } catch (error) {
-      toast.error('Failed to update product');
+    } catch {
+      toast.error('Failed to update');
+    } finally {
+      setSubmitting(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+    <div className="min-h-screen flex flex-col bg-gray-950 text-white">
       <AdminNavbar />
 
-      <main className="flex-grow flex items-center justify-center px-4 py-10">
-        <div className="w-full max-w-2xl backdrop-blur-xl bg-white/5 border border-white/10 p-8 rounded-2xl shadow-2xl">
-          <h2 className="text-3xl font-extrabold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 tracking-wider uppercase">
-            Edit Product
-          </h2>
+      <main className="flex-grow flex items-center justify-center px-4 py-8">
+        {loading ? (
+          <p className="text-gray-400">Loading product...</p>
+        ) : (
+          <div className="w-full max-w-xl bg-gray-900 border border-gray-800 p-6 rounded-xl">
+            <h2 className="text-xl font-semibold text-white mb-6 text-center">Edit Product</h2>
+            <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+              <div>
+                <label className="block mb-1">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full p-2 rounded bg-gray-800 text-white outline-none border border-gray-700"
+                />
+              </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-sm mb-1 font-semibold">Product Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Marvel Hoodie"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
+              <div>
+                <label className="block mb-1">Price (₹)</label>
+                <input
+                  type="number"
+                  name="price"
+                  value={formData.price}
+                  onChange={handleChange}
+                  className="w-full p-2 rounded bg-gray-800 text-white outline-none border border-gray-700"
+                />
+              </div>
 
-            <div>
-              <label className="block text-sm mb-1 font-semibold">Price (₹)</label>
-              <input
-                type="number"
-                name="price"
-                value={formData.price}
-                onChange={handleChange}
-                placeholder="999"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
+              <div>
+                <label className="block mb-1">Category</label>
+                <select
+                  name="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                  className="w-full p-2 rounded bg-gray-800 text-white outline-none border border-gray-700"
+                >
+                  <option value="Men">Men</option>
+                  <option value="Women">Women</option>
+                </select>
+              </div>
 
-            <div>
-              <label className="block text-sm mb-1 font-semibold">Category</label>
-              <select
-                name="category"
-                value={formData.category}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-gray-800 text-white outline-none focus:ring-2 focus:ring-indigo-500"
+              <div>
+                <label className="block mb-1">Stock</label>
+                <input
+                  type="number"
+                  name="stock"
+                  value={formData.stock}
+                  onChange={handleChange}
+                  className="w-full p-2 rounded bg-gray-800 text-white outline-none border border-gray-700"
+                />
+              </div>
+
+              <div>
+                <label className="block mb-1">Image URL</label>
+                <input
+                  type="text"
+                  name="image"
+                  value={formData.image}
+                  onChange={handleChange}
+                  className="w-full p-2 rounded bg-gray-800 text-white outline-none border border-gray-700"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={submitting}
+                className={`w-full py-2 rounded font-medium ${
+                  submitting
+                    ? 'bg-gray-700 cursor-not-allowed'
+                    : 'bg-blue-600 hover:bg-blue-500'
+                } transition`}
               >
-                <option value="Men">Men</option>
-                <option value="Women">Women</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm mb-1 font-semibold">Stock</label>
-              <input
-                type="number"
-                name="stock"
-                value={formData.stock}
-                onChange={handleChange}
-                placeholder="50"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm mb-1 font-semibold">Image URL</label>
-              <input
-                type="text"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
-                placeholder="https://example.com/product.jpg"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 px-6 py-3 rounded-xl font-bold text-white transition duration-200 uppercase shadow-lg"
-            >
-              Save Changes
-            </button>
-          </form>
-        </div>
+                {submitting ? 'Saving...' : 'Update Product'}
+              </button>
+            </form>
+          </div>
+        )}
       </main>
 
-      <footer className="text-center text-sm p-4 bg-gray-950 text-gray-400 border-t border-gray-800">
-        &copy; {new Date().getFullYear()} <span className="text-white font-semibold">Souled Admin</span>. All rights reserved.
+      <footer className="text-center text-xs p-4 text-gray-500 border-t border-gray-800">
+        &copy; {new Date().getFullYear()} <span className="text-white font-semibold">Souled Admin</span>
       </footer>
     </div>
   );

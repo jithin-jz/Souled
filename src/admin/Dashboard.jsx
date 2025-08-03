@@ -52,16 +52,7 @@ const Dashboard = () => {
     total: o.total,
   }));
 
-  const stockByCategory = ['Men', 'Women'].map((cat, i) => ({
-    category: cat,
-    stock: products
-      .filter(p => p.category === cat)
-      .reduce((sum, p) => sum + p.stock, 0),
-    fill: BAR_COLORS[(i + 2) % BAR_COLORS.length]
-  }));
-
   const chartTheme = {
-    backgroundColor: 'transparent',
     textColor: '#e2e8f0',
     gridColor: '#4a5568',
     tooltip: {
@@ -71,113 +62,95 @@ const Dashboard = () => {
         borderRadius: 8,
         color: '#e2e8f0',
       },
-      itemStyle: {
-        color: '#e2e8f0',
-      },
-      labelStyle: {
-        color: '#f1f5f9',
-      },
+      itemStyle: { color: '#e2e8f0' },
+      labelStyle: { color: '#f1f5f9' },
       cursor: { fill: 'transparent' },
     },
-    legendStyle: {
-      color: '#cbd5e1',
-    },
+    legendStyle: { color: '#cbd5e1' },
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
       <AdminNavbar />
-      <main className="flex-grow p-6">
+      <main className="flex-grow p-4 sm:p-6">
         {isRootDashboard ? (
           <>
             {/* Stat Cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               <StatCard title="Users" value={users.length} color="bg-blue-600" />
               <StatCard title="Products" value={products.length} color="bg-green-600" />
               <StatCard title="Orders" value={orders.length} color="bg-orange-600" />
               <StatCard title="Revenue" value={`₹${totalRevenue}`} color="bg-purple-600" />
             </div>
 
-            {/* Charts Grid */}
+            {/* Charts Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Pie Chart: Product Categories */}
-              <div className="h-[300px]">
-                <h2 className="text-lg font-semibold mb-2">Product Categories</h2>
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={categoryData}
-                      dataKey="count"
-                      nameKey="name"
-                      cx="50%"
-                      cy="50%"
-                      outerRadius={100}
-                      label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                    >
-                      {categoryData.map((_, i) => (
-                        <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                      ))}
-                    </Pie>
-                    <Tooltip {...chartTheme.tooltip} />
-                    <Legend wrapperStyle={{ color: chartTheme.legendStyle.color }} />
-                  </PieChart>
-                </ResponsiveContainer>
+              {/* Pie Chart */}
+              <div className="bg-gray-800 rounded-xl p-4 shadow-md">
+                <h2 className="text-lg font-semibold mb-4">Product Categories</h2>
+                <div className="h-[300px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={categoryData}
+                        dataKey="count"
+                        nameKey="name"
+                        cx="50%"
+                        cy="50%"
+                        outerRadius={100}
+                        label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                      >
+                        {categoryData.map((_, i) => (
+                          <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip {...chartTheme.tooltip} />
+                      <Legend wrapperStyle={{ color: chartTheme.legendStyle.color }} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
               </div>
 
-              {/* Bar Chart: Top Products by Stock */}
-              <div className="h-[300px]">
-                <h2 className="text-lg font-semibold mb-2">Top Products by Stock</h2>
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={topProducts}>
-                    <CartesianGrid strokeDasharray="3 3" stroke={chartTheme.gridColor} />
-                    <XAxis dataKey="name" stroke={chartTheme.textColor} />
-                    <YAxis stroke={chartTheme.textColor} />
-                    <Tooltip {...chartTheme.tooltip} />
-                    <Bar dataKey="stock">
-                      {topProducts.map((entry, index) => (
-                        <Cell key={`bar-${index}`} fill={entry.fill} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+              {/* Bar Chart */}
+              <div className="bg-gray-800 rounded-xl p-4 shadow-md">
+                <h2 className="text-lg font-semibold mb-4">Top Products by Stock</h2>
+                <div className="h-[300px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={topProducts}>
+                      <CartesianGrid strokeDasharray="3 3" stroke={chartTheme.gridColor} />
+                      <XAxis dataKey="name" stroke={chartTheme.textColor} />
+                      <YAxis stroke={chartTheme.textColor} />
+                      <Tooltip {...chartTheme.tooltip} />
+                      <Bar dataKey="stock">
+                        {topProducts.map((entry, index) => (
+                          <Cell key={`bar-${index}`} fill={entry.fill} />
+                        ))}
+                      </Bar>
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
               </div>
 
-              {/* Line Chart: Order Timeline */}
-              <div className="h-[300px]">
-                <h2 className="text-lg font-semibold mb-2">Order Revenue Timeline</h2>
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={orderTimeline}>
-                    <CartesianGrid strokeDasharray="3 3" stroke={chartTheme.gridColor} />
-                    <XAxis dataKey="name" stroke={chartTheme.textColor} />
-                    <YAxis stroke={chartTheme.textColor} />
-                    <Tooltip {...chartTheme.tooltip} />
-                    <Line
-                      type="monotone"
-                      dataKey="total"
-                      stroke="#a78bfa"
-                      strokeWidth={2}
-                      dot={{ fill: '#7c3aed' }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-
-              {/* Bar Chart: Stock by Category */}
-              <div className="h-[300px]">
-                <h2 className="text-lg font-semibold mb-2">Total Stock by Category</h2>
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={stockByCategory}>
-                    <CartesianGrid strokeDasharray="3 3" stroke={chartTheme.gridColor} />
-                    <XAxis dataKey="category" stroke={chartTheme.textColor} />
-                    <YAxis stroke={chartTheme.textColor} />
-                    <Tooltip {...chartTheme.tooltip} />
-                    <Bar dataKey="stock">
-                      {stockByCategory.map((entry, index) => (
-                        <Cell key={`cat-${index}`} fill={entry.fill} />
-                      ))}
-                    </Bar>
-                  </BarChart>
-                </ResponsiveContainer>
+              {/* Line Chart */}
+              <div className="bg-gray-800 rounded-xl p-4 shadow-md lg:col-span-2">
+                <h2 className="text-lg font-semibold mb-4">Order Revenue Timeline</h2>
+                <div className="h-[300px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={orderTimeline}>
+                      <CartesianGrid strokeDasharray="3 3" stroke={chartTheme.gridColor} />
+                      <XAxis dataKey="name" stroke={chartTheme.textColor} />
+                      <YAxis stroke={chartTheme.textColor} />
+                      <Tooltip {...chartTheme.tooltip} />
+                      <Line
+                        type="monotone"
+                        dataKey="total"
+                        stroke="#a78bfa"
+                        strokeWidth={2}
+                        dot={{ fill: '#7c3aed' }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
               </div>
             </div>
           </>
@@ -186,8 +159,7 @@ const Dashboard = () => {
         )}
       </main>
 
-      {/* Simple Footer */}
-      <footer className="text-center text-sm p-4 bg-gray-900 text-gray-300">
+      <footer className="text-center text-sm p-4 bg-gray-900 text-gray-400 border-t border-gray-800">
         &copy; {new Date().getFullYear()} SOULED Admin. All rights reserved.
       </footer>
     </div>
@@ -197,7 +169,7 @@ const Dashboard = () => {
 const StatCard = ({ title, value, color }) => (
   <div className={`rounded-xl text-white p-5 ${color} transition-transform hover:scale-105`}>
     <p className="text-sm uppercase font-semibold opacity-90">{title}</p>
-    <h2 className="text-2xl font-bold">{value}</h2>
+    <h2 className="text-2xl font-bold mt-1">{value}</h2>
   </div>
 );
 

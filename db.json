@@ -98,7 +98,7 @@
           },
           "paymentMethod": "COD",
           "upiId": "",
-          "status": "Processing"
+          "status": "Shipped"
         }
       ],
       "created_at": "2025-07-31T06:26:03.311Z",
