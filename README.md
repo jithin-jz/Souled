@@ -6,8 +6,7 @@
 
 ## 🚀 Live Demo
 
-👉 [Live Site](#)  
-> _(Add your deployed site link here)_
+👉 [Live Site](#)
 
 ---
 
