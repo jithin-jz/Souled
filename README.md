@@ -182,5 +182,3 @@ This project is licensed under the MIT License.
 
 - GitHub: [@jithin-jz](https://github.com/jithin-jz)
 - Email: jihinjzx@gmail.com
-
----
