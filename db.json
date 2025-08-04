@@ -8,9 +8,71 @@
       "role": "User",
       "isBlock": false,
       "cart": [],
-      "orders": [],
+      "orders": [
+        {
+          "id": "1754286472936",
+          "date": "2025-08-04T05:47:52.936Z",
+          "items": [
+            {
+              "id": "p10",
+              "name": "Hulk Smash Tee",
+              "price": 1399,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1717862754_1122602.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Raw green style with ‘Smash’ print and wide fit.",
+              "stock": 50,
+              "quantity": 1
+            }
+          ],
+          "total": 1399,
+          "address": {
+            "name": "Jithin Lal",
+            "phone": "9562449137",
+            "street": "koyiloth(h)",
+            "city": "Kozhikode",
+            "pincode": "673527"
+          },
+          "paymentMethod": "UPI",
+          "upiId": "jithin@fbl",
+          "status": "Delivered"
+        },
+        {
+          "id": "1754286598115",
+          "date": "2025-08-04T05:49:58.115Z",
+          "items": [
+            {
+              "id": "p40",
+              "name": "Ina Crop",
+              "price": 3999,
+              "category": "Women",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1712042654_5303319.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Leaf village meets glam in this confident crop.",
+              "stock": 21,
+              "quantity": 1
+            }
+          ],
+          "total": 3999,
+          "address": {
+            "name": "jithin jz",
+            "phone": "9562449137",
+            "street": "Kochi, India",
+            "city": "kochi",
+            "pincode": "600001"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        }
+      ],
       "wishlist": [],
-      "created_at": "2025-07-26T04:09:07.122Z"
+      "created_at": "2025-07-26T04:09:07.122Z",
+      "address": {
+        "name": "jithin jz",
+        "phone": "9562449137",
+        "street": "Kochi, India",
+        "city": "kochi",
+        "pincode": "600001"
+      }
     },
     {
       "id": "1753679581730",
@@ -21,8 +83,43 @@
       "isBlock": false,
       "cart": [],
       "wishlist": [],
-      "orders": [],
-      "created_at": "2025-07-28T05:13:01.730Z"
+      "orders": [
+        {
+          "id": "1754286684808",
+          "date": "2025-08-04T05:51:24.808Z",
+          "items": [
+            {
+              "id": "p06",
+              "name": "Spidey Hoodie",
+              "price": 2599,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1734954285_4294840.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Swing into action with this Spider-Man inspired hoodie.",
+              "stock": 32,
+              "quantity": 1
+            }
+          ],
+          "total": 2599,
+          "address": {
+            "name": "Jithin Lal",
+            "phone": "9562449137",
+            "street": "koyiloth(h), perambra,, kayanna, Koyiloth(H), cherukkad(po), koorachundu(via)",
+            "city": "Kozhikode",
+            "pincode": "673527"
+          },
+          "paymentMethod": "COD",
+          "upiId": "",
+          "status": "Processing"
+        }
+      ],
+      "created_at": "2025-07-28T05:13:01.730Z",
+      "address": {
+        "name": "Jithin Lal",
+        "phone": "9562449137",
+        "street": "koyiloth(h), perambra,, kayanna, Koyiloth(H), cherukkad(po), koorachundu(via)",
+        "city": "Kozhikode",
+        "pincode": "673527"
+      }
     },
     {
       "id": "1753852201866",
@@ -199,7 +296,7 @@
           },
           "paymentMethod": "UPI",
           "upiId": "jz@fbl",
-          "status": "Shipped"
+          "status": "Processing"
         }
       ],
       "created_at": "2025-08-01T05:38:31.965Z",
