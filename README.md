@@ -91,3 +91,29 @@ Souled-Store/
 ├── postcss.config.js               
 ├── vite.config.js                  
 └── README.md                       
+
+
+---
+```bash
+## 🛠️ Installation & Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/jithin-jz/souled-store.git
+   cd souled-store
+
+npm install
+
+npx json-server --watch db.json --port 30001
+
+npm run dev
+
+🤝 Contributing
+Contributions are welcome! Feel free to fork this repo and submit a pull request with improvements or bug fixes.
+
+📄 License
+This project is licensed under the MIT License.
+
+📬 Contact
+Created by Jithin – feel free to connect!
