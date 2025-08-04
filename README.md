@@ -37,9 +37,9 @@
 
 ```bash
 Souled-Store/
-├── public/                         # Static assets like index.html
-├── src/                            # Main application source code
-│   ├── admin/                      # Admin dashboard pages and components
+├── public/                         
+├── src/                            
+│   ├── admin/                     
 │   │   ├── Dashboard.jsx
 │   │   ├── Users.jsx
 │   │   ├── AdminUserDetails.jsx
@@ -48,24 +48,24 @@ Souled-Store/
 │   │   ├── EditProduct.jsx
 │   │   ├── AdminOrderManagement.jsx
 │   │   └── Reports.jsx
-│   ├── assets/                     # Images, videos, logos
-│   ├── components/                 # Reusable UI components
-│   │   ├── layout/                 # Common layout components
+│   ├── assets/                     
+│   ├── components/                 
+│   │   ├── layout/                 
 │   │   │   ├── Navbar.jsx
 │   │   │   ├── Footer.jsx
 │   │   │   └── Loader.jsx
-│   │   └── auth/                   # Login and Register UI
+│   │   └── auth/                  
 │   │       ├── Login.jsx
 │   │       └── Register.jsx
-│   ├── context/                    # Global state (Auth, Cart, Wishlist)
+│   ├── context/                   
 │   │   ├── AuthContext.jsx
 │   │   ├── CartContext.jsx
 │   │   └── WishlistContext.jsx
-│   ├── hooks/                      # Custom React hooks
+│   ├── hooks/                      
 │   │   ├── useAuth.js
 │   │   ├── useCart.js
 │   │   └── useWishlist.js
-│   ├── pages/                      # Main route-based page components
+│   ├── pages/                      
 │   │   ├── Home.jsx
 │   │   ├── Products.jsx
 │   │   ├── SingleProduct.jsx
@@ -75,19 +75,19 @@ Souled-Store/
 │   │   ├── Payment.jsx
 │   │   ├── PaymentSuccess.jsx
 │   │   └── ProfileDetails.jsx
-│   ├── Routes/                     # Route guards
+│   ├── Routes/                     
 │   │   ├── ProtectedRoute.jsx
 │   │   ├── AdminRoute.jsx
 │   │   └── PublicRoute.jsx
-│   ├── constants/                  # App-wide constants
+│   ├── constants/                  
 │   │   └── routes.js
-│   ├── utils/                      # API helper methods
+│   ├── utils/                      
 │   │   └── api.jsx
-│   ├── App.jsx                     # Root App component
-│   └── main.jsx                    # Vite entry point
-├── db.json                         # JSON Server backend data
-├── package.json                    # Project metadata and scripts
-├── tailwind.config.js              # Tailwind CSS configuration
-├── postcss.config.js               # PostCSS configuration
-├── vite.config.js                  # Vite configuration
-└── README.md                       # Project documentation
+│   ├── App.jsx                     
+│   └── main.jsx                    
+├── db.json                         
+├── package.json                    
+├── tailwind.config.js              
+├── postcss.config.js               
+├── vite.config.js                  
+└── README.md                       
