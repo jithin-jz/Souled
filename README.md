@@ -1,49 +1,36 @@
 # 🛒 Souled Store
 
-**Souled Store** is a modern, fully functional eCommerce web application built with **React**, **Tailwind CSS**, and **JSON Server**. Featuring **Marvel** and **Anime** themes, it delivers a fast, responsive, and user-friendly shopping experience with comprehensive features including authentication, cart management, wishlist, payments, and order tracking.
+**Souled Store** is a modern, fully functional eCommerce web application built using **React**, **Tailwind CSS**, and **JSON Server**. Themed around **Marvel** and **Anime**, it offers a fast, responsive, and user-friendly experience with core features like authentication, cart, wishlist, payments, and order history.
+
+---
 
 ## 🚀 Live Demo
 
-👉 **[View Live Site](#)** *(Add your deployed site link here)*
+👉 [Live Site](#)  
+> _(Add your deployed site link here)_
 
-## ✨ Features
+---
 
-### 🎬 **User Experience**
-- Hero section with background video and animated offer slider
-- Product listing with category filters and search functionality
-- Responsive design optimized for all devices
+## 🔥 Features
 
-### 🛍️ **Shopping Features**
-- Add to Cart with quantity validation and toast notifications
-- Wishlist functionality with badge count and localStorage persistence
-- Real-time cart and wishlist updates
+- 🎬 Hero section with background video and animated offer slider  
+- 🛍️ Product listing with category filters and search  
+- 🛒 Add to Cart with quantity validation and toast notifications  
+- ❤️ Wishlist with badge count and localStorage persistence  
+- 🔐 User Authentication (Register & Login)  
+- 💳 Payment page with UPI and Cash on Delivery options  
+- 📦 Order history saved per user (via localStorage)  
+- 📱 Fully responsive and mobile-optimized UI  
+- ⚛️ Context API for global state (Auth, Cart, Wishlist)  
+- 🛠️ Admin Dashboard to manage users, products, and orders  
 
-### 🔐 **Authentication & Security**
-- User registration and login system
-- Protected routes for authenticated users
-- Admin dashboard with role-based access
-
-### 💳 **Payment & Orders**
-- Multiple payment options (UPI and Cash on Delivery)
-- Order history saved per user via localStorage
-- Order management system
-
-### 🛠️ **Admin Features**
-- Admin Dashboard for comprehensive management
-- User management system
-- Product CRUD operations
-- Order tracking and management
-- Analytics and reports
+---
 
 ## 🧱 Tech Stack
 
-| Category | Technology |
-|----------|------------|
-| **Frontend** | React + Vite |
-| **Backend** | JSON Server |
-| **Styling** | Tailwind CSS |
-| **State Management** | Context API |
-| **Routing** | React Router |
+| Frontend     | Backend      | Styling       | State Management |
+|--------------|--------------|---------------|------------------|
+| React + Vite | JSON Server  | Tailwind CSS  | Context API      |
 
 ## 📁 Project Structure
 
