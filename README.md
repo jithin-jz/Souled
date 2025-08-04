@@ -39,6 +39,15 @@
 Souled-Store/
 ├── public/                         # Static assets like index.html
 ├── src/                            # Main application source code
+│   ├── admin/                      # Admin dashboard pages and components
+│   │   ├── Dashboard.jsx
+│   │   ├── Users.jsx
+│   │   ├── AdminUserDetails.jsx
+│   │   ├── Products.jsx
+│   │   ├── AddProduct.jsx
+│   │   ├── EditProduct.jsx
+│   │   ├── AdminOrderManagement.jsx
+│   │   └── Reports.jsx
 │   ├── assets/                     # Images, videos, logos
 │   ├── components/                 # Reusable UI components
 │   │   ├── layout/                 # Common layout components
@@ -66,8 +75,9 @@ Souled-Store/
 │   │   ├── Payment.jsx
 │   │   ├── PaymentSuccess.jsx
 │   │   └── ProfileDetails.jsx
-│   ├── Routes/                     # Protected and public routes
+│   ├── Routes/                     # Route guards
 │   │   ├── ProtectedRoute.jsx
+│   │   ├── AdminRoute.jsx
 │   │   └── PublicRoute.jsx
 │   ├── constants/                  # App-wide constants
 │   │   └── routes.js
