@@ -1,42 +1,53 @@
 # 🛒 Souled Store
 
-**Souled Store** is a modern, fully functional eCommerce web application built using **React**, **Tailwind CSS**, and **JSON Server**. Themed around **Marvel** and **Anime**, it offers a fast, responsive, and user-friendly experience with core features like authentication, cart, wishlist, payments, and order history.
-
----
+**Souled Store** is a modern, fully functional eCommerce web application built with **React**, **Tailwind CSS**, and **JSON Server**. Featuring **Marvel** and **Anime** themes, it delivers a fast, responsive, and user-friendly shopping experience with comprehensive features including authentication, cart management, wishlist, payments, and order tracking.
 
 ## 🚀 Live Demo
 
-👉 [Live Site](#)  
-> _(Add your deployed site link here)_
+👉 **[View Live Site](#)** *(Add your deployed site link here)*
 
----
+## ✨ Features
 
-## 🔥 Features
+### 🎬 **User Experience**
+- Hero section with background video and animated offer slider
+- Product listing with category filters and search functionality
+- Responsive design optimized for all devices
 
-- 🎬 Hero section with background video and animated offer slider  
-- 🛍️ Product listing with category filters and search  
-- 🛒 Add to Cart with quantity validation and toast notifications  
-- ❤️ Wishlist with badge count and localStorage persistence  
-- 🔐 User Authentication (Register & Login)  
-- 💳 Payment page with UPI and Cash on Delivery options  
-- 📦 Order history saved per user (via localStorage)  
-- 📱 Fully responsive and mobile-optimized UI  
-- ⚛️ Context API for global state (Auth, Cart, Wishlist)  
-- 🛠️ Admin Dashboard to manage users, products, and orders  
+### 🛍️ **Shopping Features**
+- Add to Cart with quantity validation and toast notifications
+- Wishlist functionality with badge count and localStorage persistence
+- Real-time cart and wishlist updates
 
----
+### 🔐 **Authentication & Security**
+- User registration and login system
+- Protected routes for authenticated users
+- Admin dashboard with role-based access
+
+### 💳 **Payment & Orders**
+- Multiple payment options (UPI and Cash on Delivery)
+- Order history saved per user via localStorage
+- Order management system
+
+### 🛠️ **Admin Features**
+- Admin Dashboard for comprehensive management
+- User management system
+- Product CRUD operations
+- Order tracking and management
+- Analytics and reports
 
 ## 🧱 Tech Stack
 
-| Frontend     | Backend      | Styling       | State Management |
-|--------------|--------------|---------------|------------------|
-| React + Vite | JSON Server  | Tailwind CSS  | Context API      |
-
----
+| Category | Technology |
+|----------|------------|
+| **Frontend** | React + Vite |
+| **Backend** | JSON Server |
+| **Styling** | Tailwind CSS |
+| **State Management** | Context API |
+| **Routing** | React Router |
 
 ## 📁 Project Structure
 
-```bash
+```
 Souled-Store/
 ├── public/
 ├── src/
@@ -92,27 +103,84 @@ Souled-Store/
 ├── postcss.config.js
 ├── vite.config.js
 └── README.md
+```
 
-# 1. Clone the repository
-git clone https://github.com/jithin-jz/souled-store.git
-cd souled-store
+## 🚀 Getting Started
 
-# 2. Install dependencies
-npm install
+### Prerequisites
 
-# 3. Start JSON Server
-npx json-server --watch db.json --port 3001
+- Node.js (v14 or higher)
+- npm or yarn
 
-# 4. Run the development server
-npm run dev
+### Installation
 
-🤝 Contributing
-Contributions are welcome!
-Feel free to fork this repo and submit a pull request with improvements or bug fixes.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/jithin-jz/souled-store.git
+   cd souled-store
+   ```
 
-📄 License
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start JSON Server**
+   ```bash
+   npx json-server --watch db.json --port 3001
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   
+   Navigate to `http://localhost:5173` to view the application.
+
+## 🛠️ Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Starts the development server |
+| `npm run build` | Builds the app for production |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run ESLint |
+
+## 🌟 Key Features Breakdown
+
+### Context API Implementation
+- **AuthContext**: Manages user authentication state
+- **CartContext**: Handles cart operations and state
+- **WishlistContext**: Manages wishlist functionality
+
+### Route Protection
+- **ProtectedRoute**: Restricts access to authenticated users
+- **AdminRoute**: Admin-only access control
+- **PublicRoute**: Public access routes
+
+### Admin Dashboard
+- User management and analytics
+- Product inventory management
+- Order processing and tracking
+- Sales reports and insights
+
+## 📄 License
+
 This project is licensed under the MIT License.
 
-📬 Contact
-Created by Jithin — feel free to connect!
+## 🙏 Acknowledgments
 
+- Marvel and Anime communities for inspiration
+- React team for the amazing framework
+- Tailwind CSS for the utility-first CSS framework
+
+## 📬 Contact
+
+**Jithin** - *Full Stack Developer*
+
+- GitHub: [@jithin-jz](https://github.com/jithin-jz)
+- Email: jihinjzx@gmail.com
+
+---
