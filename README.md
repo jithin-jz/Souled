@@ -94,7 +94,7 @@ Souled-Store/
 
 
 ---
-```bash
+
 ## 🛠️ Installation & Setup
 
 1. **Clone the repository**
