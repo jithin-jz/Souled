@@ -90,7 +90,7 @@ const App = () => (
     <AuthProvider>
       <CartProvider>
         <AppContent />
-        <ToastContainer position="bottom-right" autoClose={1000} hideProgressBar={false} newestOnTop closeOnClick pauseOnHover theme="colored" />
+        <ToastContainer position="bottom-right" autoClose={500} hideProgressBar={false} newestOnTop closeOnClick pauseOnHover theme="colored" toastClassName="text-xs px-3 py-1 rounded-full min-h-0 h-auto" bodyClassName="m-0 p-0" />
       </CartProvider>
     </AuthProvider>
   </Router>
