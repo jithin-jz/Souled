@@ -113,7 +113,7 @@ const Products = () => {
   }));
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8 bg-gray-900 text-white mb-0">
       <Filters
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -130,7 +130,7 @@ const Products = () => {
       {loading ? (
         <Loader />
       ) : filteredProducts.length === 0 ? (
-        <p className="text-center text-gray-500">No products found.</p>
+        <p className="text-center text-gray-400">No products found.</p>
       ) : (
         groupedByCategory.map(({ category, products, banner }) => (
           <Section

@@ -5,17 +5,23 @@ const Wishlist = () => {
   const { wishlist, removeFromWishlist, addToCart } = useCart();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-4 py-10 bg-gray-900 min-h-[80vh] text-white">
       {wishlist.length === 0 ? (
-        <div className="flex items-center justify-center h-60">
-          <p className="text-gray-500 text-lg">Your wishlist is empty.</p>
+        <div className="flex flex-col items-center justify-center h-60 text-center">
+          <p className="text-gray-400 text-xl mb-4">💔 Your wishlist is empty.</p>
+          <Link
+            to="/products"
+            className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full font-semibold transition"
+          >
+            Browse Products
+          </Link>
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {wishlist.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden"
+              className="bg-gray-800 rounded-xl shadow hover:shadow-lg overflow-hidden flex flex-col"
             >
               <Link to={`/products/${product.id}`}>
                 <img
@@ -24,14 +30,14 @@ const Wishlist = () => {
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="font-bold text-gray-800">{product.name}</h3>
-                  <p className="text-red-600 font-semibold">₹{product.price}</p>
+                  <h3 className="font-bold text-white truncate">{product.name}</h3>
+                  <p className="text-green-400 font-semibold">₹{product.price}</p>
                 </div>
               </Link>
-              <div className="px-4 pb-4 flex justify-between items-center">
+              <div className="px-4 pb-4 mt-auto flex justify-between items-center">
                 <button
                   onClick={() => removeFromWishlist(product.id)}
-                  className="text-red-500 text-sm hover:underline"
+                  className="text-red-400 hover:text-red-500 text-sm font-medium"
                 >
                   Remove
                 </button>
@@ -40,7 +46,7 @@ const Wishlist = () => {
                     addToCart(product);
                     removeFromWishlist(product.id);
                   }}
-                  className="text-green-600 text-sm hover:underline"
+                  className="text-green-400 hover:text-green-500 text-sm font-medium"
                 >
                   Add to Cart
                 </button>

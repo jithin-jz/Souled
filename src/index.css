@@ -5,8 +5,10 @@ html {
 }
 
 body {
-  /* Prevent layout shifts due to scrollbar visibility */
   overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  background-color: #1a202c; /* bg-gray-900 */
 }
 
 /* ---------- Form Input Styling ---------- */
@@ -15,17 +17,18 @@ body {
          focus:outline-none focus:ring-2 focus:ring-green-500;
 }
 
-/* ---------- Marquee Animation ---------- */
+/* ---------- Seamless Marquee Animation ---------- */
 @keyframes marquee {
   0% {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
 .animate-marquee {
+  display: flex;
   animation: marquee 20s linear infinite;
 }
 
@@ -38,4 +41,19 @@ body {
 .btn-black-rounded {
   @apply px-4 py-2 rounded-full bg-black text-white text-sm font-semibold 
          hover:bg-gray-900 transition-all;
+}
+@keyframes stretch {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scaleY(1.8);
+    opacity: 1;
+  }
+}
+/* index.css or App.css */
+html,
+body {
+  overflow-x: hidden;
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -14,17 +15,20 @@ const Register = () => {
     setLoading(true);
     try {
       await register(name, email, password);
+      toast.success('Registered successfully');
+    } catch (error) {
+      toast.error('Registration failed');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4 py-12">
-      <div className="max-w-md w-full space-y-8 border border-red-200 rounded-xl shadow-md p-8">
+    <div className="min-h-screen flex items-center justify-center bg-slate-900 px-4 py-12">
+      <div className="max-w-md w-full space-y-8 border border-slate-700 bg-slate-800 rounded-xl shadow-md p-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-red-600">Register</h2>
-          <p className="mt-2 text-sm text-gray-500">
+          <h2 className="text-3xl font-bold text-white">Register</h2>
+          <p className="mt-2 text-sm text-gray-400">
             Already a member?{' '}
             <Link to="/login" className="text-red-500 hover:underline font-medium">
               Sign in
@@ -39,7 +43,7 @@ const Register = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full px-4 py-2 bg-slate-700 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:text-gray-400"
           />
           <input
             type="email"
@@ -47,7 +51,7 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full px-4 py-2 bg-slate-700 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:text-gray-400"
           />
           <input
             type="password"
@@ -55,7 +59,7 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full px-4 py-2 bg-slate-700 text-white border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:text-gray-400"
           />
 
           <button

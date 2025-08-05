@@ -9,7 +9,7 @@ const SingleProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  const { user } = useAuth(); // ✅ Check logged-in user
+  const { user } = useAuth();
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,8 +17,8 @@ const SingleProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await api.get(`/products/${id}`);
-        setProduct(response.data);
+        const res = await api.get(`/products/${id}`);
+        setProduct(res.data);
       } finally {
         setLoading(false);
       }
@@ -28,32 +28,26 @@ const SingleProduct = () => {
 
   const handleAddToCart = () => {
     if (!user) {
-      toast.error('Please login to add items to cart', { position: 'top-right' });
+      toast.error('Please login to add items to cart');
       return;
     }
-
-    if (product) {
-      addToCart({ ...product, quantity: 1 });
-      toast.success('Added to cart!', { position: 'top-right' });
-    }
+    addToCart({ ...product, quantity: 1 });
+    toast.success('Added to cart!');
   };
 
   const handleBuyNow = () => {
     if (!user) {
-      toast.error('Please login to buy products', { position: 'top-right' });
+      toast.error('Please login to buy products');
       return;
     }
-
-    if (product) {
-      addToCart({ ...product, quantity: 1 });
-      toast.success('Item added to cart!', { position: 'top-right' });
-      navigate('/cart');
-    }
+    addToCart({ ...product, quantity: 1 });
+    toast.success('Item added to cart!');
+    navigate('/cart');
   };
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[60vh] text-xl text-gray-500 animate-pulse">
+      <div className="flex justify-center items-center min-h-[60vh] text-white animate-pulse bg-slate-900">
         Loading product...
       </div>
     );
@@ -61,11 +55,11 @@ const SingleProduct = () => {
 
   if (!product) {
     return (
-      <div className="text-center py-20">
-        <p className="text-red-600 font-medium mb-4">Product not found</p>
+      <div className="flex flex-col items-center justify-center min-h-[60vh] text-white bg-slate-900">
+        <p className="text-red-600 font-semibold mb-4">Product not found</p>
         <button
           onClick={() => navigate(-1)}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+          className="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md"
         >
           Go Back
         </button>
@@ -74,40 +68,42 @@ const SingleProduct = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
+    <div className="bg-slate-900 text-white min-h-screen px-4 py-10">
       {/* Breadcrumb */}
-      <nav className="text-sm text-gray-500 mb-6">
+      <nav className="text-sm text-gray-400 mb-6 max-w-6xl mx-auto">
         <ol className="flex items-center space-x-2">
-          <li><Link to="/" className="hover:text-green-600">Home</Link></li>
+          <li><Link to="/" className="hover:text-green-500">Home</Link></li>
           <li>/</li>
-          <li><Link to="/products" className="hover:text-green-600">Products</Link></li>
+          <li><Link to="/products" className="hover:text-green-500">Products</Link></li>
           <li>/</li>
-          <li className="text-gray-800 font-semibold">{product.name}</li>
+          <li className="text-white font-medium">{product.name}</li>
         </ol>
       </nav>
 
-      {/* Product Card */}
-      <div className="grid md:grid-cols-2 gap-10 bg-white p-6 rounded-2xl shadow-lg">
-        {/* Image */}
-        <div className="rounded-xl overflow-hidden bg-gray-100">
+      {/* Product Section */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 bg-slate-800 p-6 rounded-2xl shadow-md">
+        {/* Product Image */}
+        <div className="bg-slate-700 rounded-xl overflow-hidden">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-[450px] object-cover rounded-xl"
+            className="w-full h-[450px] object-cover"
           />
         </div>
 
-        {/* Details */}
+        {/* Product Details */}
         <div className="flex flex-col justify-between">
           <div className="space-y-4">
-            <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
-            <p className="text-2xl text-green-600 font-semibold">₹{product.price.toFixed(2)}</p>
-            <p className="text-gray-700 text-sm leading-relaxed">
-              {product.description || 'No description available.'}
-            </p>
+            <h1 className="text-3xl font-bold text-white">{product.name}</h1>
+            <p className="text-2xl text-green-400 font-semibold">₹{product.price.toFixed(2)}</p>
+            <p className="text-slate-300 text-sm">{product.description || 'No description available.'}</p>
+
             <div className="text-sm">
-              <span className="font-medium text-gray-800">Category: </span>
-              <Link to={`/products?category=${product.category}`} className="text-green-500 hover:underline">
+              <span className="font-medium text-slate-100">Category: </span>
+              <Link
+                to={`/products?category=${product.category}`}
+                className="text-green-400 hover:underline"
+              >
                 {product.category}
               </Link>
             </div>
@@ -117,13 +113,13 @@ const SingleProduct = () => {
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <button
               onClick={handleAddToCart}
-              className="w-full sm:w-auto px-6 py-3 rounded-lg font-medium text-white bg-green-600 hover:bg-green-700 transition shadow"
+              className="w-full sm:w-auto px-6 py-3 rounded-md font-medium bg-red-600 hover:bg-slate-700 transition"
             >
               Add to Cart
             </button>
             <button
               onClick={handleBuyNow}
-              className="w-full sm:w-auto px-6 py-3 rounded-lg font-medium text-white bg-gray-800 hover:bg-gray-900 transition shadow"
+              className="w-full sm:w-auto px-6 py-3 rounded-md font-medium bg-slate-700 hover:bg-slate-600 transition"
             >
               Buy Now
             </button>

@@ -21,7 +21,6 @@ const Navbar = () => {
     setDropdownOpen(false);
   }, [location.pathname]);
 
-  // ✅ Hide Navbar for Admins only
   if (user?.role === 'Admin') return null;
 
   const navLinks = [
@@ -41,10 +40,9 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#e62429] transition-all duration-300">
+    <nav className="sticky top-0 z-50 bg-slate-900 shadow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
               src="https://www.thesouledstore.com/static/img/non-member-logo2.4f4c390.gif"
@@ -53,15 +51,14 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-6">
               {navLinks.map(link => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 text-white hover:bg-red-500 transition-colors ${
-                    location.pathname === link.to ? 'bg-red-500' : ''
+                  className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 text-white hover:bg-slate-700 transition ${
+                    location.pathname === link.to ? 'bg-slate-800' : ''
                   }`}
                 >
                   {link.icon}
@@ -70,19 +67,19 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="flex items-center space-x-4 border-l border-red-400 pl-6">
+            <div className="flex items-center space-x-4 border-l border-slate-600 pl-6">
               {user ? (
                 <>
                   {userLinks.map(link => (
                     <Link
                       key={link.to}
                       to={link.to}
-                      className="relative p-2 text-white hover:bg-red-500 rounded-full transition"
+                      className="relative p-2 text-white hover:bg-slate-700 rounded-full transition"
                       title={link.label}
                     >
                       {link.icon}
                       {link.badge > 0 && (
-                        <span className="absolute -top-1 -right-1 bg-white text-red-600 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                        <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                           {link.badge}
                         </span>
                       )}
@@ -91,25 +88,25 @@ const Navbar = () => {
                   <div className="relative">
                     <button
                       onClick={() => setDropdownOpen(prev => !prev)}
-                      className="p-2 text-white hover:bg-red-500 rounded-full transition"
+                      className="p-2 text-white hover:bg-slate-700 rounded-full transition"
                       title="Account"
                     >
                       <FiUser />
                     </button>
                     {dropdownOpen && (
-                      <div className="absolute right-0 mt-2 w-48 bg-white text-red-600 rounded-md shadow-lg py-1 z-50 border border-red-100">
-                        <div className="px-4 py-2 text-sm font-medium border-b border-red-100">
+                      <div className="absolute right-0 mt-2 w-48 bg-slate-800 text-white rounded-md shadow-lg py-1 z-50 border border-slate-700">
+                        <div className="px-4 py-2 text-sm font-semibold border-b border-slate-600">
                           👋 {user.name || 'Welcome'}
                         </div>
                         <Link
                           to="/profile"
-                          className="block px-4 py-2 text-sm hover:bg-red-50 flex items-center gap-2"
+                          className="block px-4 py-2 text-sm hover:bg-slate-700 flex items-center gap-2"
                         >
                           <FiUser /> Profile
                         </Link>
                         <button
                           onClick={logout}
-                          className="w-full text-left px-4 py-2 text-sm hover:bg-red-50 flex items-center gap-2"
+                          className="w-full text-left px-4 py-2 text-sm hover:bg-slate-700 flex items-center gap-2"
                         >
                           <FiLogOut /> Logout
                         </button>
@@ -122,8 +119,8 @@ const Navbar = () => {
                   <Link
                     key={link.to}
                     to={link.to}
-                    className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 text-white hover:bg-red-500 transition-colors ${
-                      location.pathname === link.to ? 'bg-red-500' : ''
+                    className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 text-white hover:bg-slate-700 transition ${
+                      location.pathname === link.to ? 'bg-slate-800' : ''
                     }`}
                   >
                     {link.icon}
@@ -134,13 +131,13 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <div className="md:hidden flex items-center">
             {user && (
               <Link to="/cart" className="relative p-2 mr-2 text-white">
                 <FiShoppingCart />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-white text-red-600 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                     {cartCount}
                   </span>
                 )}
@@ -148,7 +145,7 @@ const Navbar = () => {
             )}
             <button
               onClick={() => setMenuOpen(prev => !prev)}
-              className="p-2 rounded-md text-white hover:bg-red-500"
+              className="p-2 rounded-md text-white hover:bg-slate-700"
               aria-label="Toggle menu"
             >
               {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -159,20 +156,20 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#e62429] pb-4 px-4">
+        <div className="md:hidden bg-slate-900 pb-4 px-4">
           <div className="pt-2 pb-3 space-y-1">
             {[...navLinks, ...(user ? userLinks : authLinks)].map(link => (
               <Link
                 key={link.to}
                 to={link.to}
                 className={`flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white ${
-                  location.pathname === link.to ? 'bg-red-600' : 'hover:bg-red-600'
+                  location.pathname === link.to ? 'bg-slate-800' : 'hover:bg-slate-700'
                 }`}
               >
                 {link.icon}
                 <span>{link.label}</span>
                 {link.badge > 0 && (
-                  <span className="ml-auto bg-white text-red-600 text-xs font-bold rounded-full px-2 py-0.5">
+                  <span className="ml-auto bg-red-600 text-white text-xs font-bold rounded-full px-2 py-0.5">
                     {link.badge}
                   </span>
                 )}
@@ -183,13 +180,13 @@ const Navbar = () => {
               <>
                 <Link
                   to="/profile"
-                  className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-600"
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-700"
                 >
                   <FiUser /> Profile
                 </Link>
                 <button
                   onClick={logout}
-                  className="w-full text-left flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-600"
+                  className="w-full text-left flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-700"
                 >
                   <FiLogOut /> Logout
                 </button>

@@ -47,7 +47,7 @@ const AppContent = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gray-900 text-white">
       {/* Show Navbar and Footer only for non-admins */}
       {user?.role !== 'Admin' && <Navbar />}
 
@@ -90,7 +90,7 @@ const App = () => (
     <AuthProvider>
       <CartProvider>
         <AppContent />
-         <ToastContainer position="bottom-right" autoClose={1000} hideProgressBar={false} newestOnTop closeOnClick pauseOnHover theme="colored" />
+        <ToastContainer position="bottom-right" autoClose={1000} hideProgressBar={false} newestOnTop closeOnClick pauseOnHover theme="colored" />
       </CartProvider>
     </AuthProvider>
   </Router>

@@ -12,27 +12,31 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Your Cart is Empty</h2>
-        <p className="text-gray-600 mb-6">Looks like you haven't added anything to your cart yet.</p>
-        <Link 
-          to="/products" 
-          className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300"
-        >
-          Continue Shopping
-        </Link>
+      <div className="flex items-center justify-center min-h-[60vh] bg-gray-900 px-4">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-white mb-4">🛒 Your Cart is Empty</h2>
+          <p className="text-gray-400 mb-6 text-lg">
+            Looks like you haven't added anything to your cart yet.
+          </p>
+          <Link
+            to="/products"
+            className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-full transition-shadow shadow-md hover:shadow-lg"
+          >
+            Continue Shopping
+          </Link>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="container mx-auto px-4 py-8 bg-gray-900 text-white">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Cart Items */}
         <div className="md:col-span-2">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Shopping Cart</h2>
-          <div className="bg-white rounded-2xl shadow-md p-4">
-            <div className="divide-y divide-gray-200">
+          <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
+          <div className="bg-gray-800 rounded-2xl shadow-md p-4">
+            <div className="divide-y divide-gray-700">
               {cart.map((item) => (
                 <CartItem
                   key={item.id}
@@ -55,18 +59,18 @@ const Cart = () => {
 
         {/* Order Summary */}
         <div>
-          <div className="bg-white rounded-2xl shadow-md p-6 sticky top-20">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 border-b pb-2">Order Summary</h3>
-            <div className="space-y-3 text-sm text-gray-700">
+          <div className="bg-gray-800 rounded-2xl shadow-md p-6 sticky top-20">
+            <h3 className="text-xl font-semibold border-b pb-2">Order Summary</h3>
+            <div className="space-y-3 text-sm text-gray-400">
               <div className="flex justify-between">
                 <span>Subtotal</span>
                 <span className="font-medium">₹{cartTotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between">
                 <span>Shipping</span>
-                <span className="text-green-600 font-medium">Free</span>
+                <span className="text-green-400 font-medium">Free</span>
               </div>
-              <div className="border-t pt-3 flex justify-between text-base font-semibold text-gray-800">
+              <div className="border-t pt-3 flex justify-between text-base font-semibold">
                 <span>Total</span>
                 <span>₹{cartTotal.toFixed(2)}</span>
               </div>
@@ -116,13 +120,13 @@ const CartItem = ({ item, onRemove, onUpdateQuantity }) => {
       <img
         src={item.image}
         alt={item.name}
-        className="w-24 h-24 object-cover rounded-xl border border-gray-100"
+        className="w-24 h-24 object-cover rounded-xl border border-gray-700"
       />
 
       {/* Product Info */}
       <div className="flex-1 w-full sm:w-auto">
-        <h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
-        <p className="text-green-600 font-bold mt-1">
+        <h3 className="text-lg font-semibold text-white">{item.name}</h3>
+        <p className="text-green-400 font-bold mt-1">
           ₹{(item.price * quantity).toFixed(2)}
         </p>
       </div>
@@ -130,19 +134,19 @@ const CartItem = ({ item, onRemove, onUpdateQuantity }) => {
       {/* Quantity and Remove */}
       <div className="flex items-center gap-6 w-full sm:w-auto">
         {/* Quantity Controls */}
-        <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
+        <div className="flex items-center border border-gray-700 rounded-md overflow-hidden">
           <button
             onClick={handleDecrease}
-            className="px-3 py-1 text-lg font-bold text-gray-600 hover:bg-gray-100"
+            className="px-3 py-1 text-lg font-bold text-gray-400 hover:bg-gray-700"
           >
             −
           </button>
-          <span className="px-4 py-1 text-sm font-medium text-gray-800">
+          <span className="px-4 py-1 text-sm font-medium text-white">
             {quantity}
           </span>
           <button
             onClick={handleIncrease}
-            className="px-3 py-1 text-lg font-bold text-gray-600 hover:bg-gray-100"
+            className="px-3 py-1 text-lg font-bold text-gray-400 hover:bg-gray-700"
           >
             +
           </button>

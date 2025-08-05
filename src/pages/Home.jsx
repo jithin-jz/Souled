@@ -9,12 +9,11 @@ import { FaHeart } from 'react-icons/fa';
 import Loader from '../components/Loader';
 
 const bannerImages = [
-  'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/HOMEPAGE_3.jpg?format=webp&w=1500&dpr=1.5',
+  'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/Home_Page_BdOVM1E.jpg?format=webp&w=1500&dpr=1.5',
   'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/The_Dragon_Queen_-_Homepage_banner_copy.2.jpg?format=webp&w=1500&dpr=1.5',
-  'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/homepage_copy_xb3zHae.jpg?format=webp&w=1500&dpr=1.5',
+  'https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/banner-images/spiderman_homepage.jpg?format=webp&w=1500&dpr=1.5',
 ];
 
-// ✅ Optimized ProductCard
 const ProductCard = ({ product, onToggleWishlist, isWishlisted }) => {
   const handleToggleWishlist = (e) => {
     e.preventDefault();
@@ -26,28 +25,28 @@ const ProductCard = ({ product, onToggleWishlist, isWishlisted }) => {
     <div className="group relative">
       <button
         onClick={handleToggleWishlist}
-        className="absolute top-2 right-2 z-10 p-2 rounded-full bg-white/80 backdrop-blur-sm"
+        className="absolute top-2 right-2 z-10 p-2 rounded-full bg-gray-900/80 backdrop-blur-sm"
       >
         {isWishlisted ? (
           <FaHeart className="text-red-500" />
         ) : (
-          <FiHeart className="text-gray-500 group-hover:text-red-500" />
+          <FiHeart className="text-gray-400 group-hover:text-red-500" />
         )}
       </button>
 
       <Link to={`/products/${product.id}`} className="block">
-        <div className="overflow-hidden rounded-lg bg-gray-100">
+        <div className="overflow-hidden rounded-lg bg-gray-800">
           <img
             loading="lazy"
             src={product.image || 'https://via.placeholder.com/300x300?text=No+Image'}
             alt={product.name || 'Product'}
             onLoad={(e) => e.currentTarget.classList.add('opacity-100')}
-            className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105 opacity-0 transition-opacity"
+            className="w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105 opacity-0 transition-opacity"
           />
         </div>
         <div className="mt-3">
-          <h3 className="text-gray-900 font-medium">{product.name}</h3>
-          <p className="text-gray-900 font-bold">₹{product.price}</p>
+          <h3 className="text-white font-medium">{product.name}</h3>
+          <p className="text-gray-300 font-bold">₹{product.price}</p>
         </div>
       </Link>
     </div>
@@ -63,7 +62,6 @@ const Home = () => {
   const { wishlist, addToWishlist, removeFromWishlist } = useCart();
   const { user } = useAuth();
 
-  // ✅ Preload banner images
   useEffect(() => {
     bannerImages.forEach((src) => {
       const img = new Image();
@@ -71,7 +69,6 @@ const Home = () => {
     });
   }, []);
 
-  // ✅ Fetch product data
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -90,7 +87,6 @@ const Home = () => {
     fetchProducts();
   }, []);
 
-  // ✅ Auto-rotate banner
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
@@ -109,15 +105,15 @@ const Home = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-[60vh]">
+      <div className="flex justify-center items-center min-h-[60vh] bg-gray-900">
         <Loader />
       </div>
     );
   }
 
   return (
-    <div className="space-y-12 pb-12">
-      {/* ✅ Fixed Banner */}
+    <div className="space-y-12 pb-0 bg-gray-900 text-white">
+      {/* ✅ Banner */}
       <div className="w-full overflow-hidden relative">
         <img
           loading="eager"
@@ -139,9 +135,9 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Offers Marquee */}
-      <div className="overflow-hidden py-2 bg-white">
-        <div className="animate-marquee whitespace-nowrap flex gap-4 px-4">
+      {/* ✅ Continuous Marquee Offers */}
+      <div className="overflow-hidden py-2">
+        <div className="flex gap-8 animate-marquee whitespace-nowrap min-w-max">
           {[
             '🎉 Free Delivery Over ₹499',
             '🔥 Flat 50% Off - Marvel Gear',
@@ -151,8 +147,24 @@ const Home = () => {
             '🧙 Anime Merch From Naruto, One Piece & More!',
           ].map((offer, index) => (
             <div
-              key={index}
-              className="flex-shrink-0 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium"
+              key={`offer1-${index}`}
+              className="flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium text-white shadow-md bg-gray-800"
+            >
+              {offer}
+            </div>
+          ))}
+          {/* Duplicate offers for seamless loop */}
+          {[
+            '🎉 Free Delivery Over ₹499',
+            '🔥 Flat 50% Off - Marvel Gear',
+            '🕸️ Spider-Verse Exclusive',
+            '🚚 COD Available',
+            '🔁 Easy 7-Day Returns',
+            '🧙 Anime Merch From Naruto, One Piece & More!',
+          ].map((offer, index) => (
+            <div
+              key={`offer2-${index}`}
+              className="flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium text-white shadow-md bg-gray-800"
             >
               {offer}
             </div>
@@ -162,7 +174,7 @@ const Home = () => {
 
       {/* Featured Products */}
       <section className="container mx-auto px-4">
-        <h2 className="mb-6 text-2xl font-bold">Featured Products</h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">Featured Products</h2>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {featuredProducts.map((product) => (
             <ProductCard
@@ -177,7 +189,7 @@ const Home = () => {
 
       {/* New Arrivals */}
       <section className="container mx-auto px-4">
-        <h2 className="mb-6 text-2xl font-bold">New Arrivals</h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">New Arrivals</h2>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {newArrivals.map((product) => (
             <ProductCard
@@ -191,10 +203,10 @@ const Home = () => {
       </section>
 
       {/* CTA Button */}
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 text-center mb-0">
         <Link
           to="/products"
-          className="inline-block rounded-full bg-black px-8 py-3 font-medium text-white hover:bg-gray-800"
+          className="inline-block rounded-full bg-white text-black px-8 py-3 font-medium hover:bg-gray-200 transition-colors duration-300"
         >
           View All Products
         </Link>
