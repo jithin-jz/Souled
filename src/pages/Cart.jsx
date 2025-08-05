@@ -14,7 +14,7 @@ const Cart = () => {
     return (
       <div className="flex items-center justify-center min-h-[60vh] bg-gray-900 px-4">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">🛒 Your Cart is Empty</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">🛒</h2>
           <p className="text-gray-400 mb-6 text-lg">
             Looks like you haven't added anything to your cart yet.
           </p>

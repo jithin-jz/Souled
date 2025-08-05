@@ -27,13 +27,15 @@ const Wishlist = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full object-contain"
                 />
-                <div className="p-4">
-                  <h3 className="font-bold text-white truncate">{product.name}</h3>
-                  <p className="text-green-400 font-semibold">₹{product.price}</p>
-                </div>
               </Link>
+              <div className="p-4">
+                <Link to={`/products/${product.id}`}>
+                  <h3 className="font-bold text-white mb-1">{product.name}</h3>
+                  <p className="text-green-400 font-semibold">₹{product.price}</p>
+                </Link>
+              </div>
               <div className="px-4 pb-4 mt-auto flex justify-between items-center">
                 <button
                   onClick={() => removeFromWishlist(product.id)}

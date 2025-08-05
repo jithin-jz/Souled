@@ -52,8 +52,3 @@ body {
     opacity: 1;
   }
 }
-/* index.css or App.css */
-html,
-body {
-  overflow-x: hidden;
-}
