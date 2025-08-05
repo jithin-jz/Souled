@@ -7,18 +7,7 @@
       "password": "1234",
       "role": "User",
       "isBlock": false,
-      "cart": [
-        {
-          "id": "p01",
-          "name": "Goku Tee",
-          "price": 1490,
-          "category": "Men",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181056_7349348.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Power up in this Goku-themed tee with bold print and soft fabric.",
-          "stock": 48,
-          "quantity": 1
-        }
-      ],
+      "cart": [],
       "orders": [
         {
           "id": "1754286472936",
@@ -100,55 +89,46 @@
           "paymentMethod": "COD",
           "upiId": "",
           "status": "Processing"
+        },
+        {
+          "id": "1754397838139",
+          "date": "2025-08-05T12:43:58.139Z",
+          "items": [
+            {
+              "id": "p01",
+              "name": "Goku Tee",
+              "price": 1490,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181056_7349348.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Power up in this Goku-themed tee with bold print and soft fabric.",
+              "stock": 48,
+              "quantity": 1
+            },
+            {
+              "id": "p03",
+              "name": "Luffy Shorts",
+              "price": 1649,
+              "category": "Men",
+              "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
+              "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 3139,
+          "address": {
+            "name": "Jithin",
+            "phone": "1234567890",
+            "street": "Kozhikode",
+            "city": "Kozhikode",
+            "pincode": "673525"
+          },
+          "paymentMethod": "UPI",
+          "upiId": "jithin@fbl",
+          "status": "Processing"
         }
       ],
-      "wishlist": [
-        {
-          "id": "p04",
-          "name": "Zoro Tank",
-          "price": 749,
-          "category": "Men",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1712574659_2554929.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Green tank with swordsman flair, Zoro-themed for warriors.",
-          "stock": 45
-        },
-        {
-          "id": "p07",
-          "name": "Iron Man Tee",
-          "price": 1299,
-          "category": "Men",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1744389529_7123437.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Bold red tee featuring Iron Man’s arc reactor design.",
-          "stock": 16
-        },
-        {
-          "id": "p01",
-          "name": "Goku Tee",
-          "price": 1490,
-          "category": "Men",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181056_7349348.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Power up in this Goku-themed tee with bold print and soft fabric.",
-          "stock": 48
-        },
-        {
-          "id": "p03",
-          "name": "Luffy Shorts",
-          "price": 1649,
-          "category": "Men",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181692_6327423.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Casual shorts inspired by Monkey D. Luffy’s adventurous style.",
-          "stock": 10
-        },
-        {
-          "id": "p02",
-          "name": "Naruto Hoodie",
-          "price": 2999,
-          "category": "Men",
-          "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1726321359_4917403.jpg?format=webp&w=300&dpr=1.5",
-          "description": "Feel like a ninja in this cozy Naruto-inspired hoodie.",
-          "stock": 40
-        }
-      ],
+      "wishlist": [],
       "created_at": "2025-07-26T04:09:07.122Z",
       "address": {
         "name": "Jithin",
