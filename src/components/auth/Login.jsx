@@ -1,26 +1,26 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { toast } from 'react-toastify';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMessage('');
     try {
       const user = await login(email, password);
       if (user) {
-        toast.success('Logged in successfully');
         navigate(user.role === 'Admin' ? '/admin/dashboard' : '/');
       }
     } catch (error) {
-      toast.error('Invalid credentials');
+      setErrorMessage('Invalid email or password');
     } finally {
       setLoading(false);
     }
@@ -38,6 +38,10 @@ const Login = () => {
             </Link>
           </p>
         </div>
+
+        {errorMessage && (
+          <div className="text-red-500 text-sm font-medium text-center">{errorMessage}</div>
+        )}
 
         <form className="space-y-5" onSubmit={handleSubmit}>
           <input
