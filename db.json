@@ -34,7 +34,7 @@
           },
           "paymentMethod": "UPI",
           "upiId": "jithin@fbl",
-          "status": "Delivered"
+          "status": "Shipped"
         },
         {
           "id": "1754286598115",
@@ -88,7 +88,7 @@
           },
           "paymentMethod": "COD",
           "upiId": "",
-          "status": "Processing"
+          "status": "Shipped"
         },
         {
           "id": "1754397838139",
@@ -333,7 +333,7 @@
           },
           "paymentMethod": "COD",
           "upiId": "",
-          "status": "Processing"
+          "status": "Delivered"
         },
         {
           "id": "1754148923348",
@@ -360,7 +360,7 @@
           },
           "paymentMethod": "UPI",
           "upiId": "jz@fbl",
-          "status": "Processing"
+          "status": "Delivered"
         }
       ],
       "created_at": "2025-08-01T05:38:31.965Z",
