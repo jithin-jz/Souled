@@ -12,3 +12,8 @@ const AdminRoute = ({ children }) => {
 };
 
 export default AdminRoute;
+
+// If there's no logged-in user (!user)
+
+// OR the user is not an admin (user.role !== 'Admin')
+// → then show the <NotAuthorized /> component.
