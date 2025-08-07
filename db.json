@@ -34,7 +34,7 @@
           },
           "paymentMethod": "UPI",
           "upiId": "jithin@fbl",
-          "status": "Shipped"
+          "status": "Delivered"
         },
         {
           "id": "1754286598115",
@@ -389,7 +389,7 @@
     {
       "id": "p01",
       "name": "Goku Tee",
-      "price": 1490,
+      "price": 1495,
       "category": "Men",
       "image": "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1753181056_7349348.jpg?format=webp&w=300&dpr=1.5",
       "description": "Power up in this Goku-themed tee with bold print and soft fabric.",
