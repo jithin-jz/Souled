@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-👉 [[Live Site](#)](https://souleds.vercel.app/)
+👉 https://souleds.vercel.app/
 
 ---
 
