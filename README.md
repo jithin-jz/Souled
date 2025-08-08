@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-👉 https://souleds.vercel.app/
+👉 https://souleds.vercel.app
 
 ---
 
