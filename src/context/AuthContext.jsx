@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Load user from localStorage on app load
+  // Load user from localStorage on app load.
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
