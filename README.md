@@ -167,4 +167,4 @@ This project is licensed under the MIT License.
 **Jithin** - *Full Stack Developer*
 
 - GitHub: [@jithin-jz](https://github.com/jithin-jz)
-- Email: jihinjzx@gmail.com
+- Email: jihinjz@gmail.com
