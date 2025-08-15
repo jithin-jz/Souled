@@ -42,15 +42,14 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-slate-900 shadow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-20 flex items-center justify-between">
-
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-6">
-          {navLinks.map(link => (
+          {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 text-white hover:bg-slate-700 transition ${
-                location.pathname === link.to ? 'bg-slate-800' : ''
+                location.pathname === link.to ? "bg-slate-800" : ""
               }`}
             >
               {link.icon}
@@ -63,7 +62,7 @@ const Navbar = () => {
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <Link to="/">
             <img
-              src="https://www.thesouledstore.com/static/img/non-member-logo2.4f4c390.gif"
+              src="https://tss-static-images.gumlet.io/non-member-logo2.gif"
               alt="Logo"
               className="h-12"
             />
@@ -74,7 +73,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-4 border-l border-slate-600 pl-6">
           {user ? (
             <>
-              {userLinks.map(link => (
+              {userLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
@@ -91,7 +90,7 @@ const Navbar = () => {
               ))}
               <div className="relative">
                 <button
-                  onClick={() => setDropdownOpen(prev => !prev)}
+                  onClick={() => setDropdownOpen((prev) => !prev)}
                   className="p-2 text-white hover:bg-slate-700 rounded-full transition"
                   title="Account"
                 >
@@ -100,7 +99,7 @@ const Navbar = () => {
                 {dropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-slate-800 text-white rounded-md shadow-lg py-1 z-50 border border-slate-700">
                     <div className="px-4 py-2 text-sm font-semibold border-b border-slate-600">
-                      👋 {user.name || 'Welcome'}
+                      👋 {user.name || "Welcome"}
                     </div>
                     <Link
                       to="/profile"
@@ -119,12 +118,12 @@ const Navbar = () => {
               </div>
             </>
           ) : (
-            authLinks.map(link => (
+            authLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 text-white hover:bg-slate-700 transition ${
-                  location.pathname === link.to ? 'bg-slate-800' : ''
+                  location.pathname === link.to ? "bg-slate-800" : ""
                 }`}
               >
                 {link.icon}
@@ -147,7 +146,7 @@ const Navbar = () => {
             </Link>
           )}
           <button
-            onClick={() => setMenuOpen(prev => !prev)}
+            onClick={() => setMenuOpen((prev) => !prev)}
             className="p-2 rounded-md text-white hover:bg-slate-700"
           >
             {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -158,7 +157,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-slate-900 px-4 pt-4 pb-6 space-y-4 border-t border-slate-700">
-          {navLinks.map(link => (
+          {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
@@ -171,7 +170,7 @@ const Navbar = () => {
 
           {user ? (
             <>
-              {userLinks.map(link => (
+              {userLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
@@ -200,7 +199,7 @@ const Navbar = () => {
               </button>
             </>
           ) : (
-            authLinks.map(link => (
+            authLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
