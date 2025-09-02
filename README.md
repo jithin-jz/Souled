@@ -103,7 +103,7 @@ Souled-Store/
 1. **Clone the repository**
    ```bash
    git clone https://github.com/jithin-jz/souled.git
-   cd souled-store
+   cd souled
    ```
 
 2. **Install dependencies**
