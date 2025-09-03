@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
-import { toast } from 'react-toastify';
-import api from '../utils/api';
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
+import api from "../utils/api";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -24,25 +24,28 @@ const SingleProduct = () => {
       }
     };
     fetchProduct();
+
+    // ✅ Always scroll to top when product changes
+    window.scrollTo(0, 0);
   }, [id]);
 
   const handleAddToCart = () => {
     if (!user) {
-      toast.error('Please login to add items to cart');
+      toast.error("Please login to add items to cart");
       return;
     }
     addToCart({ ...product, quantity: 1 });
-    toast.success('Added to cart!');
+    toast.success("Added to cart!");
   };
 
   const handleBuyNow = () => {
     if (!user) {
-      toast.error('Please login to buy products');
+      toast.error("Please login to buy products");
       return;
     }
     addToCart({ ...product, quantity: 1 });
-    toast.success('Item added to cart!');
-    navigate('/cart');
+    toast.success("Item added to cart!");
+    navigate("/cart");
   };
 
   if (loading) {
@@ -68,18 +71,7 @@ const SingleProduct = () => {
   }
 
   return (
-    <div className="bg-slate-900 text-white min-h-screen px-4 py-10">
-      {/* Breadcrumb */}
-      <nav className="text-sm text-gray-400 mb-6 max-w-6xl mx-auto">
-        <ol className="flex items-center space-x-2">
-          <li><Link to="/" className="hover:text-green-500">Home</Link></li>
-          <li>/</li>
-          <li><Link to="/products" className="hover:text-green-500">Products</Link></li>
-          <li>/</li>
-          <li className="text-white font-medium">{product.name}</li>
-        </ol>
-      </nav>
-
+    <div className="bg-slate-900 text-white min-h-screen px-4 pt-10 pb-0">
       {/* Product Section */}
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 bg-slate-800 p-6 rounded-2xl shadow-md">
         {/* Product Image */}
@@ -95,8 +87,12 @@ const SingleProduct = () => {
         <div className="flex flex-col justify-between">
           <div className="space-y-4">
             <h1 className="text-3xl font-bold text-white">{product.name}</h1>
-            <p className="text-2xl text-green-400 font-semibold">₹{product.price.toFixed(2)}</p>
-            <p className="text-slate-300 text-sm">{product.description || 'No description available.'}</p>
+            <p className="text-2xl text-green-400 font-semibold">
+              ₹{product.price.toFixed(2)}
+            </p>
+            <p className="text-slate-300 text-sm">
+              {product.description || "No description available."}
+            </p>
 
             <div className="text-sm">
               <span className="font-medium text-slate-100">Category: </span>
