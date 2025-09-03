@@ -77,6 +77,7 @@ const Navbar = () => {
               src="https://tss-static-images.gumlet.io/non-member-logo2.gif"
               alt="Logo"
               className="h-12"
+              loading="eager" // 👈 Fix: prevents lazy placeholder issue
             />
           </Link>
         </div>
@@ -142,14 +143,29 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        {/* Mobile Menu: Menu Left + Cart Right */}
+        <div className="md:hidden flex items-center justify-between w-full">
+          {/* Left: Menu Button */}
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
             className="p-2 rounded-md text-white hover:bg-slate-700"
           >
             {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
+
+          {/* Right: Cart Icon */}
+          <Link
+            to="/cart"
+            className="relative p-2 rounded-md text-white hover:bg-slate-700 transition"
+            title="Cart"
+          >
+            <FiShoppingCart size={22} />
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
+          </Link>
         </div>
       </div>
 
@@ -181,12 +197,6 @@ const Navbar = () => {
                   )}
                 </Link>
               ))}
-              <Link
-                to="/profile"
-                className="flex items-center gap-2 p-2 rounded-md text-white hover:bg-slate-700"
-              >
-                <FiUser /> <span>Profile</span>
-              </Link>
               <button
                 onClick={logout}
                 className="w-full text-left flex items-center gap-2 p-2 rounded-md text-white hover:bg-slate-700"
