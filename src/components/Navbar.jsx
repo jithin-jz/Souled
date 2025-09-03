@@ -1,18 +1,25 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { useCart } from '../context/CartContext';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 import {
-  FiLogOut, FiLogIn, FiUserPlus, FiShoppingCart,
-  FiMenu, FiX, FiUser, FiPackage,
-  FiHome, FiGrid, FiHeart
-} from 'react-icons/fi';
+  FiLogOut,
+  FiLogIn,
+  FiUserPlus,
+  FiShoppingCart,
+  FiMenu,
+  FiX,
+  FiUser,
+  FiPackage,
+  FiHome,
+  FiGrid,
+  FiHeart,
+} from "react-icons/fi";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const { cartCount = 0, wishlistCount = 0 } = useCart();
   const location = useLocation();
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -21,22 +28,27 @@ const Navbar = () => {
     setDropdownOpen(false);
   }, [location.pathname]);
 
-  if (user?.role === 'Admin') return null;
+  if (user?.role === "Admin") return null;
 
   const navLinks = [
-    { to: '/', label: 'HOME', icon: <FiHome /> },
-    { to: '/products', label: 'PRODUCTS', icon: <FiGrid /> }
+    { to: "/", icon: <FiHome />, label: "Home" },
+    { to: "/products", icon: <FiGrid />, label: "Products" },
   ];
 
   const userLinks = [
-    { to: '/cart', label: 'Cart', icon: <FiShoppingCart />, badge: cartCount },
-    { to: '/wishlist', label: 'Wishlist', icon: <FiHeart />, badge: wishlistCount },
-    { to: '/orders', label: 'Orders', icon: <FiPackage /> },
+    { to: "/cart", icon: <FiShoppingCart />, label: "Cart", badge: cartCount },
+    {
+      to: "/wishlist",
+      icon: <FiHeart />,
+      label: "Wishlist",
+      badge: wishlistCount,
+    },
+    { to: "/orders", icon: <FiPackage />, label: "Orders" },
   ];
 
   const authLinks = [
-    { to: '/login', label: 'Login', icon: <FiLogIn /> },
-    { to: '/register', label: 'Register', icon: <FiUserPlus /> },
+    { to: "/login", icon: <FiLogIn />, label: "Login" },
+    { to: "/register", icon: <FiUserPlus />, label: "Register" },
   ];
 
   return (
@@ -48,12 +60,12 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 text-white hover:bg-slate-700 transition ${
+              className={`p-2 rounded-md text-white hover:bg-slate-700 transition ${
                 location.pathname === link.to ? "bg-slate-800" : ""
               }`}
+              title={link.label}
             >
               {link.icon}
-              {link.label}
             </Link>
           ))}
         </div>
@@ -92,15 +104,12 @@ const Navbar = () => {
                 <button
                   onClick={() => setDropdownOpen((prev) => !prev)}
                   className="p-2 text-white hover:bg-slate-700 rounded-full transition"
-                  title="Account"
+                  title="User"
                 >
                   <FiUser />
                 </button>
                 {dropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-slate-800 text-white rounded-md shadow-lg py-1 z-50 border border-slate-700">
-                    <div className="px-4 py-2 text-sm font-semibold border-b border-slate-600">
-                      👋 {user.name || "Welcome"}
-                    </div>
+                  <div className="absolute right-0 mt-2 w-40 bg-slate-800 text-white rounded-md shadow-lg py-1 z-50 border border-slate-700">
                     <Link
                       to="/profile"
                       className="block px-4 py-2 text-sm hover:bg-slate-700 flex items-center gap-2"
@@ -122,29 +131,19 @@ const Navbar = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`px-3 py-2 rounded-md text-sm font-medium flex items-center gap-1 text-white hover:bg-slate-700 transition ${
+                className={`p-2 rounded-md text-white hover:bg-slate-700 transition ${
                   location.pathname === link.to ? "bg-slate-800" : ""
                 }`}
+                title={link.label}
               >
                 {link.icon}
-                {link.label}
               </Link>
             ))
           )}
         </div>
 
-        {/* Mobile Icons */}
-        <div className="md:hidden flex items-center gap-2">
-          {user && (
-            <Link to="/cart" className="relative p-2 text-white">
-              <FiShoppingCart />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
-          )}
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
             className="p-2 rounded-md text-white hover:bg-slate-700"
@@ -161,23 +160,20 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-700"
+              className="flex items-center gap-2 p-2 rounded-md text-white hover:bg-slate-700"
             >
-              {link.icon}
-              {link.label}
+              {link.icon} <span>{link.label}</span>
             </Link>
           ))}
-
           {user ? (
             <>
               {userLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-700"
+                  className="flex items-center gap-2 p-2 rounded-md text-white hover:bg-slate-700"
                 >
-                  {link.icon}
-                  {link.label}
+                  {link.icon} <span>{link.label}</span>
                   {link.badge > 0 && (
                     <span className="ml-auto bg-red-600 text-white text-xs font-bold rounded-full px-2 py-0.5">
                       {link.badge}
@@ -187,15 +183,15 @@ const Navbar = () => {
               ))}
               <Link
                 to="/profile"
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-700"
+                className="flex items-center gap-2 p-2 rounded-md text-white hover:bg-slate-700"
               >
-                <FiUser /> Profile
+                <FiUser /> <span>Profile</span>
               </Link>
               <button
                 onClick={logout}
-                className="w-full text-left flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-700"
+                className="w-full text-left flex items-center gap-2 p-2 rounded-md text-white hover:bg-slate-700"
               >
-                <FiLogOut /> Logout
+                <FiLogOut /> <span>Logout</span>
               </button>
             </>
           ) : (
@@ -203,10 +199,9 @@ const Navbar = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-700"
+                className="flex items-center gap-2 p-2 rounded-md text-white hover:bg-slate-700"
               >
-                {link.icon}
-                {link.label}
+                {link.icon} <span>{link.label}</span>
               </Link>
             ))
           )}
