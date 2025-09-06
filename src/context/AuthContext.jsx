@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  // Login Function (corrected)
   const login = async (email, password) => {
     try {
       const res = await api.get(`/users?email=${email}&password=${password}`);
