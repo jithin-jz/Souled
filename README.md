@@ -107,10 +107,11 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🙏 Acknowledgments
 
-- 🦸 **Marvel** and **Anime** communities for inspiration
-- ⚛️ **React Team** for the amazing framework
-- 🎨 **Tailwind CSS** for the utility-first CSS framework
+- 🦸 [**Marvel**](https://www.marvel.com/) and **Anime** communities for inspiration
+- ⚛️ [**React Team**](https://react.dev/) for the amazing framework
+- 🎨 [**Tailwind CSS**](https://tailwindcss.com/) for the utility-first CSS framework
 - 💙 All contributors and supporters
+
 
 ---
 
