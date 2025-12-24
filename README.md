@@ -81,52 +81,7 @@ A fully functional eCommerce web application themed around **Marvel** and **Anim
 
 ---
 
-## 🛠️ Tech Stack
 
-<div align="center">
-
-| **Category** | **Technology** |
-|:---:|:---:|
-| **Frontend** | React 18.2 + Vite 7.0 |
-| **Styling** | Tailwind CSS 4.1 |
-| **Backend** | JSON Server |
-| **State Management** | Context API |
-| **Routing** | React Router v6 |
-
-</div>
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-```bash
-Node.js (v14 or higher)
-npm or yarn
-```
-
-### Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/jithin-jz/souled.git
-cd souled
-
-# 2. Install dependencies
-npm install
-
-# 3. Start JSON Server (Terminal 1)
-npx json-server --watch db.json --port 3001
-
-# 4. Run development server (Terminal 2)
-npm run dev
-
-# 5. Open your browser
-# Navigate to http://localhost:5173
-```
-
----
 
 
 ## 📁 Project Structure
