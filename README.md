@@ -23,25 +23,25 @@ A fully functional eCommerce web application themed around **Marvel** and **Anim
 
 <table>
   <tr>
-    <td align="center">
-      <img src="screenshots/home.png" alt="Home Page" width="400"/>
+    <td align="center" width="50%">
+      <img src="screenshots/home.png" alt="Home Page" style="width: 100%; max-width: 500px;"/>
       <br/>
       <sub><b>🏠 Home Page</b></sub>
     </td>
-    <td align="center">
-      <img src="screenshots/products.png" alt="Products Page" width="400"/>
+    <td align="center" width="50%">
+      <img src="screenshots/products.png" alt="Products Page" style="width: 100%; max-width: 500px;"/>
       <br/>
       <sub><b>🛍️ Products Page</b></sub>
     </td>
   </tr>
   <tr>
-    <td align="center">
-      <img src="screenshots/cart.png" alt="Shopping Cart" width="400"/>
+    <td align="center" width="50%">
+      <img src="screenshots/cart.png" alt="Shopping Cart" style="width: 100%; max-width: 500px;"/>
       <br/>
       <sub><b>🛒 Shopping Cart</b></sub>
     </td>
-    <td align="center">
-      <img src="screenshots/admin-dashboard.png" alt="Admin Dashboard" width="400"/>
+    <td align="center" width="50%">
+      <img src="screenshots/admin-dashboard.png" alt="Admin Dashboard" style="width: 100%; max-width: 500px;"/>
       <br/>
       <sub><b>📊 Admin Dashboard</b></sub>
     </td>
