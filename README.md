@@ -2,6 +2,11 @@
 
 **Souled Store** is a modern, fully functional eCommerce web application built using **React**, **Tailwind CSS**, and **JSON Server**. Themed around **Marvel** and **Anime**, it offers a fast, responsive, and user-friendly experience with core features like authentication, cart, wishlist, payments, and order history.
 
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.0.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.1-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+
 ---
 
 ## 🚀 Live Demo
