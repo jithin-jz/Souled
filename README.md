@@ -14,12 +14,12 @@
 
 <table>
   <tr>
-    <td><img src="" alt="Home" width="400"/><br/><p align="center"><b>Home</b></p></td>
-    <td><img src="" alt="Products" width="400"/><br/><p align="center"><b>Products</b></p></td>
+    <td><img src="screenshots/home.png" alt="Home" width="400"/><br/><p align="center"><b>Home</b></p></td>
+    <td><img src="screenshots/products.png" alt="Products" width="400"/><br/><p align="center"><b>Products</b></p></td>
   </tr>
   <tr>
-    <td><img src="" alt="Cart" width="400"/><br/><p align="center"><b>Cart</b></p></td>
-    <td><img src="" alt="Admin" width="400"/><br/><p align="center"><b>Admin</b></p></td>
+    <td><img src="screenshots/cart.png" alt="Cart" width="400"/><br/><p align="center"><b>Cart</b></p></td>
+    <td><img src="screenshots/admin-dashboard.png" alt="Admin" width="400"/><br/><p align="center"><b>Admin</b></p></td>
   </tr>
 </table>
 
