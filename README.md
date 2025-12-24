@@ -17,36 +17,14 @@ A fully functional eCommerce web application themed around **Marvel** and **Anim
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 <div align="center">
 
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <img src="screenshots/home.png" alt="Home Page" style="width: 100%; max-width: 500px;"/>
-      <br/>
-      <sub><b>🏠 Home Page</b></sub>
-    </td>
-    <td align="center" width="50%">
-      <img src="screenshots/products.png" alt="Products Page" style="width: 100%; max-width: 500px;"/>
-      <br/>
-      <sub><b>🛍️ Products Page</b></sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <img src="screenshots/cart.png" alt="Shopping Cart" style="width: 100%; max-width: 500px;"/>
-      <br/>
-      <sub><b>🛒 Shopping Cart</b></sub>
-    </td>
-    <td align="center" width="50%">
-      <img src="screenshots/admin-dashboard.png" alt="Admin Dashboard" style="width: 100%; max-width: 500px;"/>
-      <br/>
-      <sub><b>📊 Admin Dashboard</b></sub>
-    </td>
-  </tr>
-</table>
+|                                                |                                                             |
+| :--------------------------------------------: | :---------------------------------------------------------: |
+| ![Home](./screenshots/home.png) <br/> **Home** | ![Products](./screenshots/products.png) <br/> **Products**  |
+| ![Cart](./screenshots/cart.png) <br/> **Cart** | ![Admin](./screenshots/admin-dashboard.png) <br/> **Admin** |
 
 </div>
 
