@@ -2,7 +2,7 @@
 
 # 🛒 Souled Store
 
-### *Modern eCommerce Experience Built with React & Vite*
+### *Modern eCommerce Experience Built with React & JSON Server*
 
 A fully functional eCommerce web application themed around **Marvel** and **Anime**, offering a fast, responsive, and user-friendly shopping experience with authentication, cart, wishlist, payments, and order management.
 
