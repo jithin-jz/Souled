@@ -187,7 +187,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <br/>
 
-[![GitHub stars](https://img.shields.io/github/stars/jithin-jz/souled-frontend?style=social)](https://github.com/jithin-jz/souled-frontend)
-[![GitHub forks](https://img.shields.io/github/forks/jithin-jz/souled-frontend?style=social)](https://github.com/jithin-jz/souled-frontend/fork)
+[![GitHub stars](https://img.shields.io/github/stars/jithin-jz/Souled-Store?style=social)](https://github.com/jithin-jz/Souled-Store)
+[![GitHub forks](https://img.shields.io/github/forks/jithin-jz/Souled-Store?style=social)](https://github.com/jithin-jz/Souled-Store/fork)
 
 </div>
