@@ -181,19 +181,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 📬 Contact
-
-<div align="center">
-
-**Jithin** - *Full Stack Developer*
-
-[![GitHub](https://img.shields.io/badge/GitHub-jithin--jz-181717?style=for-the-badge&logo=github)](https://github.com/jithin-jz)
-[![Email](https://img.shields.io/badge/Email-jihinjzx%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jihinjzx@gmail.com)
-
-</div>
-
----
-
 <div align="center">
 
 <sub>Built with ❤️ by **JITHIN**</sub>
