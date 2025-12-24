@@ -9,12 +9,6 @@
 
 ---
 
-## 🚀 Live Demo
-
-👉 https://souleds.vercel.app
-
----
-
 ## Screenshots
 
 <table>
