@@ -1,67 +1,156 @@
+<div align="center">
+
 # 🛒 Souled Store
 
-**Souled Store** is a modern, fully functional eCommerce web application built using **React**, **Tailwind CSS**, and **JSON Server**. Themed around **Marvel** and **Anime**, it offers a fast, responsive, and user-friendly experience with core features like authentication, cart, wishlist, payments, and order history.
+### *Modern eCommerce Experience Built with React & Vite*
+
+A fully functional eCommerce web application themed around **Marvel** and **Anime**, offering a fast, responsive, and user-friendly shopping experience with authentication, cart, wishlist, payments, and order management.
+
+<br/>
 
 ![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-7.0.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.1-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
 
+</div>
+
 ---
 
-## Screenshots
+## 📸 Screenshots
+
+<div align="center">
 
 <table>
   <tr>
-    <td><img src="screenshots/home.png" alt="Home" width="400"/><br/><p align="center"><b>Home</b></p></td>
-    <td><img src="screenshots/products.png" alt="Products" width="400"/><br/><p align="center"><b>Products</b></p></td>
+    <td align="center">
+      <img src="screenshots/home.png" alt="Home Page" width="400"/>
+      <br/>
+      <sub><b>🏠 Home Page</b></sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/products.png" alt="Products Page" width="400"/>
+      <br/>
+      <sub><b>🛍️ Products Page</b></sub>
+    </td>
   </tr>
   <tr>
-    <td><img src="screenshots/cart.png" alt="Cart" width="400"/><br/><p align="center"><b>Cart</b></p></td>
-    <td><img src="screenshots/admin-dashboard.png" alt="Admin" width="400"/><br/><p align="center"><b>Admin</b></p></td>
+    <td align="center">
+      <img src="screenshots/cart.png" alt="Shopping Cart" width="400"/>
+      <br/>
+      <sub><b>🛒 Shopping Cart</b></sub>
+    </td>
+    <td align="center">
+      <img src="screenshots/admin-dashboard.png" alt="Admin Dashboard" width="400"/>
+      <br/>
+      <sub><b>📊 Admin Dashboard</b></sub>
+    </td>
   </tr>
+</table>
+
+</div>
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🎨 User Experience
+- 🎬 **Hero Section** with background video & animated offers
+- 🛍️ **Product Catalog** with category filters & search
+- 🛒 **Smart Cart** with quantity validation & toast notifications
+- ❤️ **Wishlist** with badge count & localStorage persistence
+- 📱 **Responsive Design** optimized for all devices
+
+</td>
+<td width="50%">
+
+### 🔐 Core Functionality
+- � **User Authentication** (Register & Login)
+- 💳 **Payment Options** (UPI & Cash on Delivery)
+- 📦 **Order History** saved per user
+- ⚛️ **Context API** for global state management
+- 🛠️ **Admin Dashboard** for complete management
+
+</td>
+</tr>
 </table>
 
 ---
 
-## 🔥 Features
+## 🛠️ Tech Stack
 
-- 🎬 Hero section with background video and animated offer slider  
-- 🛍️ Product listing with category filters and search  
-- 🛒 Add to Cart with quantity validation and toast notifications  
-- ❤️ Wishlist with badge count and localStorage persistence  
-- 🔐 User Authentication (Register & Login)  
-- 💳 Payment page with UPI and Cash on Delivery options  
-- 📦 Order history saved per user (via localStorage)  
-- 📱 Fully responsive and mobile-optimized UI  
-- ⚛️ Context API for global state (Auth, Cart, Wishlist)  
-- 🛠️ Admin Dashboard to manage users, products, and orders  
+<div align="center">
+
+| **Category** | **Technology** |
+|:---:|:---:|
+| **Frontend** | React 18.2 + Vite 7.0 |
+| **Styling** | Tailwind CSS 4.1 |
+| **Backend** | JSON Server |
+| **State Management** | Context API |
+| **Routing** | React Router v6 |
+
+</div>
 
 ---
 
-## 🧱 Tech Stack
+## 🚀 Quick Start
 
-| Frontend     | Backend      | Styling       | State Management |
-|--------------|--------------|---------------|------------------|
-| React + Vite | JSON Server  | Tailwind CSS  | Context API      |
+### Prerequisites
+
+```bash
+Node.js (v14 or higher)
+npm or yarn
+```
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/jithin-jz/souled.git
+cd souled
+
+# 2. Install dependencies
+npm install
+
+# 3. Start JSON Server (Terminal 1)
+npx json-server --watch db.json --port 3001
+
+# 4. Run development server (Terminal 2)
+npm run dev
+
+# 5. Open your browser
+# Navigate to http://localhost:5173
+```
+
+---
+
+## 📜 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | 🚀 Starts the development server |
+| `npm run build` | 📦 Builds the app for production |
+| `npm run preview` | 👀 Preview the production build |
+| `npm run lint` | 🔍 Run ESLint |
+
+---
 
 ## 📁 Project Structure
 
 ```
 Souled-Store/
-├── public/
-├── src/
-│   ├── admin/
+├── 📂 public/
+├── 📂 src/
+│   ├── 📂 admin/              # Admin dashboard components
 │   │   ├── Dashboard.jsx
 │   │   ├── Users.jsx
-│   │   ├── AdminUserDetails.jsx
 │   │   ├── Products.jsx
-│   │   ├── AddProduct.jsx
-│   │   ├── EditProduct.jsx
-│   │   ├── AdminOrderManagement.jsx
 │   │   └── Reports.jsx
-│   ├── assets/
-│   ├── components/
+│   ├── 📂 components/         # Reusable components
 │   │   ├── layout/
 │   │   │   ├── Navbar.jsx
 │   │   │   ├── Footer.jsx
@@ -69,116 +158,77 @@ Souled-Store/
 │   │   └── auth/
 │   │       ├── Login.jsx
 │   │       └── Register.jsx
-│   ├── context/
+│   ├── 📂 context/            # Context API providers
 │   │   ├── AuthContext.jsx
 │   │   ├── CartContext.jsx
 │   │   └── WishlistContext.jsx
-│   ├── hooks/
-│   │   ├── useAuth.js
-│   │   ├── useCart.js
-│   │   └── useWishlist.js
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Products.jsx
-│   │   ├── SingleProduct.jsx
-│   │   ├── Cart.jsx
-│   │   ├── Wishlist.jsx
-│   │   ├── Orders.jsx
-│   │   ├── Payment.jsx
-│   │   ├── PaymentSuccess.jsx
-│   │   └── ProfileDetails.jsx
-│   ├── Routes/
-│   │   ├── ProtectedRoute.jsx
-│   │   ├── AdminRoute.jsx
-│   │   └── PublicRoute.jsx
-│   ├── constants/
-│   │   └── routes.js
-│   ├── utils/
-│   │   └── api.jsx
+│   ├── 📂 hooks/              # Custom React hooks
+│   ├── 📂 pages/              # Page components
+│   ├── 📂 Routes/             # Route protection
+│   ├── 📂 utils/              # Utility functions
 │   ├── App.jsx
 │   └── main.jsx
-├── db.json
-├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-├── vite.config.js
-└── README.md
+├── 📄 db.json                 # JSON Server database
+├── 📄 package.json
+└── 📄 README.md
 ```
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
+## 🎯 Key Features Breakdown
 
-- Node.js (v14 or higher)
-- npm or yarn
+### 🔐 Authentication System
+- **AuthContext**: Manages user authentication state across the app
+- **Protected Routes**: Restricts access to authenticated users only
+- **Admin Routes**: Special access control for admin users
+- **Public Routes**: Accessible to all visitors
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/jithin-jz/souled.git
-   cd souled
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start JSON Server**
-   ```bash
-   npx json-server --watch db.json --port 3001
-   ```
-
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser**
-   
-   Navigate to `http://localhost:5173` to view the application.
-
-## 🛠️ Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Starts the development server |
-| `npm run build` | Builds the app for production |
-| `npm run preview` | Preview the production build |
-| `npm run lint` | Run ESLint |
-
-## 🌟 Key Features Breakdown
-
-### Context API Implementation
-- **AuthContext**: Manages user authentication state
-- **CartContext**: Handles cart operations and state
+### 🛒 Shopping Experience
+- **CartContext**: Handles all cart operations and state
 - **WishlistContext**: Manages wishlist functionality
+- Real-time updates with toast notifications
+- Persistent data using localStorage
 
-### Route Protection
-- **ProtectedRoute**: Restricts access to authenticated users
-- **AdminRoute**: Admin-only access control
-- **PublicRoute**: Public access routes
+### 📊 Admin Dashboard
+- 👥 User management and analytics
+- 📦 Product inventory management
+- 🚚 Order processing and tracking
+- 📈 Sales reports and insights
 
-### Admin Dashboard
-- User management and analytics
-- Product inventory management
-- Order processing and tracking
-- Sales reports and insights
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
 
 ## 🙏 Acknowledgments
 
-- Marvel and Anime communities for inspiration
-- React team for the amazing framework
-- Tailwind CSS for the utility-first CSS framework
+- 🦸 **Marvel** and **Anime** communities for inspiration
+- ⚛️ **React Team** for the amazing framework
+- 🎨 **Tailwind CSS** for the utility-first CSS framework
+- 💙 All contributors and supporters
+
+---
 
 ## 📬 Contact
 
+<div align="center">
+
 **Jithin** - *Full Stack Developer*
 
-- GitHub: [@jithin-jz](https://github.com/jithin-jz)
-- Email: jihinjzx@gmail.com
+[![GitHub](https://img.shields.io/badge/GitHub-jithin--jz-181717?style=for-the-badge&logo=github)](https://github.com/jithin-jz)
+[![Email](https://img.shields.io/badge/Email-jihinjzx%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jihinjzx@gmail.com)
+
+</div>
+
+---
+
+<div align="center">
+
+### ⭐ Star this repo if you find it helpful!
+
+Made with ❤️ by [Jithin](https://github.com/jithin-jz)
+
+</div>
