@@ -165,27 +165,6 @@ Souled-Store/
 
 ---
 
-## 🎯 Key Features Breakdown
-
-### 🔐 Authentication System
-- **AuthContext**: Manages user authentication state across the app
-- **Protected Routes**: Restricts access to authenticated users only
-- **Admin Routes**: Special access control for admin users
-- **Public Routes**: Accessible to all visitors
-
-### 🛒 Shopping Experience
-- **CartContext**: Handles all cart operations and state
-- **WishlistContext**: Manages wishlist functionality
-- Real-time updates with toast notifications
-- Persistent data using localStorage
-
-### 📊 Admin Dashboard
-- 👥 User management and analytics
-- 📦 Product inventory management
-- 🚚 Order processing and tracking
-- 📈 Sales reports and insights
-
----
 
 ## 📄 License
 
@@ -217,8 +196,11 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-### ⭐ Star this repo if you find it helpful!
+<sub>Built with ❤️ by **JITHIN**</sub>
 
-Made with ❤️ by [Jithin](https://github.com/jithin-jz)
+<br/>
+
+[![GitHub stars](https://img.shields.io/github/stars/jithin-jz/souled-frontend?style=social)](https://github.com/jithin-jz/souled-frontend)
+[![GitHub forks](https://img.shields.io/github/forks/jithin-jz/souled-frontend?style=social)](https://github.com/jithin-jz/souled-frontend/fork)
 
 </div>
