@@ -107,11 +107,40 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🙏 Acknowledgments
 
-- 🦸 [**Marvel**](https://www.marvel.com/) and **Anime** communities for inspiration
-- ⚛️ [**React Team**](https://react.dev/) for the amazing framework
-- 🎨 [**Tailwind CSS**](https://tailwindcss.com/) for the utility-first CSS framework
-- 💙 All contributors and supporters
+<div align="center">
 
+<table>
+<tr>
+<td align="center" width="25%">
+<a href="https://www.marvel.com/" target="_blank">
+<img src="https://img.shields.io/badge/Marvel-ED1D24?style=for-the-badge&logo=marvel&logoColor=white" alt="Marvel"/>
+</a>
+<br/>
+<sub><b>Inspiration</b></sub>
+</td>
+<td align="center" width="25%">
+<a href="https://react.dev/" target="_blank">
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
+</a>
+<br/>
+<sub><b>Framework</b></sub>
+</td>
+<td align="center" width="25%">
+<a href="https://tailwindcss.com/" target="_blank">
+<img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
+</a>
+<br/>
+<sub><b>Styling</b></sub>
+</td>
+<td align="center" width="25%">
+<img src="https://img.shields.io/badge/Contributors-💙-blue?style=for-the-badge" alt="Contributors"/>
+<br/>
+<sub><b>Supporters</b></sub>
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
